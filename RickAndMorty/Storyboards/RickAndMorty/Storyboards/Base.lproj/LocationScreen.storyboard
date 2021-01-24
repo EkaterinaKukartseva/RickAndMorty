@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Bold.otf">
+            <string>SFProText-Bold</string>
+        </array>
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Location View Controller-->
+        <scene sceneID="NGR-fW-prB">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" id="KP5-Zd-Vec" customClass="LocationViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NuY-jJ-Z75">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gN4-rr-kbO" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                                <color key="backgroundColor" name="SeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="njz-eV-ryf"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="i3w-nJ-GqI">
+                                <rect key="frame" x="16" y="59" width="382" height="76"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-Va-UQJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="76"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-m2-Xuh">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
+                                                <color key="textColor" name="SecondaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-Jm-KO7">
+                                                <rect key="frame" x="0.0" y="28" width="104" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
+                                                <color key="textColor" name="SecondaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimension:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-dn-3z3">
+                                                <rect key="frame" x="0.0" y="56" width="104" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
+                                                <color key="textColor" name="SecondaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="fex-8g-6cL"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QAG-8p-IeB">
+                                        <rect key="frame" x="104" y="0.0" width="278" height="76"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31g-GW-99H">
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
+                                                <color key="textColor" name="PrimaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9l-UA-u5l">
+                                                <rect key="frame" x="0.0" y="28" width="278" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
+                                                <color key="textColor" name="PrimaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mw-v0-oNA">
+                                                <rect key="frame" x="0.0" y="56" width="278" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
+                                                <color key="textColor" name="PrimaryTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVh-bT-IOa" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="149" width="414" height="1"/>
+                                <color key="backgroundColor" name="SeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="kfA-tr-3K2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-tt-VYT">
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bG-jZ-DRB">
+                                        <rect key="frame" x="107" y="331" width="200" height="50"/>
+                                        <color key="backgroundColor" name="CellColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Lkm-iZ-tJu"/>
+                                            <constraint firstAttribute="height" constant="50" id="z00-8v-wnH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="19"/>
+                                        <state key="normal" title="Residents">
+                                            <color key="titleColor" name="PrimaryTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="Border"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="J7q-tF-vNE" kind="show" identifier="" id="duf-WX-595"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="9bG-jZ-DRB" firstAttribute="centerX" secondItem="bNF-tt-VYT" secondAttribute="centerX" id="L94-rY-slM"/>
+                                    <constraint firstItem="9bG-jZ-DRB" firstAttribute="centerY" secondItem="bNF-tt-VYT" secondAttribute="centerY" id="hhK-iS-ohj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4YD-j2-2qF"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gN4-rr-kbO" firstAttribute="top" secondItem="4YD-j2-2qF" secondAttribute="top" id="3Lq-Hn-IOc"/>
+                            <constraint firstItem="gVh-bT-IOa" firstAttribute="leading" secondItem="NuY-jJ-Z75" secondAttribute="leading" id="7VU-j0-wHt"/>
+                            <constraint firstItem="4YD-j2-2qF" firstAttribute="bottom" secondItem="bNF-tt-VYT" secondAttribute="bottom" id="83i-zI-v62"/>
+                            <constraint firstItem="i3w-nJ-GqI" firstAttribute="leading" secondItem="NuY-jJ-Z75" secondAttribute="leading" constant="16" id="Bdu-8k-LOa"/>
+                            <constraint firstItem="bNF-tt-VYT" firstAttribute="top" secondItem="gVh-bT-IOa" secondAttribute="bottom" id="EaN-eY-9GD"/>
+                            <constraint firstItem="bNF-tt-VYT" firstAttribute="leading" secondItem="4YD-j2-2qF" secondAttribute="leading" id="EbK-Mc-Y9D"/>
+                            <constraint firstItem="4YD-j2-2qF" firstAttribute="trailing" secondItem="i3w-nJ-GqI" secondAttribute="trailing" constant="16" id="JKh-c5-FnV"/>
+                            <constraint firstAttribute="trailing" secondItem="gVh-bT-IOa" secondAttribute="trailing" id="Q6x-y9-UCN"/>
+                            <constraint firstItem="gN4-rr-kbO" firstAttribute="leading" secondItem="NuY-jJ-Z75" secondAttribute="leading" id="YJT-9b-YZm"/>
+                            <constraint firstAttribute="trailing" secondItem="gN4-rr-kbO" secondAttribute="trailing" id="aCe-NI-xhl"/>
+                            <constraint firstItem="i3w-nJ-GqI" firstAttribute="top" secondItem="gN4-rr-kbO" secondAttribute="bottom" constant="14" id="fcx-ce-IdB"/>
+                            <constraint firstItem="4YD-j2-2qF" firstAttribute="trailing" secondItem="bNF-tt-VYT" secondAttribute="trailing" id="gXs-TK-sGa"/>
+                            <constraint firstItem="gVh-bT-IOa" firstAttribute="top" secondItem="i3w-nJ-GqI" secondAttribute="bottom" constant="14" id="mwN-DC-niB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="4E3-cF-r3A"/>
+                    <connections>
+                        <outlet property="dimension" destination="1Mw-v0-oNA" id="m7K-Yj-z9a"/>
+                        <outlet property="name" destination="31g-GW-99H" id="gLX-cC-MT0"/>
+                        <outlet property="type" destination="j9l-UA-u5l" id="mbp-kx-OQe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UgT-84-Z0A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="861"/>
+        </scene>
+        <!--CharactersList-->
+        <scene sceneID="Pef-hd-6tB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CharactersList" id="J7q-tF-vNE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xeQ-t7-LK9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mwm-Qg-Kyw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2798" y="860"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Border">
+            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellColor">
+            <color red="1" green="1" blue="1" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryTextColor">
+            <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SeparatorColor">
+            <color red="0.43500000238418579" green="0.43500000238418579" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
