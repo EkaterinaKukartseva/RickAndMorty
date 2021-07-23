@@ -7,8 +7,15 @@
 
 import UIKit
 
+// MARK: EpisodeCollectionViewCell
 class EpisodeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var episode: UILabel!
+    
+    var viewModel: EpisodeCollectionViewCellViewModelProtocol! {
+        didSet {
+            episode.text = viewModel.episodeName
+        }
+    }
     
 }

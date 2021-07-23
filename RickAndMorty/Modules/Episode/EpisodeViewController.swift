@@ -7,9 +7,17 @@
 
 import UIKit
 
+// MARK: EpisodeViewController
 class EpisodeViewController: UIViewController {
     
     var episodeModel: EpisodeModel!
+    var viewModel: EpisodeViewModelProtocol! {
+        didSet {
+            name.text = episodeModel.name
+            episode.text = episodeModel.episode
+            airDate.text = episodeModel.airDate
+        }
+    }
     
     @IBOutlet var episode: UILabel!
     @IBOutlet var name: UILabel!
@@ -17,14 +25,10 @@ class EpisodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        episode.text = episodeModel.episode
-        name.text = episodeModel.name
-        airDate.text = episodeModel.airDate
+        viewModel = EpisodeViewModel(episode: episodeModel)
     }
     
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? CharactersCollectionViewController else { return }
         
@@ -36,6 +40,4 @@ class EpisodeViewController: UIViewController {
             }
         }
     }
-    
-
 }

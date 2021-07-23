@@ -7,98 +7,73 @@
 
 import UIKit
 
+// MARK: EpisodesCollectionViewController
 class EpisodesCollectionViewController: UICollectionViewController {
     
-    var episodes: [EpisodeModel] = []
+    private let episodeSegue = "showEpisode"
+    private let reuseIdentifier = "episodeCell"
+    private let sectionInsets = UIEdgeInsets(top: 14.0, left: 16.0, bottom: 14.0, right: 16.0)
+    
     var ids = [Int]()
     
-    private let reuseIdentifier = "episodeCell"
-    private let episodeSegue = "showEpisode"
-    
-    let sectionInsets = UIEdgeInsets(top: 14.0, left: 16.0, bottom: 14.0, right: 16.0)
+    private var viewModel: EpisodesViewModelProtocol! {
+        didSet {
+            if ids.count > 1 {
+                viewModel.fetchEpisodes(by: ids) {
+                    self.collectionView.reloadData()
+                }
+            } else {
+                viewModel.fetchEpisode(by: ids.first!) {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchEpisodesByID(ids: ids)
+        viewModel = EpisodesViewModel()
     }
-    
-    private func fetchEpisodesByID(ids: [Int]) {
-        
-        guard ids.count > 1 else {
-            client.episode().fetchEpisode(byID: ids.first!) { (result) in
-                switch result {
-                case .success(let model):
-                    DispatchQueue.main.async {
-                        self.episodes.append(model)
-                        self.collectionView.reloadData()
-                    }
-                case .failure(let error):
-                    print("ERROR \(error.localizedDescription)")
-                }
-            }
-            return
-        }
-        
-        client.episode().fetchEpisodes(byID: ids) { (result) in
-            switch result {
-            case .success(let model):
-                DispatchQueue.main.async {
-                    model.forEach { (episode) in
-                        self.episodes.append(episode)
-                        self.collectionView.reloadData()
-                    }
-                }
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
-    }
-    
     
     @IBAction func goHome(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let destionation = segue.destination as? EpisodeViewController {
             if let episode = sender as? EpisodeModel {
                 destionation.episodeModel = episode
             }
         }
-        
     }
-    
-    // MARK: UICollectionViewDataSource
+}
+
+// MARK: - EpisodesCollectionViewController + UICollectionViewDataSource
+extension EpisodesCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return episodes.count//ids.count
+        viewModel.numberOfRows()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EpisodeCollectionViewCell
-        
-        cell.episode.text = episodes[indexPath.row].episode
-        
+        let cellViewModel = viewModel.cellViewModel(at: indexPath)
+        cell.viewModel = cellViewModel
         return cell
     }
-    
-    // MARK: UICollectionViewDelegate
+}
+
+// MARK: - EpisodesCollectionViewController + UICollectionViewDelegate
+extension EpisodesCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let episode = episodes[indexPath.row]
-        
+        let episode = viewModel.episode(at: indexPath)
         performSegue(withIdentifier: episodeSegue, sender: episode)
     }
 }
 
-// MARK: UICollectionViewDelegateFlowLayout
-
+// MARK: EpisodesCollectionViewController + UICollectionViewDelegateFlowLayout
 extension EpisodesCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,11 +83,11 @@ extension EpisodesCollectionViewController: UICollectionViewDelegateFlowLayout {
         var widthPerItem = availableWidth / 3
         let heightPerItem = widthPerItem
         
-        if episodes.count == 1 {
+        if viewModel.episodes.count == 1 {
             paddingSpace = sectionInsets.left + sectionInsets.right
             availableWidth = collectionView.bounds.width - paddingSpace
             widthPerItem = availableWidth
-        } else if episodes.count == 2 {
+        } else if viewModel.episodes.count == 2 {
             paddingSpace = sectionInsets.left + sectionInsets.right + sectionInsets.top
             availableWidth = collectionView.bounds.width - paddingSpace
             widthPerItem = availableWidth / 2
@@ -129,7 +104,7 @@ extension EpisodesCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.bottom
+        sectionInsets.bottom
     }
     
 }
