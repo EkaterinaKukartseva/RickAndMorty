@@ -73,23 +73,23 @@ struct Client {
     
     init() {}
     
-    func character() -> Character {
-        let character = Character(client: self)
+    func character() -> CharacterService {
+        let character = CharacterService(client: self)
         return character
     }
     
-    func location() -> Location {
-        let location = Location(client: self)
+    func location() -> LocationService {
+        let location = LocationService(client: self)
         return location
     }
     
-    func episode() -> Episode {
-        let episode = Episode(client: self)
+    func episode() -> EpisodeService {
+        let episode = EpisodeService(client: self)
         return episode
     }
     
-    func image() -> Image {
-        let image = Image(client: self)
+    func image() -> ImageService {
+        let image = ImageService(client: self)
         return image
     }
 }

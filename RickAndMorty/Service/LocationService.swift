@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  LocationService.swift
 //  RickAndMorty
 //
 //  Created by EKATERINA  KUKARTSEVA on 20.12.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Location {
+struct LocationService {
     
     let networkManager: NetworkManager = NetworkManager()
     let client: Client

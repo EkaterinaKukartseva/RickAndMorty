@@ -7,7 +7,25 @@
 
 import UIKit
 
+// MARK: - CharacterViewInputProtocol
+protocol CharacterViewInputProtocol: AnyObject {
+    
+    func setCharacter(_ character: CharacterData)
+}
+
+// MARK: - CharacterViewOutputProtocol
+protocol CharacterViewOutputProtocol {
+    
+    init(view: CharacterViewInputProtocol)
+    
+    func didTabShowCharacter()
+}
+
+// MARK: - CharacterViewController
 class CharacterViewController: UIViewController {
+    
+    var presenter: CharacterViewOutputProtocol!
+    private let assembly: CharacterAssemblyProtocol = CharacterAssembly()
     
     @IBOutlet var originView: UIView!
     @IBOutlet var locationView: UIView!
@@ -34,18 +52,12 @@ class CharacterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        assembly.configure(withView: self)
+        presenter.didTabShowCharacter()
         
-        name.text = character.name
-        status.text = character.status
-        species.text = character.species
-        type.text = character.type
-        gender.text = character.gender
-        origin.text = character.origin.name
-        location.text = character.location.name
-        
-        fetchLocationByURL(url: character.location.url)
-        fetchOriginByURL(url: character.origin.url)
-        imageView.fetchImage(from: character.image)
+//        fetchLocationByURL(url: character.location.url)
+//        fetchOriginByURL(url: character.origin.url)
+//        imageView.fetchImage(from: character.image)
         
     }
     
@@ -105,5 +117,19 @@ class CharacterViewController: UIViewController {
                 destination.location = locationModel
             }
         }
+    }
+}
+
+// MARK: - CharacterViewController + CharacterViewInputProtocol
+extension CharacterViewController: CharacterViewInputProtocol {
+    
+    func setCharacter(_ character: CharacterData) {
+        name.text = character.name
+        status.text = character.status
+        species.text = character.species
+        type.text = character.type
+        gender.text = character.gender
+        origin.text = character.origin.name
+        location.text = character.location.name
     }
 }

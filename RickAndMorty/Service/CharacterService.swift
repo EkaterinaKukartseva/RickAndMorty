@@ -1,5 +1,5 @@
 //
-//  Character.swift
+//  CharacterService.swift
 //  RickAndMorty
 //
 //  Created by EKATERINA  KUKARTSEVA on 20.12.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Character {
+struct CharacterService {
     
     public init(client: Client) {
         self.client = client
@@ -24,8 +24,10 @@ struct Character {
         networkManager.performRequest(withURLString: urlString) { result in
             switch result {
             case .success(let data):
-                if let model: CharacterModel = self.networkManager.decodeJSONData(data: data) {
-                    completion(.success(model))
+                DispatchQueue.main.async {
+                    if let model: CharacterModel = self.networkManager.decodeJSONData(data: data) {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))

@@ -1,5 +1,5 @@
 //
-//  Image.swift
+//  ImageService.swift
 //  RickAndMorty
 //
 //  Created by EKATERINA  KUKARTSEVA on 24.01.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Image {
+struct ImageService {
     
     public init(client: Client) {
         self.client = client

@@ -1,5 +1,5 @@
 //
-//  Episode.swift
+//  EpisodeService.swift
 //  RickAndMorty
 //
 //  Created by EKATERINA  KUKARTSEVA on 20.12.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Episode {
+struct EpisodeService {
     
     let networkManager: NetworkManager = NetworkManager()
     let client: Client
