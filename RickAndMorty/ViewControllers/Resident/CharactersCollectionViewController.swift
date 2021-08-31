@@ -48,9 +48,9 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? CharacterViewController {
-            if let resident = sender as? CharacterModel {
-                destination.character = resident
+        if let destination = segue.destination as? CharacterDetailsViewController {
+            if let id = sender as? Int {
+                destination.characterId = id
             }
         }
     }
@@ -75,7 +75,7 @@ extension CharactersCollectionViewController {
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let resident = characters[indexPath.row]
-        performSegue(withIdentifier: residentSegue, sender: resident)
+        performSegue(withIdentifier: residentSegue, sender: resident.id)
     }
 }
 

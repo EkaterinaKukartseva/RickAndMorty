@@ -20,7 +20,7 @@ class EpisodesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchEpisodesByID(ids: ids)
+//        fetchEpisodesByID(ids: ids)
     }
     
     private func fetchEpisodesByID(ids: [Int]) {

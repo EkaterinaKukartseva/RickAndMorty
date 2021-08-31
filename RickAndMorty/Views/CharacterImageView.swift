@@ -51,7 +51,5 @@ class CharacterImageView: UIImageView {
         let urlRequest = URLRequest(url: url)
         let cachedResponse = CachedURLResponse(response: response, data: data)
         URLCache.shared.storeCachedResponse(cachedResponse, for: urlRequest)
-        
     }
-    
 }

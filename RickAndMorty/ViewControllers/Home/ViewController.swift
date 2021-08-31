@@ -104,12 +104,12 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? CharacterViewController, let character = sender as? CharacterModel {
-            destination.character = character
+        if let destination = segue.destination as? CharacterDetailsViewController, let id = sender as? Int {
+            destination.characterId = id
         } else
         
         if let destination = segue.destination as? LocationViewController, let location = sender as? LocationModel {
-            destination.location = location
+//            destination.location = location
         } else
         
         if let destination = segue.destination as? EpisodeViewController, let episode = sender as? EpisodeModel {
@@ -191,7 +191,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             let character = characters[indexPath.row]
-            performSegue(withIdentifier: characterSegue, sender: character)
+            performSegue(withIdentifier: characterSegue, sender: character.id)
         case 1:
             let location = locations[indexPath.row]
             performSegue(withIdentifier: locationSegue, sender: location)

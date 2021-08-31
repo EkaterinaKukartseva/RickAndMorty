@@ -9,7 +9,7 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
-    var location: LocationModel!
+//    var location: LocationModel!
     
     @IBOutlet var name: UILabel!
     @IBOutlet var type: UILabel!
@@ -18,9 +18,9 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        name.text = location.name
-        type.text = location.type
-        dimension.text = location.dimension
+        name.text = "location.name"
+        type.text = "location.type"
+        dimension.text = "location.dimension"
     }
     
 
@@ -30,13 +30,13 @@ class LocationViewController: UIViewController {
         
         guard let destination = segue.destination as? CharactersCollectionViewController else { return }
         
-        for residentUrl in location.residents {
-            let residentID = residentUrl.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
-            
-            if let id = Int(residentID) {
-                destination.ids.append(Int(id))
-            }
-        }
+//        for residentUrl in location.residents {
+//            let residentID = residentUrl.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
+//            
+//            if let id = Int(residentID) {
+//                destination.ids.append(Int(id))
+//            }
+//        }
     }
     
 }
