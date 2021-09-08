@@ -43,11 +43,11 @@ class CharacterDetailsPresenter: CharacterDetailsViewOutputProtocol {
     }
     
     func showLocation() {
-        router.openLocation(with: character.location)
+        router.openLocation(with: character.location.url)
     }
     
     func showOrigin() {
-        router.openOrigin(with: character.origin)
+        router.openOrigin(with: character.origin.url)
     }
 }
 

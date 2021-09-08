@@ -13,9 +13,9 @@ protocol CharacterDetailsRouterProtocol {
     
     func openEpisodeList(with list: [String])
     
-    func openLocation(with model: CharacterLocationModel)
+    func openLocation(with url: String)
     
-    func openOrigin(with model: CharacterOriginModel)
+    func openOrigin(with url: String)
 }
 
 class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
@@ -30,11 +30,11 @@ class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
         viewController.performSegue(withIdentifier: "showEpisodeList", sender: list)
     }
     
-    func openLocation(with model: CharacterLocationModel) {
-        viewController.performSegue(withIdentifier: "showLocation", sender: model)
+    func openLocation(with url: String) {
+        viewController.performSegue(withIdentifier: "showLocation", sender: url)
     }
     
-    func openOrigin(with model: CharacterOriginModel) {
-        viewController.performSegue(withIdentifier: "showLocation", sender: model)
+    func openOrigin(with url: String) {
+        viewController.performSegue(withIdentifier: "showLocation", sender: url)
     }
 }

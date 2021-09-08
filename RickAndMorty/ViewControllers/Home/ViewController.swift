@@ -108,7 +108,7 @@ class ViewController: UIViewController {
             destination.characterId = id
         } else
         
-        if let destination = segue.destination as? LocationViewController, let location = sender as? LocationModel {
+        if let destination = segue.destination as? LocationDetailsViewController, let location = sender as? LocationModel {
 //            destination.location = location
         } else
         

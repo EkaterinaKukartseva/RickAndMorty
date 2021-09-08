@@ -83,10 +83,9 @@ class CharacterDetailsViewController: UIViewController {
 //                    destination.ids.append(Int(id))
 //                }
 //            }
-        } else if let destination = segue.destination as? LocationViewController {
-            
-            if let locationModel = sender as? LocationModel {
-//                destination.location = locationModel
+        } else if let destination = segue.destination as? LocationDetailsViewController {
+            if let url = sender as? String {
+                destination.locationUrl = url
             }
         }
     }

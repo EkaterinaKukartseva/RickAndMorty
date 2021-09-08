@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VL6-rx-ThP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VL6-rx-ThP">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="PtH-km-u3C">
-                                <rect key="frame" x="0.0" y="96" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="51"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <userDefinedRuntimeAttributes>
@@ -39,14 +39,14 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wzj-mD-U6T" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="152" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="147" width="375" height="1"/>
                                 <color key="backgroundColor" name="SeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="MIM-Et-Kk8"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ke3-WB-bMC" customClass="CustomSegmentedControl" customModule="RickAndMorty" customModuleProvider="target">
-                                <rect key="frame" x="16" y="161" width="343" height="32"/>
+                                <rect key="frame" x="16" y="156" width="343" height="32"/>
                                 <segments>
                                     <segment title="CHARACTERS"/>
                                     <segment title="LOCATIONS"/>
@@ -59,11 +59,11 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-tO-e0Z">
-                                <rect key="frame" x="0.0" y="202" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="197" width="375" height="470"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharactersCell" id="5b6-tj-7JZ" customClass="CharacterTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="146"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="146"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5b6-tj-7JZ" id="Tjg-2O-6Z9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
@@ -135,7 +135,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsCell" id="piw-km-kwT" customClass="LocationTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="174" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="170.5" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="piw-km-kwT" id="TJw-Ba-E3E">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
@@ -197,7 +197,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodesCell" id="cZe-w0-PvL" customClass="EpisodeTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="250" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="246.5" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cZe-w0-PvL" id="xXx-gd-IvU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
@@ -256,7 +256,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoDataCell" id="5pM-Z2-p8R">
-                                        <rect key="frame" x="0.0" y="326" width="375" height="51"/>
+                                        <rect key="frame" x="0.0" y="322.5" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5pM-Z2-p8R" id="TDq-KD-TqK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
@@ -302,7 +302,7 @@
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingCell" id="ddq-Ck-5sK">
-                                        <rect key="frame" x="0.0" y="377" width="375" height="51"/>
+                                        <rect key="frame" x="0.0" y="373.5" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ddq-Ck-5sK" id="9SU-Rp-Hlk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="242" y="88"/>
         </scene>
-        <!--LocationViewController-->
+        <!--LocationDetailsViewController-->
         <scene sceneID="6Gv-L4-pJZ">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LocationViewController" storyboardName="LocationScreen" referencedIdentifier="LocationViewController" id="x8e-K5-nZT" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="LocationDetailsViewController" storyboardName="LocationScreen" referencedIdentifier="LocationDetailsViewController" id="x8e-K5-nZT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="QIV-ya-enI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buG-1W-Rv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
