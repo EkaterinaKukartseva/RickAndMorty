@@ -47,7 +47,10 @@ class LocationDetailsViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let destination = segue.destination as? CharacterListViewController,
+              let ids = sender as? [Int]
+              else { return }
+        destination.ids = ids
 //        guard let destination = segue.destination as? CharactersCollectionViewController else { return }
         
 //        for residentUrl in location.residents {

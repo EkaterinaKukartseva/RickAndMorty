@@ -120,7 +120,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="characterViewTap:" destination="KP5-Zd-Vec" eventType="touchUpInside" id="9kG-KJ-z3l"/>
-                                            <segue destination="J7q-tF-vNE" kind="show" identifier="showCharacterList" id="duf-WX-595"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -154,6 +153,7 @@
                         <outlet property="dimension" destination="1Mw-v0-oNA" id="m7K-Yj-z9a"/>
                         <outlet property="name" destination="31g-GW-99H" id="gLX-cC-MT0"/>
                         <outlet property="type" destination="j9l-UA-u5l" id="mbp-kx-OQe"/>
+                        <segue destination="J7q-tF-vNE" kind="show" identifier="showCharacterList" id="4s6-3K-E9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgT-84-Z0A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

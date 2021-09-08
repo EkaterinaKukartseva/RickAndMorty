@@ -24,7 +24,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(model: CharacterModel) {
+    func configure(model: Character) {
         name.text = model.name
         imageView.fetchImage(from: model.image)
     }

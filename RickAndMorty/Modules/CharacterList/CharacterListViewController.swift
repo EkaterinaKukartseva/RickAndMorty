@@ -1,5 +1,5 @@
 //
-//  CharactersCollectionViewControll.swift
+//  CharacterListViewController.swift
 //  RickAndMorty
 //
 //  Created by EKATERINA  KUKARTSEVA on 12.12.2020.
@@ -7,39 +7,40 @@
 
 import UIKit
 
-class CharactersCollectionViewController: UICollectionViewController {
+// MARK: - CharacterListViewInputProtocol
+protocol CharacterListViewInputProtocol: AnyObject {
+    
+    func setCharacterList(_ list: [Character])
+}
+
+// MARK: - CharacterListViewOutnputProtocol
+protocol CharacterListViewOutnputProtocol {
+    
+    init(view: CharacterListViewInputProtocol)
+    
+    func showCharacterList(with ids: [Int])
+    
+    func showCharacterDetails(with id: Int)
+}
+
+// MARK: - CharacterListViewController
+class CharacterListViewController: UICollectionViewController {
+    
+    var presenter: CharacterListViewOutnputProtocol!
+    private let assembly: CharacterListAssemblyProtocol = CharacterListAssembly()
     
     private let sectionInsets = UIEdgeInsets(top: 14.0, left: 16.0, bottom: 14.0, right: 16.0)
     
     private let reuseIdentifier = "residentCell"
-    private let residentSegue = "showResident"
     
-    private var characters: [CharacterModel] = []
+    private var characters: [Character] = []
     var ids = [Int]()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchResidentsByID(ids: ids)
-    }
-
-    private func fetchResidentsByID(ids: [Int]) {
-        client.character().fetchCharacters(byID: ids) { (result) in
-            switch result {
-            case .success(let model):
-                
-                DispatchQueue.main.async {
-                    model.forEach { (character) in
-                        self.characters.append(character)
-                        self.collectionView.reloadData()
-                    }
-                }
-                
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+        assembly.configure(with: self)
+        presenter.showCharacterList(with: ids)
     }
     
     @IBAction func goHomeAction(_ sender: Any) {
@@ -56,8 +57,8 @@ class CharactersCollectionViewController: UICollectionViewController {
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension CharactersCollectionViewController {
+// MARK: - CharacterListViewController + UICollectionViewDataSource
+extension CharacterListViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return characters.count
@@ -71,16 +72,19 @@ extension CharactersCollectionViewController {
     
         return cell
     }
+}
 
-    // MARK: - UICollectionViewDelegate
+// MARK: - CharacterListViewController + UICollectionViewDelegate
+extension CharacterListViewController {
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let resident = characters[indexPath.row]
-        performSegue(withIdentifier: residentSegue, sender: resident.id)
+        presenter.showCharacterDetails(with: resident.id)
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
-extension CharactersCollectionViewController: UICollectionViewDelegateFlowLayout {
+// MARK: - CharacterListViewController + UICollectionViewDelegateFlowLayout
+extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -102,3 +106,11 @@ extension CharactersCollectionViewController: UICollectionViewDelegateFlowLayout
     }
 }
 
+// MARK: - CharacterListViewController + CharacterListViewInputProtocol
+extension CharacterListViewController: CharacterListViewInputProtocol {
+    
+    func setCharacterList(_ list: [Character]) {
+        characters = list
+        collectionView.reloadData()
+    }
+}

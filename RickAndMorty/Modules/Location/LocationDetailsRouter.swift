@@ -11,7 +11,7 @@ protocol LocationDetailsRouterProtocol {
     
     init(viewController: LocationDetailsViewController)
     
-    func openCharacterList(with urls: [String])
+    func openCharacterList(with ids: [Int])
 }
 
 class LocationDetailsRouter: LocationDetailsRouterProtocol {
@@ -22,7 +22,7 @@ class LocationDetailsRouter: LocationDetailsRouterProtocol {
         self.viewController = viewController
     }
     
-    func openCharacterList(with urls: [String]) {
-        viewController.performSegue(withIdentifier: "showCharacterList", sender: urls)
+    func openCharacterList(with ids: [Int]) {
+        viewController.performSegue(withIdentifier: "showCharacterList", sender: ids)
     }
 }

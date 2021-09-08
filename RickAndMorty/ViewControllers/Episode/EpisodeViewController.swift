@@ -26,7 +26,7 @@ class EpisodeViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? CharactersCollectionViewController else { return }
+        guard let destination = segue.destination as? CharacterListViewController else { return }
         
         for residentUrl in episodeModel.characters {
             let residentID = residentUrl.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)

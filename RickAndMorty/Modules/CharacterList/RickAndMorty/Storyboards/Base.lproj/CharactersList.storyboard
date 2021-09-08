@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Characters Collection View Controller-->
+        <!--Character List View Controller-->
         <scene sceneID="gYh-As-fDA">
             <objects>
-                <collectionViewController id="lZM-VM-QQB" customClass="CharactersCollectionViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="lZM-VM-QQB" customClass="CharacterListViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ElZ-Oe-HX5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
