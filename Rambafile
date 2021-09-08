@@ -1,0 +1,30 @@
+### Headers settings
+company: Ekaterina Kukartseva
+
+### Xcode project settings
+project_name: RickAndMorty
+xcodeproj_path: RickAndMorty.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: RickAndMorty
+
+# The file path for new modules
+project_file_path: RickAndMorty/Modules
+
+# The Xcode group path to new modules
+project_group_path: RickAndMorty/Modules
+
+### Tests generation settings section
+# The tests target name
+test_target: RickAndMortyTests
+
+# The file path for new tests
+test_file_path: RickAndMortyTests
+
+# The Xcode group path to new tests
+project_group_path: RickAndMortyTests
+
+### Templates
+templates:
+- {name: RickAndMorty, local: 'Templates'}
