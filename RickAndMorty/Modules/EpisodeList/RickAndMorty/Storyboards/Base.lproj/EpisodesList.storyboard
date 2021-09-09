@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -17,7 +19,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="EpisodeCollectionViewController" id="Qby-6z-aHA" customClass="EpisodeListViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Eep-pm-74T">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kvR-BA-spF">
@@ -35,7 +37,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S01E06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7g-17-udd">
-                                            <rect key="frame" x="31" y="52.5" width="66.5" height="23"/>
+                                            <rect key="frame" x="27.5" y="52.5" width="73.5" height="23"/>
                                             <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="19"/>
                                             <color key="textColor" name="PrimaryTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -78,7 +80,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="KvH-Jo-tvf" kind="show" identifier="showEpisode" id="uMQ-Tq-uiL"/>
+                        <segue destination="KvH-Jo-tvf" kind="show" identifier="showEpisode" id="Af8-T9-f0h"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ON-RH-fiy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

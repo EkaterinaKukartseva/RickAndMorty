@@ -37,17 +37,10 @@ class LocationDetailsPresenter: LocationDetailsViewOutputProtocol {
     }
     
     func showCharacterList() {
-//        for residentUrl in location.residents {
-        //            let residentID = residentUrl.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
-        //
-        //            if let id = Int(residentID) {
-        //                destination.ids.append(Int(id))
-        //            }
-        //        }
-            router.openCharacterList(with: location.characterUrls.compactMap {
-                let id = $0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
-                return Int(id)
-            })
+        router.openCharacterList(with: location.characterUrls.compactMap {
+            let id = $0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
+            return Int(id)
+        })
     }
 }
 

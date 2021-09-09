@@ -136,16 +136,6 @@
 		00FFCB69258BB39A00D3BD64 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		00FFCB71258BE2B500D3BD64 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		00FFCB7B258BF73B00D3BD64 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		063BD028BE4EBC3BB0C4F56E /* EpisodeListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListPresenter.swift; sourceTree = "<group>"; };
-		0E6E378E9EAE0D045D577EC3 /* EpisodeListAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListAssembly.swift; sourceTree = "<group>"; };
-		30F2DE2F03F330EB2108390F /* EpisodeList1Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeList1Router.swift; sourceTree = "<group>"; };
-		78D9E10E3BC1259542C20D48 /* EpisodeListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
-		7BE842BA1C170E3B94C21A42 /* EpisodeList1Interactor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeList1Interactor.swift; sourceTree = "<group>"; };
-		8F884777346CEA5938F30C2E /* EpisodeList1View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeList1View.swift; sourceTree = "<group>"; };
-		DAC51B92884366061535CBF5 /* EpisodeListInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListInteractor.swift; sourceTree = "<group>"; };
-		EF9F5FEDC9B22F7F7323733C /* EpisodeList1Presenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeList1Presenter.swift; sourceTree = "<group>"; };
-		F29D3E03357AC4093083FF7D /* EpisodeListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListRouter.swift; sourceTree = "<group>"; };
-		F89FC61EF9E3C3D630399CB1 /* EpisodeList1Assembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeList1Assembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,9 +197,9 @@
 		0034357E2580227B009D5C75 = {
 			isa = PBXGroup;
 			children = (
-				00E3CDE826E9604E00A41901 /* Templates */,
 				003435892580227B009D5C75 /* RickAndMorty */,
 				00E3CDDF26E95DD100A41901 /* RickAndMortyTests */,
+				00E3CDE826E9604E00A41901 /* Templates */,
 				003435882580227B009D5C75 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -264,12 +254,12 @@
 		00785B1B26EA942900D6D66B /* EpisodeList */ = {
 			isa = PBXGroup;
 			children = (
-				00DDEE7625842EAE00802CE9 /* EpisodeListViewController.swift */,
 				006681AA25BDF2560097FC2D /* EpisodesList.storyboard */,
+				00DDEE7625842EAE00802CE9 /* EpisodeListViewController.swift */,
 				00785B1D26EA942900D6D66B /* EpisodeListPresenter.swift */,
+				00785B2026EA942900D6D66B /* EpisodeListInteractor.swift */,
 				00785B1E26EA942900D6D66B /* EpisodeListRouter.swift */,
 				00785B1F26EA942900D6D66B /* EpisodeListAssembly.swift */,
-				00785B2026EA942900D6D66B /* EpisodeListInteractor.swift */,
 			);
 			path = EpisodeList;
 			sourceTree = "<group>";
@@ -335,8 +325,6 @@
 			children = (
 				00E3CDE026E95DD100A41901 /* RickAndMortyTests.swift */,
 				00E3CDE226E95DD100A41901 /* Info.plist */,
-				3E70CDA59DB64EDED5BB9FB4 /* EpisodeList */,
-				CCA54E6F644F3CDE8201EFB1 /* EpisodeList1 */,
 			);
 			path = RickAndMortyTests;
 			sourceTree = "<group>";
@@ -428,40 +416,6 @@
 			);
 			path = Service;
 			sourceTree = "<group>";
-		};
-		3E70CDA59DB64EDED5BB9FB4 /* EpisodeList */ = {
-			isa = PBXGroup;
-			children = (
-				94E14EF682E78493F446B800 /* View */,
-				063BD028BE4EBC3BB0C4F56E /* EpisodeListPresenter.swift */,
-				DAC51B92884366061535CBF5 /* EpisodeListInteractor.swift */,
-				F29D3E03357AC4093083FF7D /* EpisodeListRouter.swift */,
-				0E6E378E9EAE0D045D577EC3 /* EpisodeListAssembly.swift */,
-			);
-			name = EpisodeList;
-			path = RickAndMorty/Modules/EpisodeList;
-			sourceTree = SOURCE_ROOT;
-		};
-		94E14EF682E78493F446B800 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				78D9E10E3BC1259542C20D48 /* EpisodeListView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CCA54E6F644F3CDE8201EFB1 /* EpisodeList1 */ = {
-			isa = PBXGroup;
-			children = (
-				8F884777346CEA5938F30C2E /* EpisodeList1View.swift */,
-				EF9F5FEDC9B22F7F7323733C /* EpisodeList1Presenter.swift */,
-				7BE842BA1C170E3B94C21A42 /* EpisodeList1Interactor.swift */,
-				30F2DE2F03F330EB2108390F /* EpisodeList1Router.swift */,
-				F89FC61EF9E3C3D630399CB1 /* EpisodeList1Assembly.swift */,
-			);
-			name = EpisodeList1;
-			path = RickAndMorty/Modules/EpisodeList1;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 

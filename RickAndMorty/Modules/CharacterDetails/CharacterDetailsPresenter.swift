@@ -39,7 +39,10 @@ class CharacterDetailsPresenter: CharacterDetailsViewOutputProtocol {
     }
     
     func showEpisodeList() {
-        router.openEpisodeList(with: character.episode)
+        router.openEpisodeList(with: character.episode.compactMap {
+            let id = $0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
+            return Int(id)
+        })
     }
     
     func showLocation() {

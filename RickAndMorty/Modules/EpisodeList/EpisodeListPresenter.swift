@@ -8,6 +8,13 @@
 
 import Foundation
 
+// MARK: - Episode
+struct Episode {
+    
+    let id: Int
+    let episode: String
+}
+
 // MARK: - EpisodeListPresenter
 final class EpisodeListPresenter: EpisodeListViewOutputProtocol {
 
@@ -18,7 +25,28 @@ final class EpisodeListPresenter: EpisodeListViewOutputProtocol {
     required init(view: EpisodeListViewInputProtocol) {
         self.view = view
     }
+    
+    func showEpisodeList(with ids: [Int]) {
+        interactor.provideEpisodeList(with: ids)
+    }
+    
+    func showEpisodeList(with id: Int) {
+        interactor.provideEpisodeList(with: id)
+    }
+    
+    func showEpisodeDetails(with id: Int) {
+        router.openEpisodeDetails(with: id)
+    }
 }
 
 // MARK: - EpisodeListPresenter + EpisodeListInteractorOutputProtocol
-extension EpisodeListPresenter: EpisodeListInteractorOutputProtocol {}
+extension EpisodeListPresenter: EpisodeListInteractorOutputProtocol {
+
+    func receiveEpisodeList(_ list: [EpisodeModel]) {
+        view?.setEpisodeList(list.map({ Episode(id: $0.id, episode: $0.episode)}))
+    }
+    
+    func receiveEpisodeList(_ episode: EpisodeModel) {
+        view?.setEpisodeList([Episode(id: episode.id, episode: episode.episode)])
+    }
+}

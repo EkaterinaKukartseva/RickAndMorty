@@ -12,6 +12,8 @@ import Foundation
 protocol EpisodeListRouterProtocol {
     
     init(viewController: EpisodeListViewController)
+    
+    func openEpisodeDetails(with: Int)
 }
 
 // MARK: - EpisodeListRouter + EpisodeListRouterProtocol
@@ -21,5 +23,9 @@ final class EpisodeListRouter: EpisodeListRouterProtocol {
     
     required init(viewController: EpisodeListViewController) {
         self.viewController = viewController
+    }
+    
+    func openEpisodeDetails(with id: Int) {
+        viewController?.performSegue(withIdentifier: "showEpisode", sender: id)
     }
 }

@@ -8,72 +8,51 @@
 import UIKit
 
 // MARK: - EpisodeListViewInputProtocol
-protocol EpisodeListViewInputProtocol: AnyObject {}
+protocol EpisodeListViewInputProtocol: AnyObject {
+    
+    func setEpisodeList(_ list: [Episode])
+}
 
 // MARK: - EpisodeListViewOutputProtocol
 protocol EpisodeListViewOutputProtocol {
     
     init(view: EpisodeListViewInputProtocol)
+    
+    func showEpisodeList(with ids: [Int])
+    
+    func showEpisodeList(with id: Int)
+    
+    func showEpisodeDetails(with id: Int)
 }
 
+// MARK: - EpisodeListViewController
 final class EpisodeListViewController: UICollectionViewController {
     
     var presenter: EpisodeListViewOutputProtocol?
     private let assembly: EpisodeListAssemblyProtocol = EpisodeListAssembly()
     
-    var episodes: [EpisodeModel] = []
+    var episodes: [Episode] = []
     var ids = [Int]()
     
     private let reuseIdentifier = "episodeCell"
-    private let episodeSegue = "showEpisode"
     
     let sectionInsets = UIEdgeInsets(top: 14.0, left: 16.0, bottom: 14.0, right: 16.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        fetchEpisodesByID(ids: ids)
-    }
-    
-    private func fetchEpisodesByID(ids: [Int]) {
-        
-        guard ids.count > 1 else {
-            client.episode().fetchEpisode(byID: ids.first!) { (result) in
-                switch result {
-                case .success(let model):
-                    DispatchQueue.main.async {
-                        self.episodes.append(model)
-                        self.collectionView.reloadData()
-                    }
-                case .failure(let error):
-                    print("ERROR \(error.localizedDescription)")
-                }
-            }
-            return
-        }
-        
-        client.episode().fetchEpisodes(byID: ids) { (result) in
-            switch result {
-            case .success(let model):
-                DispatchQueue.main.async {
-                    model.forEach { (episode) in
-                        self.episodes.append(episode)
-                        self.collectionView.reloadData()
-                    }
-                }
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
+        assembly.configure(with: self)
+        if ids.count > 1 {
+            presenter?.showEpisodeList(with: ids)
+        } else {
+            presenter?.showEpisodeList(with: ids[0])
         }
     }
-    
     
     @IBAction func goHome(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destionation = segue.destination as? EpisodeViewController {
@@ -81,36 +60,27 @@ final class EpisodeListViewController: UICollectionViewController {
                 destionation.episodeModel = episode
             }
         }
-        
     }
     
     // MARK: UICollectionViewDataSource
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return episodes.count//ids.count
+        return episodes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EpisodeCollectionViewCell
-        
         cell.episode.text = episodes[indexPath.row].episode
-        
         return cell
     }
     
     // MARK: UICollectionViewDelegate
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let episode = episodes[indexPath.row]
-        
-        performSegue(withIdentifier: episodeSegue, sender: episode)
+        presenter?.showEpisodeDetails(with: episode.id)
     }
 }
 
-// MARK: UICollectionViewDelegateFlowLayout
-
+// MARK: EpisodeListViewController + UICollectionViewDelegateFlowLayout
 extension EpisodeListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -147,4 +117,10 @@ extension EpisodeListViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - EpisodeListViewController + EpisodeListViewInputProtocol
-extension EpisodeListViewController: EpisodeListViewInputProtocol {}
+extension EpisodeListViewController: EpisodeListViewInputProtocol {
+    
+    func setEpisodeList(_ list: [Episode]) {
+        episodes = list
+        collectionView.reloadData()
+    }
+}

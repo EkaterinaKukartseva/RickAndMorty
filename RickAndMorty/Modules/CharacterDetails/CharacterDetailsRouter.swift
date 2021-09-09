@@ -11,7 +11,7 @@ protocol CharacterDetailsRouterProtocol {
     
     init(viewController: CharacterDetailsViewController)
     
-    func openEpisodeList(with list: [String])
+    func openEpisodeList(with ids: [Int])
     
     func openLocation(with url: String)
     
@@ -26,8 +26,8 @@ class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
         self.viewController = viewController
     }
     
-    func openEpisodeList(with list: [String]) {
-        viewController.performSegue(withIdentifier: "showEpisodeList", sender: list)
+    func openEpisodeList(with ids: [Int]) {
+        viewController.performSegue(withIdentifier: "showEpisodeList", sender: ids)
     }
     
     func openLocation(with url: String) {

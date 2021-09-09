@@ -12,10 +12,19 @@ import Foundation
 protocol EpisodeListInteractorInputProtocol: AnyObject {
 
     init(presenter: EpisodeListInteractorOutputProtocol)
+    
+    func provideEpisodeList(with ids: [Int])
+    
+    func provideEpisodeList(with id: Int)
 }
 
 // MARK: - EpisodeListInteractorOutputProtocol
-protocol EpisodeListInteractorOutputProtocol {}
+protocol EpisodeListInteractorOutputProtocol {
+    
+    func receiveEpisodeList(_ list: [EpisodeModel])
+    
+    func receiveEpisodeList(_ episode: EpisodeModel)
+}
 
 // MARK: - EpisodeListInteractor
 final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
@@ -24,5 +33,27 @@ final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
 
     required init(presenter: EpisodeListInteractorOutputProtocol) {
         self.presenter = presenter
+    }
+    
+    func provideEpisodeList(with ids: [Int]) {
+        client.episode().fetchEpisodes(byID: ids) { (result) in
+            switch result {
+            case .success(let list):
+                self.presenter?.receiveEpisodeList(list)
+            case .failure(let error):
+                print("ERROR \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func provideEpisodeList(with id: Int) {
+        client.episode().fetchEpisode(byID: id) { (result) in
+            switch result {
+            case .success(let episode):
+                self.presenter?.receiveEpisodeList(episode)
+            case .failure(let error):
+                print("ERROR \(error.localizedDescription)")
+            }
+        }
     }
 }
