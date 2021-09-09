@@ -74,7 +74,7 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? EpisodesCollectionViewController {
+        if let destination = segue.destination as? EpisodeListViewController {
             
 //            for episodeUrl in character.episode {
 //                let episodeId = episodeUrl.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)

@@ -15,8 +15,8 @@ struct Character {
     let image: String
 }
 
-// MARK: - CharacterListPresenter + CharacterListViewOutnputProtocol
-class CharacterListPresenter: CharacterListViewOutnputProtocol {
+// MARK: - CharacterListPresenter + CharacterListViewOutputProtocol
+class CharacterListPresenter: CharacterListViewOutputProtocol {
 
     unowned let view: CharacterListViewInputProtocol
     var interactor: CharacterListInteractorInputProtocol!

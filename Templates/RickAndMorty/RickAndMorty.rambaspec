@@ -1,0 +1,24 @@
+# Template information section
+name: "RickAndMorty"
+summary: "Swift VIPER module template with UIViewController playing as a View."
+author: "Ekaterina Kukartseva"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# View layer
+- {name: View.swift, path: Code/view.swift.liquid}
+# Presenter layer
+- {name: Presenter.swift, path: Code/presenter.swift.liquid}
+# Interactor
+- {name: Interactor.swift, path: Code/interactor.swift.liquid}
+# Router
+- {name: Router.swift, path: Code/router.swift.liquid}
+# Assembly
+- {name: Assembly.swift, path: Code/assembly.swift.liquid}
+
+# The declarations for test files
+
+# Presenter tests

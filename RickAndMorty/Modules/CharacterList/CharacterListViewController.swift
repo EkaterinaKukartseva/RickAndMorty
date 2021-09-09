@@ -13,8 +13,8 @@ protocol CharacterListViewInputProtocol: AnyObject {
     func setCharacterList(_ list: [Character])
 }
 
-// MARK: - CharacterListViewOutnputProtocol
-protocol CharacterListViewOutnputProtocol {
+// MARK: - CharacterListViewOutputProtocol
+protocol CharacterListViewOutputProtocol {
     
     init(view: CharacterListViewInputProtocol)
     
@@ -26,7 +26,7 @@ protocol CharacterListViewOutnputProtocol {
 // MARK: - CharacterListViewController
 class CharacterListViewController: UICollectionViewController {
     
-    var presenter: CharacterListViewOutnputProtocol!
+    var presenter: CharacterListViewOutputProtocol!
     private let assembly: CharacterListAssemblyProtocol = CharacterListAssembly()
     
     private let sectionInsets = UIEdgeInsets(top: 14.0, left: 16.0, bottom: 14.0, right: 16.0)

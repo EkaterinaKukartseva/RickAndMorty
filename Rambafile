@@ -27,4 +27,5 @@ project_group_path: RickAndMortyTests
 
 ### Templates
 templates:
+- {name: swifty_mvp, git: 'https://github.com/spase84/swift_mvp'}
 - {name: RickAndMorty, local: 'Templates'}

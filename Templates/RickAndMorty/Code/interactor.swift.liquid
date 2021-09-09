@@ -1,0 +1,28 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+
+// MARK: - {{ module_info.name }}InteractorInputProtocol
+protocol {{ module_info.name }}InteractorInputProtocol: AnyObject {
+
+    init(presenter: {{ module_info.name }}InteractorOutputProtocol)
+}
+
+// MARK: - {{ module_info.name }}InteractorOutputProtocol
+protocol {{ module_info.name }}InteractorOutputProtocol {}
+
+// MARK: - {{ module_info.name }}Interactor
+final class {{ module_info.name }}Interactor: {{ module_info.name }}InteractorInputProtocol {
+
+    var presenter: {{ module_info.name }}InteractorOutputProtocol?
+
+    required init(presenter: {{ module_info.name }}InteractorOutputProtocol) {
+        self.presenter = presenter
+    }
+}

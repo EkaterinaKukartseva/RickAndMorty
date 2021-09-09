@@ -7,7 +7,19 @@
 
 import UIKit
 
-class EpisodesCollectionViewController: UICollectionViewController {
+// MARK: - EpisodeListViewInputProtocol
+protocol EpisodeListViewInputProtocol: AnyObject {}
+
+// MARK: - EpisodeListViewOutputProtocol
+protocol EpisodeListViewOutputProtocol {
+    
+    init(view: EpisodeListViewInputProtocol)
+}
+
+final class EpisodeListViewController: UICollectionViewController {
+    
+    var presenter: EpisodeListViewOutputProtocol?
+    private let assembly: EpisodeListAssemblyProtocol = EpisodeListAssembly()
     
     var episodes: [EpisodeModel] = []
     var ids = [Int]()
@@ -99,7 +111,7 @@ class EpisodesCollectionViewController: UICollectionViewController {
 
 // MARK: UICollectionViewDelegateFlowLayout
 
-extension EpisodesCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension EpisodeListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -133,3 +145,6 @@ extension EpisodesCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+// MARK: - EpisodeListViewController + EpisodeListViewInputProtocol
+extension EpisodeListViewController: EpisodeListViewInputProtocol {}

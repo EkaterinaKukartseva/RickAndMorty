@@ -1,0 +1,34 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+// MARK: - {{ module_info.name }}ViewInputProtocol
+protocol {{ module_info.name }}ViewInputProtocol: AnyObject {}
+
+// MARK: - {{ module_info.name }}ViewOutputProtocol
+protocol {{ module_info.name }}ViewOutputProtocol {
+    
+    init(view: {{ module_info.name }}ViewInputProtocol)
+}
+
+// MARK: - {{ module_info.name }}ViewController
+final class {{ module_info.name }}ViewController: UIViewController {
+
+    var presenter: {{ module_info.name }}ViewOutputProtocol?
+    private let assembly: {{ module_info.name }}AssemblyProtocol = {{ module_info.name }}Assembly()
+
+    // MARK: Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        assembly.configure(with: self)
+    }
+}
+
+// MARK: - {{ module_info.name }}ViewController + {{ module_info.name }}ViewInputProtocol
+extension {{ module_info.name }}ViewController: {{ module_info.name }}ViewInputProtocol {}
