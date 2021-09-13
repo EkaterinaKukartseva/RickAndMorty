@@ -55,9 +55,9 @@ final class EpisodeListViewController: UICollectionViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let destionation = segue.destination as? EpisodeViewController {
-            if let episode = sender as? EpisodeModel {
-                destionation.episodeModel = episode
+        if let destionation = segue.destination as? EpisodeDetailsViewController {
+            if let id = sender as? Int {
+                destionation.episodeId = id
             }
         }
     }

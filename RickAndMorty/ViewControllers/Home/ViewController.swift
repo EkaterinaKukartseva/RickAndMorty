@@ -112,8 +112,8 @@ class ViewController: UIViewController {
 //            destination.location = location
         } else
         
-        if let destination = segue.destination as? EpisodeViewController, let episode = sender as? EpisodeModel {
-            destination.episodeModel = episode
+        if let destination = segue.destination as? EpisodeDetailsViewController, let episode = sender as? EpisodeModel {
+//            destination.episodeModel = episode
         }
     }
     
