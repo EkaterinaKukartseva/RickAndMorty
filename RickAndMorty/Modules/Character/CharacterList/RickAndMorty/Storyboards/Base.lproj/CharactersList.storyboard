@@ -99,13 +99,13 @@
             </objects>
             <point key="canvasLocation" x="2798" y="860"/>
         </scene>
-        <!--CharacterViewController-->
+        <!--CharacterDetailsViewController-->
         <scene sceneID="OIU-Gg-KRE">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CharacterViewController" storyboardName="Main" referencedIdentifier="CharacterViewController" id="g2A-cx-NAa" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CharacterScreen" referencedIdentifier="CharacterDetailsViewController" id="g2A-cx-NAa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvv-B2-q3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.8" y="-671.51424287856082"/>
+            <point key="canvasLocation" x="3462" y="860"/>
         </scene>
     </scenes>
     <resources>

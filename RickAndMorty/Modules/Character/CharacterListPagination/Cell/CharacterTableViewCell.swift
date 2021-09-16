@@ -28,7 +28,7 @@ class CharacterTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(model: CharacterModel) {
+    func configure(model: Character) {
         name.text = model.name
         
         var attr = NSMutableAttributedString(string: "\u{2022} ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])

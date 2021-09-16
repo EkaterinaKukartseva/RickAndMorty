@@ -17,7 +17,7 @@ protocol CharacterListRouterProtocol {
 
 // MARK: - CharacterListRouter + CharacterListRouterProtocol
 class CharacterListRouter: CharacterListRouterProtocol {
-    
+
     unowned let viewController: CharacterListViewController
     
     required init(viewController: CharacterListViewController) {

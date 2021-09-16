@@ -13,8 +13,6 @@ protocol CharacterListInteractorInputProtocol {
     init(presenter: CharacterListInteractorOutputProtocol)
     
     func provideCharacterList(with ids: [Int])
-    
-    func provideAllCharacterList()
 }
 
 // MARK: - CharacterListInteractorOutputProtocol
@@ -37,7 +35,7 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
             switch result {
             case .success(let model):
                 self.presenter.receiveCharacterList(model.map({
-                    Character(id: $0.id, name: $0.name, image: $0.image)
+                    Character(id: $0.id, name: $0.name, image: $0.image, status: $0.status, gender: $0.gender)
                 }))
             case.failure(let error):
                 print("ERROR \(error.localizedDescription)")
@@ -50,7 +48,7 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
             switch result {
             case .success(let model):
                 self.presenter.receiveCharacterList(model.results.map({
-                    Character(id: $0.id, name: $0.name, image: $0.image)
+                    Character(id: $0.id, name: $0.name, image: $0.image, status: $0.status, gender: $0.gender)
                 }))
             case.failure(let error):
                 print("ERROR \(error.localizedDescription)")

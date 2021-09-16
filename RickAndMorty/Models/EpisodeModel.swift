@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - InfoEpisodeModel
 struct InfoEpisodeModel: Codable {
-    let info: Info
+    let info: InfoModel
     let results: [EpisodeModel]
 }
 

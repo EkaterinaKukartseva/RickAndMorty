@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - InfoCharacterModel
 struct InfoCharacterModel: Codable {
-    let info: Info
+    let info: InfoModel
     let results: [CharacterModel]
 }
 
 // MARK: - Info
-struct Info: Codable {
+struct InfoModel: Codable {
     let count: Int
     let pages: Int
     let next: String?

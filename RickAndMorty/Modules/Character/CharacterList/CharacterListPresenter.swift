@@ -13,6 +13,8 @@ struct Character {
     let id: Int
     let name: String
     let image: String
+    let status: String
+    let gender: String
 }
 
 // MARK: - CharacterListPresenter + CharacterListViewOutputProtocol
@@ -32,10 +34,6 @@ class CharacterListPresenter: CharacterListViewOutputProtocol {
     
     func showCharacterDetails(with id: Int) {
         router.openCharacterDetails(with: id)
-    }
-    
-    func showAllCharacterList() {
-        interactor.provideAllCharacterList()
     }
 }
 

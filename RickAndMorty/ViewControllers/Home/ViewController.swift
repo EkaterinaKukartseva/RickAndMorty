@@ -31,9 +31,9 @@ class ViewController: UIViewController {
     private var locations: [LocationModel] = []
     private var episodes: [EpisodeModel] = []
     
-    private var infoCharacter: Info!
-    private var infoLocation: Info!
-    private var infoEpisode: Info!
+    private var infoCharacter: InfoModel!
+    private var infoLocation: InfoModel!
+    private var infoEpisode: InfoModel!
     
     private var currentPageCharacter = 1
     private var currentPageLocation = 1
@@ -151,7 +151,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: characterReuseIdentifier, for: indexPath) as! CharacterTableViewCell
             let character = characters[indexPath.row]
-            cell.configure(model: character)
+//            cell.configure(model: character)
             
             cell.prepareForReuse()
             return cell

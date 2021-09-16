@@ -54,9 +54,9 @@ extension HomeViewController: HomeViewInputProtocol {}
 extension HomeViewController {
     
     func embedCharacterList() {
-        let storyboard = UIStoryboard(name: "CharactersList", bundle: .main)
-        if let viewController = storyboard.instantiateViewController(identifier: "CharacterListViewController")
-            as? CharacterListViewController {
+        let storyboard = UIStoryboard(name: "CharacterListPagination", bundle: .main)
+        if let viewController = storyboard.instantiateViewController(identifier: "CharacterListPaginationViewController")
+            as? CharacterListPaginationViewController {
             embed(viewController)
         }
     }

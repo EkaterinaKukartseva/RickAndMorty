@@ -361,9 +361,6 @@
                         <outlet property="searchBar" destination="PtH-km-u3C" id="KlQ-gD-qGf"/>
                         <outlet property="segmentControl" destination="Ke3-WB-bMC" id="L1d-zV-Py2"/>
                         <outlet property="tableView" destination="AV1-tO-e0Z" id="7lS-fd-sSS"/>
-                        <segue destination="veM-up-KaZ" kind="show" identifier="openCharacter" id="DxW-Px-xTC"/>
-                        <segue destination="x8e-K5-nZT" kind="show" identifier="openLocation" id="UPQ-bX-TpH"/>
-                        <segue destination="KvH-Jo-tvf" kind="show" identifier="openEpisode" id="Y3N-Ub-gYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -390,26 +387,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDV-bF-JDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242" y="88"/>
-        </scene>
-        <!--LocationDetailsViewController-->
-        <scene sceneID="6Gv-L4-pJZ">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LocationDetailsViewController" storyboardName="LocationScreen" referencedIdentifier="LocationDetailsViewController" id="x8e-K5-nZT" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="QIV-ya-enI"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="buG-1W-Rv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1842" y="203"/>
-        </scene>
-        <!--EpisodeViewController-->
-        <scene sceneID="xiC-5X-nuG">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="EpisodeViewController" storyboardName="EpisodeScreen" referencedIdentifier="EpisodeViewController" id="KvH-Jo-tvf" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="C8c-Gx-9EH"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WDx-dW-IZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1806" y="88"/>
         </scene>
         <!--Rick and Morty-->
         <scene sceneID="fZx-as-6Sz">
@@ -459,16 +436,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptM-pB-7gB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1013.6" y="809.14542728635683"/>
-        </scene>
-        <!--CharacterViewController-->
-        <scene sceneID="rOW-LF-eHh">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CharacterViewController" storyboardName="CharacterScreen" referencedIdentifier="CharacterViewController" id="veM-up-KaZ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="uMb-03-Rai"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6io-cD-M4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1815" y="-31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="chm-hd-wnL">

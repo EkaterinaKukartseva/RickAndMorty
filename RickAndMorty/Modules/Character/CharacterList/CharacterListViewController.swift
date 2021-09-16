@@ -18,8 +18,6 @@ protocol CharacterListViewOutputProtocol {
     
     init(view: CharacterListViewInputProtocol)
     
-    func showAllCharacterList()
-    
     func showCharacterList(with ids: [Int])
     
     func showCharacterDetails(with id: Int)
@@ -28,7 +26,7 @@ protocol CharacterListViewOutputProtocol {
 // MARK: - CharacterListViewController
 class CharacterListViewController: UICollectionViewController {
     
-    var presenter: CharacterListViewOutputProtocol!
+    var presenter: CharacterListViewOutputProtocol?
     private let assembly: CharacterListAssemblyProtocol = CharacterListAssembly()
     
     private let sectionInsets = UIEdgeInsets(top: 14.0, left: 16.0, bottom: 14.0, right: 16.0)
@@ -42,11 +40,7 @@ class CharacterListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        if ids.isEmpty {
-            presenter.showAllCharacterList()
-        } else {
-            presenter.showCharacterList(with: ids)
-        }
+        presenter?.showCharacterList(with: ids)
     }
     
     @IBAction func goHomeAction(_ sender: Any) {
@@ -67,7 +61,7 @@ class CharacterListViewController: UICollectionViewController {
 extension CharacterListViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characters.count
+        characters.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,7 +79,7 @@ extension CharacterListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let resident = characters[indexPath.row]
-        presenter.showCharacterDetails(with: resident.id)
+        presenter?.showCharacterDetails(with: resident.id)
     }
 }
 
@@ -93,11 +87,10 @@ extension CharacterListViewController {
 extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let paddingSpace = sectionInsets.left + sectionInsets.right + sectionInsets.top
-                let availableWidth = collectionView.bounds.width - paddingSpace
-                let widthPerItem = availableWidth / 2
-                return CGSize(width: widthPerItem, height: widthPerItem)
+        let availableWidth = collectionView.bounds.width - paddingSpace
+        let widthPerItem = availableWidth / 2
+        return CGSize(width: widthPerItem, height: widthPerItem)
         
     }
     
