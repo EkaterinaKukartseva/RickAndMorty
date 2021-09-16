@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LocationTableViewCell: UITableViewCell {
+class LocationCell: UITableViewCell {
     
     @IBOutlet var type: UILabel!
     @IBOutlet var name: UILabel!

@@ -20,7 +20,7 @@
         <!--Location Details View Controller-->
         <scene sceneID="NGR-fW-prB">
             <objects>
-                <viewController storyboardIdentifier="LocationDetailsViewController" id="KP5-Zd-Vec" customClass="LocationDetailsViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KP5-Zd-Vec" customClass="LocationDetailsViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NuY-jJ-Z75">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,25 +33,25 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="i3w-nJ-GqI">
-                                <rect key="frame" x="16" y="59" width="382" height="77.5"/>
+                                <rect key="frame" x="16" y="59" width="382" height="76"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-Va-UQJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="104" height="77.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="76"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-m2-Xuh">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="20"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-Jm-KO7">
-                                                <rect key="frame" x="0.0" y="28.5" width="104" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="104" height="20"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimension:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-dn-3z3">
-                                                <rect key="frame" x="0.0" y="57" width="104" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="56" width="104" height="20"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -62,22 +62,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QAG-8p-IeB">
-                                        <rect key="frame" x="104" y="0.0" width="278" height="77.5"/>
+                                        <rect key="frame" x="104" y="0.0" width="278" height="76"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31g-GW-99H">
-                                                <rect key="frame" x="0.0" y="0.0" width="278" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="20"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
                                                 <color key="textColor" name="PrimaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9l-UA-u5l">
-                                                <rect key="frame" x="0.0" y="28.5" width="278" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="278" height="20"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
                                                 <color key="textColor" name="PrimaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mw-v0-oNA">
-                                                <rect key="frame" x="0.0" y="57" width="278" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="56" width="278" height="20"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
                                                 <color key="textColor" name="PrimaryTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -87,17 +87,17 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVh-bT-IOa" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="150.5" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="149" width="414" height="1"/>
                                 <color key="backgroundColor" name="SeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="kfA-tr-3K2"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-tt-VYT">
-                                <rect key="frame" x="0.0" y="151.5" width="414" height="710.5"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bG-jZ-DRB">
-                                        <rect key="frame" x="107" y="330.5" width="200" height="50"/>
+                                        <rect key="frame" x="107" y="331" width="200" height="50"/>
                                         <color key="backgroundColor" name="CellColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Lkm-iZ-tJu"/>

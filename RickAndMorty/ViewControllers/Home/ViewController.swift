@@ -162,7 +162,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 return cell
             }
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: locationReuseIdentifier, for: indexPath) as! LocationTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: locationReuseIdentifier, for: indexPath) as! LocationCell
             let location = locations[indexPath.row]
             cell.configure(model: location)
             

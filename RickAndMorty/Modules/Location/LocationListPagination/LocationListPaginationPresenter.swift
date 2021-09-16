@@ -8,12 +8,20 @@
 
 import Foundation
 
+// MARK: - InfoLocation
+struct InfoLocation {
+    
+    let info: Info
+    let results: [Location]
+}
+
 // MARK: - Location
 struct Location {
     
     let id: Int
     let name: String
     let dimension: String
+    let url: String
 }
 
 // MARK: - LocationListPaginationPresenter
@@ -27,15 +35,26 @@ final class LocationListPaginationPresenter: LocationListPaginationViewOutputPro
         self.view = view
     }
     
-    func showAllLocationList() {
-        interactor.provideAllLocationList()
+    func showAllLocationList(by page: Int) {
+        interactor.provideAllLocationList(by: page)
+    }
+    
+    func showLocationDetails(with url: String) {
+        router.openLocationDetails(with: url)
     }
 }
 
 // MARK: - LocationListPaginationPresenter + LocationListPaginationInteractorOutputProtocol
 extension LocationListPaginationPresenter: LocationListPaginationInteractorOutputProtocol {
     
-    func receiveLocationList(_ list: [LocationModel]) {
-        view?.setLocationList(list.map({  Location(id: $0.id, name: $0.name, dimension: $0.dimension)}))
+    func receiveLocationList(_ list: InfoLocationModel) {
+        view?.setLocationList(.init(info: .init(count: list.info.count,
+                                                pages: list.info.pages,
+                                                next: list.info.next,
+                                                prev: list.info.prev),
+                                    results: list.results.map({ Location(id: $0.id,
+                                                                         name: $0.name,
+                                                                         dimension: $0.dimension,
+                                                                         url: $0.url) })))
     }
 }

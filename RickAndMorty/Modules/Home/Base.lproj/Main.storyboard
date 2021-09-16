@@ -134,7 +134,7 @@
                                             <outlet property="status" destination="g4E-Hi-Tvk" id="t8k-ny-1Rk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsCell" id="piw-km-kwT" customClass="LocationTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsCell" id="piw-km-kwT" customClass="LocationCell" customModule="RickAndMorty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="170.33333396911621" width="428" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="piw-km-kwT" id="TJw-Ba-E3E">

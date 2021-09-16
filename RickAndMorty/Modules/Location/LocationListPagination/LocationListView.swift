@@ -11,7 +11,7 @@ import UIKit
 // MARK: - LocationListPaginationViewInputProtocol
 protocol LocationListPaginationViewInputProtocol: AnyObject {
     
-    func setLocationList(_ list: [Location])
+    func setLocationList(_ list: InfoLocation)
 }
 
 // MARK: - LocationListPaginationViewOutputProtocol
@@ -19,7 +19,9 @@ protocol LocationListPaginationViewOutputProtocol {
     
     init(view: LocationListPaginationViewInputProtocol)
     
-    func showAllLocationList()
+    func showAllLocationList(by page: Int)
+    
+    func showLocationDetails(with url: String)
 }
 
 // MARK: - LocationListPaginationViewController
@@ -30,13 +32,26 @@ final class LocationListPaginationViewController: UIViewController {
     var presenter: LocationListPaginationViewOutputProtocol!
     private let assembly: LocationListPaginationAssemblyProtocol = LocationListPaginationAssembly()
     
-    var locations: [Location] = []
+    private var info: Info!
+    private var currentPageLocation = 1
+    private var locations: [Location] = []
 
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        presenter.showAllLocationList()
+        tableView.register(UINib(nibName: "LoadingCell", bundle: .main), forCellReuseIdentifier: "LoadingCell")
+        tableView.register(UINib(nibName: "LocationCell", bundle: .main), forCellReuseIdentifier: "LocationCell")
+        presenter.showAllLocationList(by: currentPageLocation)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? LocationDetailsViewController {
+            if let url = sender as? String {
+                destination.locationUrl = url
+            }
+        }
     }
 }
 
@@ -48,7 +63,12 @@ extension LocationListPaginationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as! LocationTableViewCell
+        if indexPath.row == locations.count - 1 && currentPageLocation <= info.pages {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
+            presenter?.showAllLocationList(by: currentPageLocation)
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
         let location = locations[indexPath.row]
         cell.configure(model: location)
         return cell
@@ -58,13 +78,19 @@ extension LocationListPaginationViewController: UITableViewDataSource {
 // MARK: - LocationListPaginationViewController + UITableViewDelegate
 extension LocationListPaginationViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let location = locations[indexPath.row]
+        presenter?.showLocationDetails(with: location.url)
+    }
 }
 
 // MARK: - LocationListPaginationViewController + LocationListViewInputProtocol
 extension LocationListPaginationViewController: LocationListPaginationViewInputProtocol {
     
-    func setLocationList(_ list: [Location]) {
-        locations = list
+    func setLocationList(_ list: InfoLocation) {
+        locations.append(contentsOf: list.results)
+        info = list.info
+        currentPageLocation += 1
         tableView.reloadData()
     }
 }

@@ -12,6 +12,8 @@ import Foundation
 protocol LocationListPaginationRouterProtocol {
     
     init(viewController: LocationListPaginationViewController)
+    
+    func openLocationDetails(with url: String)
 }
 
 // MARK: - LocationListPaginationRouter + LocationListPaginationRouterProtocol
@@ -21,5 +23,9 @@ final class LocationListPaginationRouter: LocationListPaginationRouterProtocol {
     
     required init(viewController: LocationListPaginationViewController) {
         self.viewController = viewController
+    }
+    
+    func openLocationDetails(with url: String) {
+        viewController?.performSegue(withIdentifier: "showLocation", sender: url)
     }
 }

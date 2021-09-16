@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Medium.otf">
+            <string>SFProText-Medium</string>
+        </array>
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" rowHeight="92" id="WpG-u2-6V9" customClass="LocationCell" customModule="RickAndMorty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WpG-u2-6V9" id="Uw7-Yu-zLU">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFg-Ek-oHy">
+                        <rect key="frame" x="16" y="10" width="382" height="82"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh5-oh-7Hq">
+                                <rect key="frame" x="14" y="10" width="358" height="21.5"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                                <color key="textColor" name="SecondaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth (C-137)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWk-wH-7ab">
+                                <rect key="frame" x="14" y="43.5" width="358" height="13"/>
+                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="11"/>
+                                <color key="textColor" name="PrimaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="CellColor"/>
+                        <constraints>
+                            <constraint firstItem="sWk-wH-7ab" firstAttribute="leading" secondItem="sFg-Ek-oHy" secondAttribute="leading" constant="14" id="7cj-ej-HhA"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sWk-wH-7ab" secondAttribute="bottom" constant="10" id="OSH-Lg-HRW"/>
+                            <constraint firstAttribute="trailing" secondItem="Zh5-oh-7Hq" secondAttribute="trailing" constant="10" id="QxI-NF-kWg"/>
+                            <constraint firstItem="Zh5-oh-7Hq" firstAttribute="top" secondItem="sFg-Ek-oHy" secondAttribute="top" constant="10" id="Su9-Rm-ndz"/>
+                            <constraint firstItem="Zh5-oh-7Hq" firstAttribute="leading" secondItem="sFg-Ek-oHy" secondAttribute="leading" constant="14" id="YeD-jw-dei"/>
+                            <constraint firstItem="sWk-wH-7ab" firstAttribute="top" secondItem="Zh5-oh-7Hq" secondAttribute="bottom" constant="12" id="cUq-YD-zXQ"/>
+                            <constraint firstAttribute="trailing" secondItem="sWk-wH-7ab" secondAttribute="trailing" constant="10" id="ejM-D5-yZf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="Border"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sFg-Ek-oHy" firstAttribute="leading" secondItem="Uw7-Yu-zLU" secondAttribute="leading" constant="16" id="9sm-Vz-zxN"/>
+                    <constraint firstAttribute="bottom" secondItem="sFg-Ek-oHy" secondAttribute="bottom" id="GMY-oh-7Hn"/>
+                    <constraint firstItem="sFg-Ek-oHy" firstAttribute="top" secondItem="Uw7-Yu-zLU" secondAttribute="top" constant="10" id="Tqn-zd-0Kt"/>
+                    <constraint firstAttribute="trailing" secondItem="sFg-Ek-oHy" secondAttribute="trailing" constant="16" id="ooO-ca-rnM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="BackgroundColor"/>
+            <connections>
+                <outlet property="name" destination="sWk-wH-7ab" id="niZ-tu-3ko"/>
+                <outlet property="type" destination="Zh5-oh-7Hq" id="WqW-MD-Cyn"/>
+            </connections>
+            <point key="canvasLocation" x="35" y="104"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Border">
+            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellColor">
+            <color red="1" green="1" blue="1" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryTextColor">
+            <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
