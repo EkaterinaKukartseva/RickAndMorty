@@ -1,5 +1,5 @@
 //
-//  LocationListView.swift
+//  LocationListPaginationViewController.swift
 //  RickAndMorty
 //
 //  Created by Ekaterina Kukartseva on 16/09/2021.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-// MARK: - LocationListViewInputProtocol
-protocol LocationListViewInputProtocol: AnyObject {
+// MARK: - LocationListPaginationViewInputProtocol
+protocol LocationListPaginationViewInputProtocol: AnyObject {
     
     func setLocationList(_ list: [Location])
 }
 
-// MARK: - LocationListViewOutputProtocol
-protocol LocationListViewOutputProtocol {
+// MARK: - LocationListPaginationViewOutputProtocol
+protocol LocationListPaginationViewOutputProtocol {
     
-    init(view: LocationListViewInputProtocol)
+    init(view: LocationListPaginationViewInputProtocol)
     
     func showAllLocationList()
 }
 
-// MARK: - LocationListViewController
-final class LocationListViewController: UIViewController {
+// MARK: - LocationListPaginationViewController
+final class LocationListPaginationViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var presenter: LocationListViewOutputProtocol!
-    private let assembly: LocationListAssemblyProtocol = LocationListAssembly()
+    var presenter: LocationListPaginationViewOutputProtocol!
+    private let assembly: LocationListPaginationAssemblyProtocol = LocationListPaginationAssembly()
     
     var locations: [Location] = []
 
@@ -40,8 +40,8 @@ final class LocationListViewController: UIViewController {
     }
 }
 
-// MARK: - LocationListViewController + UITableViewDataSource
-extension LocationListViewController: UITableViewDataSource {
+// MARK: - LocationListPaginationViewController + UITableViewDataSource
+extension LocationListPaginationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         locations.count
@@ -55,13 +55,13 @@ extension LocationListViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - LocationListViewController + UITableViewDelegate
-extension LocationListViewController: UITableViewDelegate {
+// MARK: - LocationListPaginationViewController + UITableViewDelegate
+extension LocationListPaginationViewController: UITableViewDelegate {
     
 }
 
-// MARK: - LocationListViewController + LocationListViewInputProtocol
-extension LocationListViewController: LocationListViewInputProtocol {
+// MARK: - LocationListPaginationViewController + LocationListViewInputProtocol
+extension LocationListPaginationViewController: LocationListPaginationViewInputProtocol {
     
     func setLocationList(_ list: [Location]) {
         locations = list

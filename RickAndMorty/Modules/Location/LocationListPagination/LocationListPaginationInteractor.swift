@@ -1,5 +1,5 @@
 //
-//  LocationListInteractor.swift
+//  LocationListPaginationInteractor.swift
 //  RickAndMorty
 //
 //  Created by Ekaterina Kukartseva on 16/09/2021.
@@ -8,26 +8,26 @@
 
 import Foundation
 
-// MARK: - LocationListInteractorInputProtocol
-protocol LocationListInteractorInputProtocol: AnyObject {
+// MARK: - LocationListPaginationInteractorInputProtocol
+protocol LocationListPaginationInteractorInputProtocol: AnyObject {
 
-    init(presenter: LocationListInteractorOutputProtocol)
+    init(presenter: LocationListPaginationInteractorOutputProtocol)
     
     func provideAllLocationList()
 }
 
-// MARK: - LocationListInteractorOutputProtocol
-protocol LocationListInteractorOutputProtocol {
+// MARK: - LocationListPaginationInteractorOutputProtocol
+protocol LocationListPaginationInteractorOutputProtocol {
     
     func receiveLocationList(_ list: [LocationModel])
 }
 
-// MARK: - LocationListInteractor
-final class LocationListInteractor: LocationListInteractorInputProtocol {
+// MARK: - LocationListPaginationInteractor
+final class LocationListPaginationInteractor: LocationListPaginationInteractorInputProtocol {
 
-    var presenter: LocationListInteractorOutputProtocol?
+    var presenter: LocationListPaginationInteractorOutputProtocol?
 
-    required init(presenter: LocationListInteractorOutputProtocol) {
+    required init(presenter: LocationListPaginationInteractorOutputProtocol) {
         self.presenter = presenter
     }
     

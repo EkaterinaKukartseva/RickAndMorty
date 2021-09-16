@@ -70,9 +70,9 @@ extension HomeViewController {
     }
     
     func embedLocationList() {
-        let storyboard = UIStoryboard(name: "LocationList", bundle: .main)
-        if let viewController = storyboard.instantiateViewController(identifier: "LocationListViewController")
-            as? LocationListViewController {
+        let storyboard = UIStoryboard(name: "LocationListPagination", bundle: .main)
+        if let viewController = storyboard.instantiateViewController(identifier: "LocationListPaginationViewController")
+            as? LocationListPaginationViewController {
             embed(viewController)
         }
     }
