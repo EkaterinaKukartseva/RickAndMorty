@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VL6-rx-ThP">
-    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wKe-fy-xDb">
+    <device id="retina6_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -22,11 +22,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="PtH-km-u3C">
-                                <rect key="frame" x="0.0" y="96" width="375" height="51"/>
+                                <rect key="frame" x="0.0" y="140" width="428" height="51"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <userDefinedRuntimeAttributes>
@@ -39,14 +39,14 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wzj-mD-U6T" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="147" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="191" width="428" height="1"/>
                                 <color key="backgroundColor" name="SeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="MIM-Et-Kk8"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ke3-WB-bMC" customClass="CustomSegmentedControl" customModule="RickAndMorty" customModuleProvider="target">
-                                <rect key="frame" x="16" y="156" width="343" height="32"/>
+                                <rect key="frame" x="16" y="200" width="396" height="32"/>
                                 <segments>
                                     <segment title="CHARACTERS"/>
                                     <segment title="LOCATIONS"/>
@@ -59,18 +59,18 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-tO-e0Z">
-                                <rect key="frame" x="0.0" y="197" width="375" height="470"/>
+                                <rect key="frame" x="0.0" y="241" width="428" height="651"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharactersCell" id="5b6-tj-7JZ" customClass="CharacterTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="375" height="146"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="146"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5b6-tj-7JZ" id="Tjg-2O-6Z9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-Ue-Zh6">
-                                                    <rect key="frame" x="16" y="14" width="343" height="132"/>
+                                                    <rect key="frame" x="16" y="14" width="396" height="132"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RickAndMorty" translatesAutoresizingMaskIntoConstraints="NO" id="ECW-Xc-N6Z" customClass="CharacterImageView" customModule="RickAndMorty" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
@@ -80,13 +80,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjuducator Rick" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUE-ri-WgD">
-                                                            <rect key="frame" x="142" y="5" width="191" height="21"/>
+                                                            <rect key="frame" x="142" y="5" width="244" height="21"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                             <color key="textColor" name="PrimaryTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Human" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUh-ko-O3S">
-                                                            <rect key="frame" x="186" y="30" width="51" height="16"/>
+                                                            <rect key="frame" x="186" y="30" width="50.666666666666657" height="16"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
                                                             <color key="textColor" name="PrimaryTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -135,23 +135,23 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsCell" id="piw-km-kwT" customClass="LocationTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="170.5" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="170.33333396911621" width="428" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="piw-km-kwT" id="TJw-Ba-E3E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfI-0N-Z1a">
-                                                    <rect key="frame" x="16" y="10" width="343" height="66"/>
+                                                    <rect key="frame" x="16" y="10" width="396" height="66"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6a-fH-EMp">
-                                                            <rect key="frame" x="14" y="10" width="319" height="21"/>
+                                                            <rect key="frame" x="14" y="10" width="372" height="21"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                             <color key="textColor" name="SecondaryTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth (C-137)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-oT-XO5">
-                                                            <rect key="frame" x="14" y="43" width="319" height="13"/>
+                                                            <rect key="frame" x="14" y="43" width="372" height="13"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="11"/>
                                                             <color key="textColor" name="PrimaryTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -197,23 +197,23 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodesCell" id="cZe-w0-PvL" customClass="EpisodeTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="246.5" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="246.33333396911621" width="428" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cZe-w0-PvL" id="xXx-gd-IvU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyi-G0-tzE">
-                                                    <rect key="frame" x="16" y="10" width="343" height="66"/>
+                                                    <rect key="frame" x="16" y="10" width="396" height="66"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S01E06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rh-5h-7Zg">
-                                                            <rect key="frame" x="14" y="10" width="319" height="21"/>
+                                                            <rect key="frame" x="14" y="10" width="372" height="21"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                             <color key="textColor" name="SecondaryTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Ricklantis Mixup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-JU-EC4">
-                                                            <rect key="frame" x="14" y="43" width="319" height="13"/>
+                                                            <rect key="frame" x="14" y="43" width="372" height="13"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="11"/>
                                                             <color key="textColor" name="PrimaryTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -256,17 +256,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoDataCell" id="5pM-Z2-p8R">
-                                        <rect key="frame" x="0.0" y="322.5" width="375" height="51"/>
+                                        <rect key="frame" x="0.0" y="322.33333396911621" width="428" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5pM-Z2-p8R" id="TDq-KD-TqK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viX-0b-bae">
-                                                    <rect key="frame" x="16" y="10" width="343" height="41"/>
+                                                    <rect key="frame" x="16" y="10" width="396" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6f-Lp-VjK">
-                                                            <rect key="frame" x="14" y="10" width="319" height="21"/>
+                                                            <rect key="frame" x="14" y="10" width="372" height="21"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                             <color key="textColor" name="PrimaryTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -302,17 +302,17 @@
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingCell" id="ddq-Ck-5sK">
-                                        <rect key="frame" x="0.0" y="373.5" width="375" height="51"/>
+                                        <rect key="frame" x="0.0" y="373.33333396911621" width="428" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ddq-Ck-5sK" id="9SU-Rp-Hlk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UT8-48-fWl">
-                                                    <rect key="frame" x="16" y="10" width="343" height="41"/>
+                                                    <rect key="frame" x="16" y="10" width="396" height="41"/>
                                                     <subviews>
                                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dUE-Yt-g38">
-                                                            <rect key="frame" x="161.5" y="10.5" width="20" height="20"/>
+                                                            <rect key="frame" x="188" y="10.666666666666668" width="20" height="20"/>
                                                         </activityIndicatorView>
                                                     </subviews>
                                                     <constraints>
@@ -376,7 +376,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="VL6-rx-ThP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="lDF-fv-eTX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <color key="tintColor" name="PrymaryTextColor"/>
@@ -399,7 +399,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buG-1W-Rv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="201"/>
+            <point key="canvasLocation" x="1842" y="203"/>
         </scene>
         <!--EpisodeViewController-->
         <scene sceneID="xiC-5X-nuG">
@@ -411,6 +411,55 @@
             </objects>
             <point key="canvasLocation" x="1806" y="88"/>
         </scene>
+        <!--Rick and Morty-->
+        <scene sceneID="fZx-as-6Sz">
+            <objects>
+                <viewController id="wKs-8y-HDw" customClass="HomeViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CjA-Zu-Ohp">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-pD-KjV">
+                                <rect key="frame" x="0.0" y="191" width="428" height="735"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IFv-zl-WPh" customClass="CustomSegmentedControl" customModule="RickAndMorty" customModuleProvider="target">
+                                <rect key="frame" x="16" y="150" width="396" height="32"/>
+                                <segments>
+                                    <segment title="CHARACTERS"/>
+                                    <segment title="LOCATIONS"/>
+                                    <segment title="EPISODES"/>
+                                </segments>
+                                <color key="tintColor" name="PrymaryTextColor"/>
+                                <color key="selectedSegmentTintColor" name="SeparatorColor"/>
+                                <connections>
+                                    <action selector="didTapSegmentedControl:" destination="wKs-8y-HDw" eventType="valueChanged" id="swq-EJ-GHI"/>
+                                    <action selector="segmentedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="293-Wj-Ig6"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZWL-RP-JDw"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZWL-RP-JDw" firstAttribute="trailing" secondItem="IFv-zl-WPh" secondAttribute="trailing" constant="16" id="Ch0-IE-fbE"/>
+                            <constraint firstItem="jHV-pD-KjV" firstAttribute="top" secondItem="IFv-zl-WPh" secondAttribute="bottom" constant="10" id="Gv5-3U-kCv"/>
+                            <constraint firstItem="IFv-zl-WPh" firstAttribute="leading" secondItem="ZWL-RP-JDw" secondAttribute="leading" constant="16" id="IsI-8Y-NBW"/>
+                            <constraint firstItem="IFv-zl-WPh" firstAttribute="top" secondItem="ZWL-RP-JDw" secondAttribute="top" constant="10" id="UHs-MA-8lj"/>
+                            <constraint firstItem="ZWL-RP-JDw" firstAttribute="trailing" secondItem="jHV-pD-KjV" secondAttribute="trailing" id="cYN-7a-WhT"/>
+                            <constraint firstAttribute="bottom" secondItem="jHV-pD-KjV" secondAttribute="bottom" id="msJ-JQ-Ben"/>
+                            <constraint firstItem="jHV-pD-KjV" firstAttribute="leading" secondItem="ZWL-RP-JDw" secondAttribute="leading" id="yXc-eA-FTL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rick and Morty" id="Yf3-YS-iig"/>
+                    <connections>
+                        <outlet property="contentView" destination="jHV-pD-KjV" id="3Ge-gu-2Bh"/>
+                        <outlet property="segmentControl" destination="IFv-zl-WPh" id="Ecb-WP-qha"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptM-pB-7gB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013.6" y="809.14542728635683"/>
+        </scene>
         <!--CharacterViewController-->
         <scene sceneID="rOW-LF-eHh">
             <objects>
@@ -420,6 +469,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6io-cD-M4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1815" y="-31"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="chm-hd-wnL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="wKe-fy-xDb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="qEE-KG-FOH">
+                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <color key="tintColor" name="PrimaryTextColor"/>
+                        <color key="barTintColor" name="BackgroundColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wKs-8y-HDw" kind="relationship" relationship="rootViewController" id="XRC-Kl-Enm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUI-KJ-RYV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="810"/>
         </scene>
     </scenes>
     <resources>

@@ -13,6 +13,8 @@ protocol CharacterListInteractorInputProtocol {
     init(presenter: CharacterListInteractorOutputProtocol)
     
     func provideCharacterList(with ids: [Int])
+    
+    func provideAllCharacterList()
 }
 
 // MARK: - CharacterListInteractorOutputProtocol
@@ -31,10 +33,23 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
     }
     
     func provideCharacterList(with ids: [Int]) {
-        client.character().fetchCharacters(byID: ids) { (result) in
+        client.character().fetchCharacters(byID: ids) { result in
             switch result {
             case .success(let model):
                 self.presenter.receiveCharacterList(model.map({
+                    Character(id: $0.id, name: $0.name, image: $0.image)
+                }))
+            case.failure(let error):
+                print("ERROR \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func provideAllCharacterList() {
+        client.character().fetchAllCharacters { result in
+            switch result {
+            case .success(let model):
+                self.presenter.receiveCharacterList(model.results.map({
                     Character(id: $0.id, name: $0.name, image: $0.image)
                 }))
             case.failure(let error):

@@ -20,7 +20,13 @@ class LocationTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // delete
     func configure(model: LocationModel) {
+        self.name.text = model.name
+        self.type.text = model.dimension
+    }
+    
+    func configure(model: Location) {
         self.name.text = model.name
         self.type.text = model.dimension
     }

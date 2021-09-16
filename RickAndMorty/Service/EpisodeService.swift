@@ -60,12 +60,14 @@ struct EpisodeService {
 
         let path = Method.episodePage.rawValue + "\(pageNumber)"
         let urlString = networkManager.url(path: path)
-
+        
         networkManager.performRequest(withURLString: urlString) { result in
             switch result {
             case .success(let data):
-                if let model: InfoEpisodeModel = self.networkManager.decodeJSONData(data: data) {
-                    completion(.success(model))
+                DispatchQueue.main.async {
+                    if let model: InfoEpisodeModel = self.networkManager.decodeJSONData(data: data) {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -74,15 +76,17 @@ struct EpisodeService {
     }
 
     /// Получение всех эпизодов
-    func fetchEpisodes(completion: @escaping (Result<EpisodeModel, Error>) -> Void) {
+    func fetchEpisodes(completion: @escaping (Result<InfoEpisodeModel, Error>) -> Void) {
         let path = Method.episode.rawValue
         let urlString = networkManager.url(path: path)
 
         networkManager.performRequest(withURLString: urlString) { result in
             switch result {
             case .success(let data):
-                if let model: EpisodeModel = self.networkManager.decodeJSONData(data: data) {
-                    completion(.success(model))
+                DispatchQueue.main.async {
+                    if let model: InfoEpisodeModel = self.networkManager.decodeJSONData(data: data) {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))

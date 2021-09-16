@@ -33,6 +33,10 @@ class CharacterListPresenter: CharacterListViewOutputProtocol {
     func showCharacterDetails(with id: Int) {
         router.openCharacterDetails(with: id)
     }
+    
+    func showAllCharacterList() {
+        interactor.provideAllCharacterList()
+    }
 }
 
 // MARK: - CharacterListPresenter + CharacterListInteractorOutputProtocol

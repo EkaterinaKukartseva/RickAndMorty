@@ -17,7 +17,7 @@
         <!--Episode List View Controller-->
         <scene sceneID="NYu-WS-KUv">
             <objects>
-                <collectionViewController storyboardIdentifier="EpisodeCollectionViewController" id="Qby-6z-aHA" customClass="EpisodeListViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="EpisodeListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qby-6z-aHA" customClass="EpisodeListViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Eep-pm-74T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S01E06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7g-17-udd">
-                                            <rect key="frame" x="27.5" y="52.5" width="73.5" height="23"/>
+                                            <rect key="frame" x="31" y="52.5" width="66.5" height="23"/>
                                             <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="19"/>
                                             <color key="textColor" name="PrimaryTextColor"/>
                                             <nil key="highlightedColor"/>

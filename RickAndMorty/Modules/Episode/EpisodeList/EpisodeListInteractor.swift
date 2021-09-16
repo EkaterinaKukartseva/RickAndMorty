@@ -13,6 +13,8 @@ protocol EpisodeListInteractorInputProtocol: AnyObject {
 
     init(presenter: EpisodeListInteractorOutputProtocol)
     
+    func provideAllEpisodeList()
+    
     func provideEpisodeList(with ids: [Int])
     
     func provideEpisodeList(with id: Int)
@@ -33,6 +35,17 @@ final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
 
     required init(presenter: EpisodeListInteractorOutputProtocol) {
         self.presenter = presenter
+    }
+    
+    func provideAllEpisodeList() {
+        client.episode().fetchEpisodes { result in
+            switch result {
+            case .success(let list):
+                self.presenter?.receiveEpisodeList(list.results)
+            case .failure(let error):
+                print("ERROR \(error.localizedDescription)")
+            }
+        }
     }
     
     func provideEpisodeList(with ids: [Int]) {

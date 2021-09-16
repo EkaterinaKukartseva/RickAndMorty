@@ -18,6 +18,8 @@ protocol EpisodeListViewOutputProtocol {
     
     init(view: EpisodeListViewInputProtocol)
     
+    func showAllEpisodeList()
+    
     func showEpisodeList(with ids: [Int])
     
     func showEpisodeList(with id: Int)
@@ -41,7 +43,9 @@ final class EpisodeListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        if ids.count > 1 {
+        if ids.isEmpty {
+            presenter?.showAllEpisodeList()
+        } else if ids.count > 1 {
             presenter?.showEpisodeList(with: ids)
         } else {
             presenter?.showEpisodeList(with: ids[0])

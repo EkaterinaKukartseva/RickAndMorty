@@ -26,6 +26,10 @@ final class EpisodeListPresenter: EpisodeListViewOutputProtocol {
         self.view = view
     }
     
+    func showAllEpisodeList() {
+        interactor.provideAllEpisodeList()
+    }
+    
     func showEpisodeList(with ids: [Int]) {
         interactor.provideEpisodeList(with: ids)
     }

@@ -18,6 +18,8 @@ protocol CharacterListViewOutputProtocol {
     
     init(view: CharacterListViewInputProtocol)
     
+    func showAllCharacterList()
+    
     func showCharacterList(with ids: [Int])
     
     func showCharacterDetails(with id: Int)
@@ -40,7 +42,11 @@ class CharacterListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        presenter.showCharacterList(with: ids)
+        if ids.isEmpty {
+            presenter.showAllCharacterList()
+        } else {
+            presenter.showCharacterList(with: ids)
+        }
     }
     
     @IBAction func goHomeAction(_ sender: Any) {
