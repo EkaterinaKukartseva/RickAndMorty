@@ -21,7 +21,7 @@ protocol CharacterListPaginationViewOutputProtocol {
     
     func showAllCharacterList(by page: Int)
     
-    func showCharacterDetails(with: Int)
+    func showCharacterDetails(with id: Int)
 }
 
 // MARK: - CharacterListPaginationViewController

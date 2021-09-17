@@ -12,6 +12,7 @@ import Foundation
 struct Episode {
     
     let id: Int
+    let name: String
     let episode: String
 }
 
@@ -47,10 +48,10 @@ final class EpisodeListPresenter: EpisodeListViewOutputProtocol {
 extension EpisodeListPresenter: EpisodeListInteractorOutputProtocol {
 
     func receiveEpisodeList(_ list: [EpisodeModel]) {
-        view?.setEpisodeList(list.map({ Episode(id: $0.id, episode: $0.episode)}))
+        view?.setEpisodeList(list.map({ Episode(id: $0.id, name: $0.name, episode: $0.episode)}))
     }
     
     func receiveEpisodeList(_ episode: EpisodeModel) {
-        view?.setEpisodeList([Episode(id: episode.id, episode: episode.episode)])
+        view?.setEpisodeList([Episode(id: episode.id, name: episode.name, episode: episode.episode)])
     }
 }

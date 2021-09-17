@@ -7,8 +7,6 @@
 
 import UIKit
 
-let client = Client()
-
 class ViewController: UIViewController {
     
     @IBOutlet var segmentControl: UISegmentedControl!
@@ -175,9 +173,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 return cell
             }
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: episodeReuseIdentifier, for: indexPath) as! EpisodeTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: episodeReuseIdentifier, for: indexPath) as! EpisodeCell
             let episode = episodes[indexPath.row]
-            cell.configure(model: episode)
+//            cell.configure(model: episode)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: noDataReuseIdentifier, for: indexPath)

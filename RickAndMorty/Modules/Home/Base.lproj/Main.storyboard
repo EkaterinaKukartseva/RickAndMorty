@@ -196,7 +196,7 @@
                                             <outlet property="type" destination="V6a-fH-EMp" id="5OP-Pi-S2b"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodesCell" id="cZe-w0-PvL" customClass="EpisodeTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodesCell" id="cZe-w0-PvL" customClass="EpisodeCell" customModule="RickAndMorty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="246.33333396911621" width="428" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cZe-w0-PvL" id="xXx-gd-IvU">

@@ -7,6 +7,8 @@
 
 import UIKit
 
+let client = Client()
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

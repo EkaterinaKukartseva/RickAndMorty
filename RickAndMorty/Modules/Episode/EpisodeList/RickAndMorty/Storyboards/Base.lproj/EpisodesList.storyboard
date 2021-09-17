@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="2798" y="-672"/>
         </scene>
-        <!--EpisodeViewController-->
+        <!--EpisodeDetailsViewController-->
         <scene sceneID="xiC-5X-nuG">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="EpisodeViewController" storyboardName="EpisodeScreen" referencedIdentifier="EpisodeViewController" id="KvH-Jo-tvf" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="EpisodeScreen" referencedIdentifier="EpisodeDetailsViewController" id="KvH-Jo-tvf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="C8c-Gx-9EH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDx-dW-IZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

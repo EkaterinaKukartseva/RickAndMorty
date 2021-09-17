@@ -17,10 +17,21 @@ struct InfoCharacter {
 
 // MARK: - Info
 struct Info: Codable {
+    
     let count: Int
     let pages: Int
     let next: String?
     let prev: String?
+}
+
+extension Info {
+    
+    init(info: InfoModel) {
+        self.count = info.count
+        self.pages = info.pages
+        self.next = info.next
+        self.prev = info.next
+    }
 }
 
 // MARK: - CharacterListPaginationPresenter

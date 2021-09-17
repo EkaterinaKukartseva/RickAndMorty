@@ -62,9 +62,9 @@ extension HomeViewController {
     }
     
     func embedEpisodeList() {
-        let storyboard = UIStoryboard(name: "EpisodesList", bundle: .main)
-        if let viewController = storyboard.instantiateViewController(identifier: "EpisodeListViewController")
-            as? EpisodeListViewController {
+        let storyboard = UIStoryboard(name: "EpisodeListPagination", bundle: .main)
+        if let viewController = storyboard.instantiateViewController(identifier: "EpisodeListPaginationViewController")
+            as? EpisodeListPaginationViewController {
             embed(viewController)
         }
     }
