@@ -11,6 +11,7 @@ import Foundation
 // MARK: - EpisodeListPaginationAssemblyProtocol
 protocol EpisodeListPaginationAssemblyProtocol {
     
+    /// Собрать модуль `EpisodeListPagination`
     func configure(with viewController: EpisodeListPaginationViewController)
 }
 

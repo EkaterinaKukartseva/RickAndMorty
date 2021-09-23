@@ -11,11 +11,17 @@ protocol CharacterDetailsRouterProtocol {
     
     init(viewController: CharacterDetailsViewController)
     
-    func openEpisodeList(with ids: [Int])
+    /// Открыть экран со списком серий
+    /// - Parameter ids: ids серий
+    func openEpisodeListModule(with ids: [Int])
     
-    func openLocation(with url: String)
+    /// Открыть экран с информацией о местонахождении персонажа
+    /// - Parameter url: url локации
+    func openLocationDetailsModule(with url: String)
     
-    func openOrigin(with url: String)
+    /// Открыть экран с информацией о месте происхождения персонажа
+    /// - Parameter url: url локации
+    func openOriginDetailsModule(with url: String)
 }
 
 class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
@@ -26,15 +32,15 @@ class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
         self.viewController = viewController
     }
     
-    func openEpisodeList(with ids: [Int]) {
+    func openEpisodeListModule(with ids: [Int]) {
         viewController?.performSegue(withIdentifier: "showEpisodeList", sender: ids)
     }
     
-    func openLocation(with url: String) {
+    func openLocationDetailsModule(with url: String) {
         viewController?.performSegue(withIdentifier: "showLocation", sender: url)
     }
     
-    func openOrigin(with url: String) {
+    func openOriginDetailsModule(with url: String) {
         viewController?.performSegue(withIdentifier: "showLocation", sender: url)
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - LocationCell
 final class LocationCell: UITableViewCell {
     
     @IBOutlet var type: UILabel!

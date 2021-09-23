@@ -10,6 +10,8 @@ import UIKit
 // MARK: - CharacterListViewInputProtocol
 protocol CharacterListViewInputProtocol: AnyObject {
     
+    /// Получен список персонажей
+    /// - Parameter list: список персонажей
     func setCharacterList(_ list: [Character])
 }
 
@@ -18,8 +20,12 @@ protocol CharacterListViewOutputProtocol {
     
     init(view: CharacterListViewInputProtocol)
     
+    /// Показать список персонажей
+    /// - Parameter ids: ids персонажей
     func showCharacterList(with ids: [Int])
     
+    /// Показать детальную инфориацию о персонаже
+    /// - Parameter id: id персонажа
     func showCharacterDetails(with id: Int)
 }
 

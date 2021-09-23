@@ -88,7 +88,7 @@
 		AF86EB25BC34F51CF07352D5 /* LocationListPaginationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F51D1F7F5BF58D7358349F /* LocationListPaginationInteractor.swift */; };
 		BC80BEAA910CCEE2683F953F /* LocationListPaginationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB723AC76261C68A661B22 /* LocationListPaginationPresenter.swift */; };
 		C440FE2F28AAF0ADA703C2DC /* EpisodeListPaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6D3AAE961653493C43531 /* EpisodeListPaginationView.swift */; };
-		FA9141D1DA16A6FBF1653D36 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F751C81CDBEEAAD8DE46A3 /* LocationListView.swift */; };
+		FA9141D1DA16A6FBF1653D36 /* LocationListPaginationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F751C81CDBEEAAD8DE46A3 /* LocationListPaginationViewController.swift */; };
 		FCA042771A4520449F9CCED4 /* EpisodeListPaginationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E14DD78B01B07A3BD9127 /* EpisodeListPaginationAssembly.swift */; };
 		FED986797086F516FC702D29 /* LocationListPaginationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DA0D5415A2D87A2152A2C /* LocationListPaginationRouter.swift */; };
 /* End PBXBuildFile section */
@@ -189,7 +189,7 @@
 		5BDBABB827F363701E81C37F /* EpisodeDetailsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsPresenter.swift; sourceTree = "<group>"; };
 		7EDD1C61E6FD2731116B07A9 /* LocationListPaginationAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationListPaginationAssembly.swift; sourceTree = "<group>"; };
 		86CB723AC76261C68A661B22 /* LocationListPaginationPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationListPaginationPresenter.swift; sourceTree = "<group>"; };
-		98F751C81CDBEEAAD8DE46A3 /* LocationListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		98F751C81CDBEEAAD8DE46A3 /* LocationListPaginationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationListPaginationViewController.swift; sourceTree = "<group>"; };
 		9FB6D3AAE961653493C43531 /* EpisodeListPaginationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListPaginationView.swift; sourceTree = "<group>"; };
 		B5B9157EE1556B105D7FBF06 /* CharacterListPaginationInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterListPaginationInteractor.swift; sourceTree = "<group>"; };
 		BE0E14DD78B01B07A3BD9127 /* EpisodeListPaginationAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeListPaginationAssembly.swift; sourceTree = "<group>"; };
@@ -218,6 +218,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000C896226FD02090066E7B1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				00DDEE7925842ED000802CE9 /* EpisodeCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		002336EB2582B2F800D56B60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +306,6 @@
 		005F3B7025BD7BD400A39CAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00DDEE7925842ED000802CE9 /* EpisodeCollectionViewCell.swift */,
 				005F3B7125BD7C3000A39CAD /* CharacterImageView.swift */,
 			);
 			path = Views;
@@ -307,6 +314,7 @@
 		00785B1B26EA942900D6D66B /* EpisodeList */ = {
 			isa = PBXGroup;
 			children = (
+				000C896226FD02090066E7B1 /* Cell */,
 				006681AA25BDF2560097FC2D /* EpisodesList.storyboard */,
 				00DDEE7625842EAE00802CE9 /* EpisodeListViewController.swift */,
 				00785B1D26EA942900D6D66B /* EpisodeListPresenter.swift */,
@@ -540,7 +548,7 @@
 			children = (
 				00B8DAD326F298D100C9BFAC /* Cell */,
 				00B8DAD126F298C800C9BFAC /* LocationListPagination.storyboard */,
-				98F751C81CDBEEAAD8DE46A3 /* LocationListView.swift */,
+				98F751C81CDBEEAAD8DE46A3 /* LocationListPaginationViewController.swift */,
 				86CB723AC76261C68A661B22 /* LocationListPaginationPresenter.swift */,
 				14F51D1F7F5BF58D7358349F /* LocationListPaginationInteractor.swift */,
 				4C1DA0D5415A2D87A2152A2C /* LocationListPaginationRouter.swift */,
@@ -763,7 +771,7 @@
 				08DA91F52215BF8EFEE82FD5 /* HomeInteractor.swift in Sources */,
 				27B4E1CE0EC29E9E012795AF /* HomeRouter.swift in Sources */,
 				6249098ECA20997645CC3A41 /* HomeAssembly.swift in Sources */,
-				FA9141D1DA16A6FBF1653D36 /* LocationListView.swift in Sources */,
+				FA9141D1DA16A6FBF1653D36 /* LocationListPaginationViewController.swift in Sources */,
 				BC80BEAA910CCEE2683F953F /* LocationListPaginationPresenter.swift in Sources */,
 				AF86EB25BC34F51CF07352D5 /* LocationListPaginationInteractor.swift in Sources */,
 				FED986797086F516FC702D29 /* LocationListPaginationRouter.swift in Sources */,

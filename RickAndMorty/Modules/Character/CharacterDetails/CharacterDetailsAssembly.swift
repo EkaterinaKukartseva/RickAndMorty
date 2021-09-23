@@ -10,6 +10,7 @@ import Foundation
 // MARK: - CharacterDetailsAssemblyProtocol
 protocol CharacterDetailsAssemblyProtocol {
     
+    /// Собрать модуль `CharacterDetails`
     func configure(with viewController: CharacterDetailsViewController)
 }
 

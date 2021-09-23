@@ -13,12 +13,16 @@ protocol EpisodeDetailsInteractorInputProtocol: AnyObject {
 
     init(presenter: EpisodeDetailsInteractorOutputProtocol)
     
+    /// Получить информацию о серии
+    /// - Parameter id: id серии
     func provideEpisode(with id: Int)
 }
 
 // MARK: - EpisodeDetailsInteractorOutputProtocol
 protocol EpisodeDetailsInteractorOutputProtocol {
     
+    /// Получена информация о серии
+    /// - Parameter episode: модель серии
     func receiveEpisode(_ episode: EpisodeModel)
 }
 

@@ -12,7 +12,9 @@ protocol CharacterListRouterProtocol {
     
     init(viewController: CharacterListViewController)
     
-    func openCharacterDetails(with id: Int)
+    /// Открыть экран с детальной информацией о персонаже
+    /// - Parameter id: id персонажа
+    func openCharacterDetailsModule(with id: Int)
 }
 
 // MARK: - CharacterListRouter + CharacterListRouterProtocol
@@ -24,7 +26,7 @@ class CharacterListRouter: CharacterListRouterProtocol {
         self.viewController = viewController
     }
     
-    func openCharacterDetails(with id: Int) {
+    func openCharacterDetailsModule(with id: Int) {
         viewController?.performSegue(withIdentifier: "showResident", sender: id)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: -
+// MARK: - LocationDetails
 struct LocationDetails {
     
     let id: Int
@@ -19,7 +19,7 @@ struct LocationDetails {
     let created: String
 }
 
-// MARK: -
+// MARK: - LocationDetailsPresenter
 class LocationDetailsPresenter: LocationDetailsViewOutputProtocol {
 
     private let view: LocationDetailsViewInputProtocol?
@@ -36,14 +36,15 @@ class LocationDetailsPresenter: LocationDetailsViewOutputProtocol {
         interactor.provideLocation(with: url)
     }
     
-    func openCharacterListModule() {
-        router.openCharacterList(with: location.characterUrls.compactMap {
+    func openCharacterList() {
+        router.openCharacterListModule(with: location.characterUrls.compactMap {
             let id = $0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
             return Int(id)
         })
     }
 }
 
+// MARK: - LocationDetailsPresenter + LocationDetailsInteractorOutputProtocol
 extension LocationDetailsPresenter: LocationDetailsInteractorOutputProtocol {
     
     func receiveLocation(_ location: LocationDetails) {

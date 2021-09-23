@@ -31,7 +31,7 @@ final class EpisodeListPaginationPresenter: EpisodeListPaginationViewOutputProto
     }
     
     func showEpisodeDetails(with id: Int) {
-        router.openEpisodeDetails(with: id)
+        router.openEpisodeDetailsModule(with: id)
     }
 }
 
@@ -43,6 +43,7 @@ extension EpisodeListPaginationPresenter: EpisodeListPaginationInteractorOutputP
     }
 }
 
+// MARK: - InfoEpisode + init
 private extension InfoEpisode {
     
     init(model: InfoEpisodeModel) {
@@ -51,6 +52,7 @@ private extension InfoEpisode {
     }
 }
 
+// MARK: - Episode + init
 private extension Episode {
     
     init(model: EpisodeModel) {

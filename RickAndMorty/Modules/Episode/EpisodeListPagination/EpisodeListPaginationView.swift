@@ -11,7 +11,9 @@ import UIKit
 // MARK: - EpisodeListPaginationViewInputProtocol
 protocol EpisodeListPaginationViewInputProtocol: AnyObject {
     
-    func setEpisodeList(_ list: InfoEpisode)
+    /// Получена информация о странице с сериями
+    /// - Parameter info: информация о странице
+    func setEpisodeList(_ info: InfoEpisode)
 }
 
 // MARK: - EpisodeListPaginationViewOutputProtocol
@@ -19,8 +21,12 @@ protocol EpisodeListPaginationViewOutputProtocol {
     
     init(view: EpisodeListPaginationViewInputProtocol)
     
+    /// Показать список серий по страницам
+    /// - Parameter page: номер страницы
     func showEpisodeList(by page: Int)
     
+    /// Показать детальную инфориацию о серии
+    /// - Parameter id: id серии
     func showEpisodeDetails(with id: Int)
 }
 

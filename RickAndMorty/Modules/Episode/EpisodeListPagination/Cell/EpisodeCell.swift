@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - EpisodeCell
 class EpisodeCell: UITableViewCell {
     
     @IBOutlet var episode: UILabel!
@@ -24,5 +25,4 @@ class EpisodeCell: UITableViewCell {
         self.name.text = model.name
         self.episode.text = model.episode
     }
-    
 }

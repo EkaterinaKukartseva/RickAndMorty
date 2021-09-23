@@ -13,7 +13,9 @@ protocol EpisodeDetailsRouterProtocol {
     
     init(viewController: EpisodeDetailsViewController)
     
-    func openCharacterList(with ids: [Int])
+    /// Открыть экран со списком персонажей
+    /// - Parameter ids: ids персонажей
+    func openCharacterListModule(with ids: [Int])
 }
 
 // MARK: - EpisodeDetailsRouter + EpisodeDetailsRouterProtocol
@@ -25,7 +27,7 @@ final class EpisodeDetailsRouter: EpisodeDetailsRouterProtocol {
         self.viewController = viewController
     }
     
-    func openCharacterList(with ids: [Int]) {
+    func openCharacterListModule(with ids: [Int]) {
         viewController?.performSegue(withIdentifier: "characterList", sender: ids)
     }
 }

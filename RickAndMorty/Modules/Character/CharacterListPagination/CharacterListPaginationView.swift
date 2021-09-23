@@ -11,7 +11,9 @@ import UIKit
 // MARK: - CharacterListPaginationViewInputProtocol
 protocol CharacterListPaginationViewInputProtocol: AnyObject {
     
-    func setCharacterList(_ list: InfoCharacter)
+    /// Получена информация о странице с персонажами
+    /// - Parameter info: информация о странице
+    func setCharacterList(_ info: InfoCharacter)
 }
 
 // MARK: - CharacterListPaginationViewOutputProtocol
@@ -19,8 +21,12 @@ protocol CharacterListPaginationViewOutputProtocol {
     
     init(view: CharacterListPaginationViewInputProtocol)
     
+    /// Показать список персонажей по страницам
+    /// - Parameter page: номер страницы
     func showAllCharacterList(by page: Int)
     
+    /// Показать детальную инфориацию о персонаже
+    /// - Parameter id: id персонажа
     func showCharacterDetails(with id: Int)
 }
 

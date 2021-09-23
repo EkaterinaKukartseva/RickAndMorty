@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - CharacterTableViewCell
 class CharacterTableViewCell: UITableViewCell {
     
     @IBOutlet var characterImageView: CharacterImageView! {

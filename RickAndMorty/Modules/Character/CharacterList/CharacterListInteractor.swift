@@ -12,12 +12,16 @@ protocol CharacterListInteractorInputProtocol {
     
     init(presenter: CharacterListInteractorOutputProtocol)
     
+    /// Получить список персонажей
+    /// - Parameter ids: ids персонажей
     func provideCharacterList(with ids: [Int])
 }
 
 // MARK: - CharacterListInteractorOutputProtocol
 protocol CharacterListInteractorOutputProtocol: AnyObject {
     
+    /// Получен список персонажей
+    /// - Parameter list: список персонажей
     func receiveCharacterList(_ list: [Character])
 }
 

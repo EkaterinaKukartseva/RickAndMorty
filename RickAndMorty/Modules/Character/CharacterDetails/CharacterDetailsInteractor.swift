@@ -12,12 +12,16 @@ protocol CharacterDetailsInteractorInputProtocol {
     
     init(presenter: CharacterDetailsInteractorOutputProtocol)
     
+    /// Получить информацию о персонаже
+    /// - Parameter id: id персонажа
     func provideCharacter(with id: Int)
 }
 
 // MARK: - CharacterInteractorOutputProtocol
 protocol CharacterDetailsInteractorOutputProtocol: AnyObject {
     
+    /// Получена информация о персонаже
+    /// - Parameter location: модель персонажа
     func receiveCharacter(_ character: CharacterDetails)
 }
 

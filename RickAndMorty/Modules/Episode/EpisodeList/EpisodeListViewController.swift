@@ -10,6 +10,8 @@ import UIKit
 // MARK: - EpisodeListViewInputProtocol
 protocol EpisodeListViewInputProtocol: AnyObject {
     
+    /// Получен список серий
+    /// - Parameter list: список серий
     func setEpisodeList(_ list: [Episode])
 }
 
@@ -18,12 +20,16 @@ protocol EpisodeListViewOutputProtocol {
     
     init(view: EpisodeListViewInputProtocol)
     
-    func showAllEpisodeList()
-    
+    /// Показать список серий
+    /// - Parameter ids: ids серий
     func showEpisodeList(with ids: [Int])
     
+    /// Показать список серий
+    /// - Parameter id: id серии
     func showEpisodeList(with id: Int)
     
+    /// Показать детальную инфориацию о серии
+    /// - Parameter id: id серии
     func showEpisodeDetails(with id: Int)
 }
 
@@ -43,9 +49,7 @@ final class EpisodeListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        if ids.isEmpty {
-            presenter?.showAllEpisodeList()
-        } else if ids.count > 1 {
+        if ids.count > 1 {
             presenter?.showEpisodeList(with: ids)
         } else {
             presenter?.showEpisodeList(with: ids[0])

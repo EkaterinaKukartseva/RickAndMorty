@@ -11,6 +11,7 @@ import Foundation
 // MARK: - LocationListPaginationAssemblyProtocol
 protocol LocationListPaginationAssemblyProtocol {
     
+    /// Собрать модуль `LocationListPagination`
     func configure(with viewController: LocationListPaginationViewController)
 }
 

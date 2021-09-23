@@ -11,6 +11,7 @@ import Foundation
 // MARK: - CharacterListPaginationAssemblyProtocol
 protocol CharacterListPaginationAssemblyProtocol {
     
+    /// Собрать модуль `CharacterListPagination`
     func configure(with viewController: CharacterListPaginationViewController)
 }
 

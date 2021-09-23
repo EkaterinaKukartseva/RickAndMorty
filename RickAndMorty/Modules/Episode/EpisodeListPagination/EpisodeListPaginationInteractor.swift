@@ -13,12 +13,16 @@ protocol EpisodeListPaginationInteractorInputProtocol: AnyObject {
 
     init(presenter: EpisodeListPaginationInteractorOutputProtocol)
     
+    /// Получить список серий по страницам
+    /// - Parameter page: номер страницы
     func provideEpisodeList(by page: Int)
 }
 
 // MARK: - EpisodeListPaginationInteractorOutputProtocol
 protocol EpisodeListPaginationInteractorOutputProtocol {
     
+    /// Получена информация о странцице с сериями
+    /// - Parameter model: инфо страницы
     func receiveEpisodeList(_ model: InfoEpisodeModel)
 }
 

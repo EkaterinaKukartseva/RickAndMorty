@@ -10,6 +10,7 @@ import Foundation
 // MARK: - LocationDetailsAssemblyProtocol
 protocol LocationDetailsAssemblyProtocol {
     
+    /// Собрать модуль `Location`
     func configure(with viewController: LocationDetailsViewController)
 }
 

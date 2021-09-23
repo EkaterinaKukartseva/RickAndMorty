@@ -10,6 +10,8 @@ import UIKit
 // MARK: - CharacterDetailsViewInputProtocol
 protocol CharacterDetailsViewInputProtocol: AnyObject {
     
+    /// Получена информация об персонаже
+    /// - Parameter character: персонаж
     func setCharacter(_ character: CharacterDetails)
 }
 
@@ -18,12 +20,17 @@ protocol CharacterDetailsViewOutputProtocol {
     
     init(view: CharacterDetailsViewInputProtocol)
     
+    ///  Показать информацию об персонаже
+    /// - Parameter id: id персонажа
     func didTabShowCharacter(with id: Int)
     
+    /// Показать список серий
     func showEpisodeList()
     
+    /// Показать информация о местонахождении персонажа
     func showLocation()
     
+    /// Показать информацию о месте происхождения персонажа
     func showOrigin()
 }
 

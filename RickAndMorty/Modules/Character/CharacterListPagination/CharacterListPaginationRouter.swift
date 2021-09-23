@@ -13,7 +13,9 @@ protocol CharacterListPaginationRouterProtocol {
     
     init(viewController: CharacterListPaginationViewController)
     
-    func openCharacterDetails(with id: Int)
+    /// Открыть экран с детальной информацией о персонаже
+    /// - Parameter id: id персонажа
+    func openCharacterDetailsModule(with id: Int)
 }
 
 // MARK: - CharacterListPaginationRouter + CharacterListPaginationRouterProtocol
@@ -25,7 +27,7 @@ final class CharacterListPaginationRouter: CharacterListPaginationRouterProtocol
         self.viewController = viewController
     }
     
-    func openCharacterDetails(with id: Int) {
+    func openCharacterDetailsModule(with id: Int) {
         viewController?.performSegue(withIdentifier: "showResident", sender: id)
     }
 }

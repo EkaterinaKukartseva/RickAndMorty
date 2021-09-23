@@ -39,18 +39,18 @@ class CharacterDetailsPresenter: CharacterDetailsViewOutputProtocol {
     }
     
     func showEpisodeList() {
-        router.openEpisodeList(with: character.episode.compactMap {
+        router.openEpisodeListModule(with: character.episode.compactMap {
             let id = $0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
             return Int(id)
         })
     }
     
     func showLocation() {
-        router.openLocation(with: character.location.url)
+        router.openLocationDetailsModule(with: character.location.url)
     }
     
     func showOrigin() {
-        router.openOrigin(with: character.origin.url)
+        router.openOriginDetailsModule(with: character.origin.url)
     }
 }
 

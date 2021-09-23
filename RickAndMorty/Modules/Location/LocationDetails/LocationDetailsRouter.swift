@@ -11,7 +11,9 @@ protocol LocationDetailsRouterProtocol {
     
     init(viewController: LocationDetailsViewController)
     
-    func openCharacterList(with ids: [Int])
+    /// Открыть экран со списком персонажей
+    /// - Parameter ids: ids персонажей
+    func openCharacterListModule(with ids: [Int])
 }
 
 class LocationDetailsRouter: LocationDetailsRouterProtocol {
@@ -22,7 +24,7 @@ class LocationDetailsRouter: LocationDetailsRouterProtocol {
         self.viewController = viewController
     }
     
-    func openCharacterList(with ids: [Int]) {
+    func openCharacterListModule(with ids: [Int]) {
         viewController?.performSegue(withIdentifier: "showCharacterList", sender: ids)
     }
 }

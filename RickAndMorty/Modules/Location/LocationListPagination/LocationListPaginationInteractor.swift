@@ -21,8 +21,8 @@ protocol LocationListPaginationInteractorInputProtocol: AnyObject {
 // MARK: - LocationListPaginationInteractorOutputProtocol
 protocol LocationListPaginationInteractorOutputProtocol {
     
-    /// Получить список локаций
-    /// - Parameter info: информация о странице со списком локаций
+    /// Получена информация о странцице  с локациями
+    /// - Parameter info: инфо страницы
     func receiveLocationList(_ info: InfoLocationModel)
 }
 

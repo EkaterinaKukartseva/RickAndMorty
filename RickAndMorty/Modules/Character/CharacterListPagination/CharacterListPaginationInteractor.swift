@@ -13,12 +13,16 @@ protocol CharacterListPaginationInteractorInputProtocol: AnyObject {
 
     init(presenter: CharacterListPaginationInteractorOutputProtocol)
     
+    /// Получить список персонажей по страницам
+    /// - Parameter page: номер страницы
     func provideCharacterList(by page: Int)
 }
 
 // MARK: - CharacterListPaginationInteractorOutputProtocol
 protocol CharacterListPaginationInteractorOutputProtocol {
     
+    /// Получена информация о странцице с персонажами
+    /// - Parameter model: инфо страницы
     func receiveCharacterList(_ list: InfoCharacterModel)
 }
 

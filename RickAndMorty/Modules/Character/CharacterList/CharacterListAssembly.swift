@@ -10,6 +10,7 @@ import Foundation
 // MARK: - CharacterListAssemblyProtocol
 protocol CharacterListAssemblyProtocol {
     
+    /// Собрать модуль `CharacterList`
     func configure(with viewController: CharacterListViewController)
 }
 

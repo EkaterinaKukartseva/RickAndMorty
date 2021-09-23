@@ -11,6 +11,8 @@ import UIKit
 // MARK: - EpisodeDetailsViewInputProtocol
 protocol EpisodeDetailsViewInputProtocol: AnyObject {
     
+    /// Получена информация о серии
+    /// - Parameter content: серия
     func setEpisode(_ content: EpisodeDetails)
 }
 
@@ -19,8 +21,11 @@ protocol EpisodeDetailsViewOutputProtocol {
     
     init(view: EpisodeDetailsViewInputProtocol)
     
+    ///  Показать информацию о серии
+    /// - Parameter id: id серии
     func didTabShowEpisode(with id: Int)
     
+    /// Показать список персонажей
     func showCharacterList()
 }
 

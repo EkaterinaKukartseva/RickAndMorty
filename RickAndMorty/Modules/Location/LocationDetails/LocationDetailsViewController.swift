@@ -10,8 +10,8 @@ import UIKit
 // MARK: - LocationDetailsViewInputProtocol
 protocol LocationDetailsViewInputProtocol: AnyObject {
     
-    /// Получить информацию о локации
-    /// - Parameter location: локацию
+    /// Получена информация о локации
+    /// - Parameter location: локация
     func setLocation(_ location: LocationDetails)
 }
 
@@ -20,12 +20,12 @@ protocol LocationDetailsViewOutputProtocol {
     
     init(view: LocationDetailsViewInputProtocol)
     
-    /// Отобразить информацию о локации
+    /// Показать информацию о локации
     /// - Parameter url: url локации
     func showLocation(with url: String)
     
-    /// Открыть экран со списком участников
-    func openCharacterListModule()
+    /// Показать список персонажей
+    func openCharacterList()
 }
 
 // MARK: - LocationDetailsViewController
@@ -40,6 +40,7 @@ class LocationDetailsViewController: UIViewController {
     @IBOutlet var type: UILabel!
     @IBOutlet var dimension: UILabel!
     
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
@@ -47,7 +48,7 @@ class LocationDetailsViewController: UIViewController {
     }
     
     @IBAction func characterViewTap(_ sender: UIButton) {
-        presenter?.openCharacterListModule()
+        presenter?.openCharacterList()
     }
     
     // MARK: - Navigation

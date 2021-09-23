@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - EpisodeDetails
 struct EpisodeDetails {
     
     let name: String
@@ -34,7 +35,7 @@ final class EpisodeDetailsPresenter: EpisodeDetailsViewOutputProtocol {
     }
     
     func showCharacterList() {
-        router.openCharacterList(with: episode.characters.compactMap({Int($0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression))}))
+        router.openCharacterListModule(with: episode.characters.compactMap({Int($0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression))}))
     }
 }
 

@@ -13,7 +13,9 @@ protocol EpisodeListRouterProtocol {
     
     init(viewController: EpisodeListViewController)
     
-    func openEpisodeDetails(with: Int)
+    /// Открыть экран с детальной информацией о серии
+    /// - Parameter id: id серии
+    func openEpisodeDetailsModule(with id: Int)
 }
 
 // MARK: - EpisodeListRouter + EpisodeListRouterProtocol
@@ -25,7 +27,7 @@ final class EpisodeListRouter: EpisodeListRouterProtocol {
         self.viewController = viewController
     }
     
-    func openEpisodeDetails(with id: Int) {
+    func openEpisodeDetailsModule(with id: Int) {
         viewController?.performSegue(withIdentifier: "showEpisode", sender: id)
     }
 }

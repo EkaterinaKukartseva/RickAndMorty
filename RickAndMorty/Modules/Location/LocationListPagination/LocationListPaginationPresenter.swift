@@ -39,7 +39,7 @@ final class LocationListPaginationPresenter: LocationListPaginationViewOutputPro
         interactor.provideLocationList(by: page)
     }
     
-    func openLocationDetailsModule(with url: String) {
+    func openLocationDetails(with url: String) {
         router.openLocationDetailsModule(with: url)
     }
 }

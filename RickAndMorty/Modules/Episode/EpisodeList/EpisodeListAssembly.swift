@@ -11,6 +11,7 @@ import Foundation
 // MARK: - EpisodeListAssemblyProtocol
 protocol EpisodeListAssemblyProtocol {
     
+    /// Собрать модуль `EpisodeList`
     func configure(with viewController: EpisodeListViewController)
 }
 

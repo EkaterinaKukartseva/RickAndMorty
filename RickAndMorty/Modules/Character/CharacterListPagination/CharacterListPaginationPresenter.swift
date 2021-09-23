@@ -50,7 +50,7 @@ final class CharacterListPaginationPresenter: CharacterListPaginationViewOutputP
     }
     
     func showCharacterDetails(with id: Int) {
-        router.openCharacterDetails(with: id)
+        router.openCharacterDetailsModule(with: id)
     }
 }
 

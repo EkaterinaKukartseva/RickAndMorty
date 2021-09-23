@@ -13,7 +13,9 @@ protocol EpisodeListPaginationRouterProtocol {
     
     init(viewController: EpisodeListPaginationViewController)
     
-    func openEpisodeDetails(with id: Int)
+    /// Открыть экран с детальной информацией о серии
+    /// - Parameter id: id серии
+    func openEpisodeDetailsModule(with id: Int)
 }
 
 // MARK: - EpisodeListPaginationRouter + EpisodeListPaginationRouterProtocol
@@ -25,7 +27,7 @@ final class EpisodeListPaginationRouter: EpisodeListPaginationRouterProtocol {
         self.viewController = viewController
     }
     
-    func openEpisodeDetails(with id: Int) {
+    func openEpisodeDetailsModule(with id: Int) {
         viewController?.performSegue(withIdentifier: "showEpisode", sender: id)
     }
 }

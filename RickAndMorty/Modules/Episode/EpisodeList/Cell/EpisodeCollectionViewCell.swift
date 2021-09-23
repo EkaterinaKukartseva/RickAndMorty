@@ -7,8 +7,8 @@
 
 import UIKit
 
+// MARK: - EpisodeCollectionViewCell
 class EpisodeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var episode: UILabel!
-    
 }

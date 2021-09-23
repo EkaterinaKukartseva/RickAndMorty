@@ -11,6 +11,7 @@ import Foundation
 // MARK: - EpisodeDetailsAssemblyProtocol
 protocol EpisodeDetailsAssemblyProtocol {
     
+    /// Собрать модуль `Episode`
     func configure(with viewController: EpisodeDetailsViewController)
 }
 

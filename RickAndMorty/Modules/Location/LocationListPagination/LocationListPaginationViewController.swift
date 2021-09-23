@@ -11,7 +11,7 @@ import UIKit
 // MARK: - LocationListPaginationViewInputProtocol
 protocol LocationListPaginationViewInputProtocol: AnyObject {
     
-    /// Получить список локаций
+    /// Получен список локаций
     /// - Parameter info: информация о странице со списком локаций
     func setLocationList(_ info: InfoLocation)
 }
@@ -25,9 +25,9 @@ protocol LocationListPaginationViewOutputProtocol {
     /// - Parameter page: номер страницы
     func showLocationList(by page: Int)
     
-    /// Открыть экран с детальной информацией о локации
+    /// Показать детальную информацию о локации
     /// - Parameter url: url локации
-    func openLocationDetailsModule(with url: String)
+    func openLocationDetails(with url: String)
 }
 
 // MARK: - LocationListPaginationViewController
@@ -86,7 +86,7 @@ extension LocationListPaginationViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
-        presenter?.openLocationDetailsModule(with: location.url)
+        presenter?.openLocationDetails(with: location.url)
     }
 }
 

@@ -12,12 +12,16 @@ protocol LocationDetailsInteractorInputProtocol {
     
     init(presenter: LocationDetailsInteractorOutputProtocol)
     
+    /// Получить информацию о локации
+    /// - Parameter url: url локации
     func provideLocation(with url: String)
 }
 
 // MARK: - LocationDetailsInteractorOutputProtocol
 protocol LocationDetailsInteractorOutputProtocol: AnyObject {
     
+    /// Получена информация о локации
+    /// - Parameter location: модель локации
     func receiveLocation(_ location: LocationDetails)
 }
 
