@@ -22,7 +22,7 @@ protocol CharacterListInteractorOutputProtocol: AnyObject {
     
     /// Получен список персонажей
     /// - Parameter list: список персонажей
-    func receiveCharacterList(_ list: [Character])
+    func receiveCharacterList(_ list: [CharacterModel])
 }
 
 // MARK: - CharacterListInteractor + CharacterListInteractorInputProtocol
@@ -38,9 +38,7 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
         client.character().fetchCharacters(byID: ids) { result in
             switch result {
             case .success(let model):
-                self.presenter?.receiveCharacterList(model.map({
-                    Character(id: $0.id, name: $0.name, image: $0.image, status: $0.status, gender: $0.gender)
-                }))
+                self.presenter?.receiveCharacterList(model)
             case.failure(let error):
                 print("ERROR \(error.localizedDescription)")
             }
@@ -51,9 +49,7 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
         client.character().fetchAllCharacters { result in
             switch result {
             case .success(let model):
-                self.presenter?.receiveCharacterList(model.results.map({
-                    Character(id: $0.id, name: $0.name, image: $0.image, status: $0.status, gender: $0.gender)
-                }))
+                self.presenter?.receiveCharacterList(model.results)
             case.failure(let error):
                 print("ERROR \(error.localizedDescription)")
             }

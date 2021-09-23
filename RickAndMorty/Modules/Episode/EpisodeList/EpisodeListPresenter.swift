@@ -44,10 +44,20 @@ final class EpisodeListPresenter: EpisodeListViewOutputProtocol {
 extension EpisodeListPresenter: EpisodeListInteractorOutputProtocol {
 
     func receiveEpisodeList(_ list: [EpisodeModel]) {
-        view?.setEpisodeList(list.map({ Episode(id: $0.id, name: $0.name, episode: $0.episode)}))
+        view?.setEpisodeList(list.map({ Episode(model: $0)}))
     }
     
     func receiveEpisodeList(_ episode: EpisodeModel) {
-        view?.setEpisodeList([Episode(id: episode.id, name: episode.name, episode: episode.episode)])
+        view?.setEpisodeList([Episode(model: episode)])
+    }
+}
+
+// MARK: - InfoEpisode + init
+private extension Episode {
+    
+    init(model: EpisodeModel) {
+        self.id = model.id
+        self.name = model.name
+        self.episode = model.episode
     }
 }

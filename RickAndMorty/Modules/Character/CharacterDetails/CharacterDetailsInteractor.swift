@@ -22,7 +22,7 @@ protocol CharacterDetailsInteractorOutputProtocol: AnyObject {
     
     /// Получена информация о персонаже
     /// - Parameter location: модель персонажа
-    func receiveCharacter(_ character: CharacterDetails)
+    func receiveCharacter(_ character: CharacterModel)
 }
 
 // MARK: - CharacterDetailsInteractor + CharacterDetailsInteractorInputProtocol
@@ -38,16 +38,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
         client.character().fetchCharacter(byID: id) { (result) in
             switch result {
             case .success(let model):
-                let character = CharacterDetails(name: model.name,
-                                              status: model.status,
-                                              species: model.species,
-                                              type: model.type,
-                                              gender: model.gender,
-                                              episode: model.episode,
-                                              origin: model.origin,
-                                              location: model.location,
-                                              image: model.image)
-                self.presenter?.receiveCharacter(character)
+                self.presenter?.receiveCharacter(model)
             case.failure(let error):
                 print("ERROR \(error.localizedDescription)")
             }

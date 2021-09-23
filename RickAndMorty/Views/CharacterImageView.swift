@@ -34,18 +34,18 @@ class CharacterImageView: UIImageView {
                 print("ERROR \(error.localizedDescription)")
             }
         }
-        
     }
     
+    /// Получить изображение из кэша
     private func getCahedImage(from url:URL) -> UIImage? {
         let urlRequest = URLRequest(url: url)
-        
         if let cachedResponse = URLCache.shared.cachedResponse(for: urlRequest) {
             return UIImage(data: cachedResponse.data)
         }
         return nil
     }
     
+    /// Загрузить изображение
     private func saveDataToCache(with data: Data, and response: URLResponse){
         guard let url = response.url else { return }
         let urlRequest = URLRequest(url: url)

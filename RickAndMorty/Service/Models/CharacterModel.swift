@@ -9,12 +9,14 @@ import Foundation
 
 // MARK: - InfoCharacterModel
 struct InfoCharacterModel: Codable {
+    
     let info: InfoModel
     let results: [CharacterModel]
 }
 
 // MARK: - Info
 struct InfoModel: Codable {
+    
     let count: Int
     let pages: Int
     let next: String?
@@ -23,6 +25,7 @@ struct InfoModel: Codable {
 
 // MARK: - CharacterModel
 struct CharacterModel: Codable {
+    
     let id: Int
     let name: String
     let status: String
@@ -39,12 +42,14 @@ struct CharacterModel: Codable {
 
 // MARK: - CharacterOriginModel
 public struct CharacterOriginModel: Codable {
+    
     public let name: String
     public let url: String
 }
 
 // MARK: - CharacterLocationModel
 public struct CharacterLocationModel: Codable {
+    
     public let name: String
     public let url: String
 }

@@ -9,12 +9,14 @@ import Foundation
 
 // MARK: - InfoLocationModel
 struct InfoLocationModel: Codable {
+    
     let info: InfoModel
     let results: [LocationModel]
 }
 
 // MARK: - LocationModel
 struct LocationModel: Codable {
+    
     let id: Int
     let name: String
     let type: String
@@ -26,6 +28,7 @@ struct LocationModel: Codable {
 
 // MARK: - LocationFilter
 struct LocationFilter {
+    
     let name: String
     let type: String
     let dimension: String

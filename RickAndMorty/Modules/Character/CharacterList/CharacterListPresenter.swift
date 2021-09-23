@@ -40,7 +40,28 @@ class CharacterListPresenter: CharacterListViewOutputProtocol {
 // MARK: - CharacterListPresenter + CharacterListInteractorOutputProtocol
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     
-    func receiveCharacterList(_ list: [Character]) {
-        view?.setCharacterList(list)
+    func receiveCharacterList(_ list: [CharacterModel]) {
+        view?.setCharacterList(list.map { Character(model: $0) })
+    }
+}
+
+// MARK: - InfoLocation private
+private extension InfoCharacter {
+    
+    init(model: InfoCharacterModel) {
+        self.info = .init(info: model.info)
+        self.results = model.results.map { .init(model: $0) }
+    }
+}
+
+// MARK: - Location private
+private extension Character {
+    
+    init(model: CharacterModel) {
+        self.id = model.id
+        self.name = model.name
+        self.image = model.image
+        self.gender = model.gender
+        self.status = model.status
     }
 }

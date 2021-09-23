@@ -24,8 +24,10 @@ struct LocationService {
         networkManager.performRequest(withURLString: urlString) { result in
             switch result {
             case .success(let data):
-                if let model: LocationModel = self.networkManager.decodeJSONData(data: data) {
-                    completion(.success(model))
+                DispatchQueue.main.async {
+                    if let model: LocationModel = self.networkManager.decodeJSONData(data: data) {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -59,8 +61,10 @@ struct LocationService {
         networkManager.performRequest(withURLString: urlString) { result in
             switch result {
             case .success(let data):
-                if let model: [LocationModel] = self.networkManager.decodeJSONData(data: data) {
-                    completion(.success(model))
+                DispatchQueue.main.async {
+                    if let model: [LocationModel] = self.networkManager.decodeJSONData(data: data) {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -114,8 +118,10 @@ struct LocationService {
         networkManager.performRequest(withURLString: urlString) { (result) in
             switch result {
             case .success(let data):
-                if let model: InfoLocationModel = self.networkManager.decodeJSONData(data: data) {
-                    completion(.success(model))
+                DispatchQueue.main.async {
+                    if let model: InfoLocationModel = self.networkManager.decodeJSONData(data: data) {
+                        completion(.success(model))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error))

@@ -47,8 +47,21 @@ class LocationDetailsPresenter: LocationDetailsViewOutputProtocol {
 // MARK: - LocationDetailsPresenter + LocationDetailsInteractorOutputProtocol
 extension LocationDetailsPresenter: LocationDetailsInteractorOutputProtocol {
     
-    func receiveLocation(_ location: LocationDetails) {
-        self.location = location
-        view?.setLocation(location)
+    func receiveLocation(_ location: LocationModel) {
+        self.location = LocationDetails(model: location)
+        view?.setLocation(self.location)
+    }
+}
+
+private extension LocationDetails {
+    
+    init(model: LocationModel) {
+        self.id = model.id
+        self.name = model.name
+        self.type = model.type
+        self.dimension = model.dimension
+        self.characterUrls = model.residents
+        self.url = model.url
+        self.created = model.created
     }
 }

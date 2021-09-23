@@ -43,10 +43,18 @@ final class EpisodeDetailsPresenter: EpisodeDetailsViewOutputProtocol {
 extension EpisodeDetailsPresenter: EpisodeDetailsInteractorOutputProtocol {
     
     func receiveEpisode(_ episode: EpisodeModel) {
-        self.episode = EpisodeDetails(name: episode.name,
-                                      airDate: episode.airDate,
-                                      episode: episode.episode,
-                                      characters: episode.characters)
+        self.episode = EpisodeDetails(model: episode)
         view?.setEpisode(self.episode)
+    }
+}
+
+// MARK: - EpisodeDetails + init
+private extension EpisodeDetails {
+    
+    init(model: EpisodeModel) {
+        self.name = model.name
+        self.episode = model.episode
+        self.airDate = model.airDate
+        self.characters = model.characters
     }
 }

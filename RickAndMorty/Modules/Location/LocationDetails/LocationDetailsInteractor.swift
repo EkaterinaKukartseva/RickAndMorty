@@ -22,7 +22,7 @@ protocol LocationDetailsInteractorOutputProtocol: AnyObject {
     
     /// Получена информация о локации
     /// - Parameter location: модель локации
-    func receiveLocation(_ location: LocationDetails)
+    func receiveLocation(_ location: LocationModel)
 }
 
 // MARK: -
@@ -38,14 +38,7 @@ class LocationDetailsInteractor: LocationDetailsInteractorInputProtocol {
         client.location().fetchLocation(byURL: url) { [unowned self] (result) in
             switch result {
             case .success(let model):
-                let location = LocationDetails(id: model.id,
-                                               name: model.name,
-                                               type: model.type,
-                                               dimension: model.dimension,
-                                               characterUrls: model.residents,
-                                               url: model.url,
-                                               created: model.created)
-                self.presenter?.receiveLocation(location)
+                self.presenter?.receiveLocation(model)
             case .failure(let error):
                 print("ERROR \(error.localizedDescription)")
             }

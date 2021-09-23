@@ -57,8 +57,24 @@ class CharacterDetailsPresenter: CharacterDetailsViewOutputProtocol {
 // MARK: - CharacterDetailsPresenter + CharacterDetailsInteractorOutputProtocol
 extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
     
-    func receiveCharacter(_ character: CharacterDetails) {
-        self.character = character
-        view?.setCharacter(character)
+    func receiveCharacter(_ character: CharacterModel) {
+        self.character = CharacterDetails(model: character)
+        view?.setCharacter(self.character)
+    }
+}
+
+// MARK: - CharacterDetails + init
+private extension CharacterDetails {
+    
+    init(model: CharacterModel) {
+        self.name = model.name
+        self.status = model.status
+        self.species = model.species
+        self.type = model.type
+        self.gender = model.gender
+        self.episode = model.episode
+        self.origin = model.origin
+        self.location = model.location
+        self.image = model.image
     }
 }

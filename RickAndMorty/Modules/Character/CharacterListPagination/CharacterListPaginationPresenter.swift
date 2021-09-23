@@ -58,7 +58,27 @@ final class CharacterListPaginationPresenter: CharacterListPaginationViewOutputP
 extension CharacterListPaginationPresenter: CharacterListPaginationInteractorOutputProtocol {
     
     func receiveCharacterList(_ list: InfoCharacterModel) {
-        view?.setCharacterList(.init(info: .init(count: list.info.count, pages: list.info.pages, next: list.info.next, prev: list.info.prev),
-                                     results: list.results.map({ Character(id: $0.id, name: $0.name, image: $0.image, status: $0.status, gender: $0.gender) })))
+        view?.setCharacterList(InfoCharacter(model: list))
+    }
+}
+
+// MARK: - InfoLocation private
+private extension InfoCharacter {
+    
+    init(model: InfoCharacterModel) {
+        self.info = .init(info: model.info)
+        self.results = model.results.map { .init(model: $0) }
+    }
+}
+
+// MARK: - Location private
+private extension Character {
+    
+    init(model: CharacterModel) {
+        self.id = model.id
+        self.name = model.name
+        self.image = model.image
+        self.gender = model.gender
+        self.status = model.status
     }
 }
