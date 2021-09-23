@@ -102,19 +102,7 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? CharacterDetailsViewController, let id = sender as? Int {
-            destination.characterId = id
-        } else
-        
-        if let destination = segue.destination as? LocationDetailsViewController, let location = sender as? LocationModel {
-//            destination.location = location
-        } else
-        
-        if let destination = segue.destination as? EpisodeDetailsViewController, let episode = sender as? EpisodeModel {
-//            destination.episodeModel = episode
-        }
     }
-    
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -148,7 +136,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: characterReuseIdentifier, for: indexPath) as! CharacterTableViewCell
-            let character = characters[indexPath.row]
+//            let character = characters[indexPath.row]
 //            cell.configure(model: character)
             
             cell.prepareForReuse()
@@ -161,8 +149,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: locationReuseIdentifier, for: indexPath) as! LocationCell
-            let location = locations[indexPath.row]
-            cell.configure(model: location)
+//            let location = locations[indexPath.row]
+//            cell.configure(model: location)
             
             cell.prepareForReuse()
             return cell
@@ -174,7 +162,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: episodeReuseIdentifier, for: indexPath) as! EpisodeCell
-            let episode = episodes[indexPath.row]
+//            let episode = episodes[indexPath.row]
 //            cell.configure(model: episode)
             return cell
         default:

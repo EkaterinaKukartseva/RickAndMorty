@@ -24,7 +24,7 @@ protocol CharacterDetailsInteractorOutputProtocol: AnyObject {
 // MARK: - CharacterDetailsInteractor + CharacterDetailsInteractorInputProtocol
 class CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
     
-    unowned let presenter: CharacterDetailsInteractorOutputProtocol
+    private let presenter: CharacterDetailsInteractorOutputProtocol?
     
     required init(presenter: CharacterDetailsInteractorOutputProtocol) {
         self.presenter = presenter
@@ -43,7 +43,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
                                               origin: model.origin,
                                               location: model.location,
                                               image: model.image)
-                self.presenter.receiveCharacter(character)
+                self.presenter?.receiveCharacter(character)
             case.failure(let error):
                 print("ERROR \(error.localizedDescription)")
             }

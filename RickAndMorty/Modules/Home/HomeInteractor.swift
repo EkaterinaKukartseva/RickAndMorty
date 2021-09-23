@@ -20,7 +20,7 @@ protocol HomeInteractorOutputProtocol {}
 // MARK: - HomeInteractor
 final class HomeInteractor: HomeInteractorInputProtocol {
 
-    var presenter: HomeInteractorOutputProtocol?
+    private let presenter: HomeInteractorOutputProtocol?
 
     required init(presenter: HomeInteractorOutputProtocol) {
         self.presenter = presenter

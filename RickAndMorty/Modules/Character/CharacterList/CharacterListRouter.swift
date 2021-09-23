@@ -18,13 +18,13 @@ protocol CharacterListRouterProtocol {
 // MARK: - CharacterListRouter + CharacterListRouterProtocol
 class CharacterListRouter: CharacterListRouterProtocol {
 
-    unowned let viewController: CharacterListViewController
+    private let viewController: CharacterListViewController?
     
     required init(viewController: CharacterListViewController) {
         self.viewController = viewController
     }
     
     func openCharacterDetails(with id: Int) {
-        viewController.performSegue(withIdentifier: "showResident", sender: id)
+        viewController?.performSegue(withIdentifier: "showResident", sender: id)
     }
 }

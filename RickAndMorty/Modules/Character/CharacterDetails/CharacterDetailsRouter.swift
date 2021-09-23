@@ -20,21 +20,21 @@ protocol CharacterDetailsRouterProtocol {
 
 class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
 
-    unowned let viewController: CharacterDetailsViewController
+    private let viewController: CharacterDetailsViewController?
     
     required init(viewController: CharacterDetailsViewController) {
         self.viewController = viewController
     }
     
     func openEpisodeList(with ids: [Int]) {
-        viewController.performSegue(withIdentifier: "showEpisodeList", sender: ids)
+        viewController?.performSegue(withIdentifier: "showEpisodeList", sender: ids)
     }
     
     func openLocation(with url: String) {
-        viewController.performSegue(withIdentifier: "showLocation", sender: url)
+        viewController?.performSegue(withIdentifier: "showLocation", sender: url)
     }
     
     func openOrigin(with url: String) {
-        viewController.performSegue(withIdentifier: "showLocation", sender: url)
+        viewController?.performSegue(withIdentifier: "showLocation", sender: url)
     }
 }

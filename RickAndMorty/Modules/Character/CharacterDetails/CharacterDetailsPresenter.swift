@@ -24,7 +24,7 @@ struct CharacterDetails {
 // MARK: - CharacterDetailsPresenter
 class CharacterDetailsPresenter: CharacterDetailsViewOutputProtocol {
 
-    unowned let view: CharacterDetailsViewInputProtocol
+    private let view: CharacterDetailsViewInputProtocol?
     var interactor: CharacterDetailsInteractorInputProtocol!
     var router: CharacterDetailsRouterProtocol!
     
@@ -59,6 +59,6 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
     
     func receiveCharacter(_ character: CharacterDetails) {
         self.character = character
-        view.setCharacter(character)
+        view?.setCharacter(character)
     }
 }

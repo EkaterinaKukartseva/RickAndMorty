@@ -24,7 +24,7 @@ protocol LocationDetailsInteractorOutputProtocol: AnyObject {
 // MARK: -
 class LocationDetailsInteractor: LocationDetailsInteractorInputProtocol {
     
-    unowned let presenter: LocationDetailsInteractorOutputProtocol
+    private let presenter: LocationDetailsInteractorOutputProtocol?
     
     required init(presenter: LocationDetailsInteractorOutputProtocol) {
         self.presenter = presenter
@@ -41,7 +41,7 @@ class LocationDetailsInteractor: LocationDetailsInteractorInputProtocol {
                                                characterUrls: model.residents,
                                                url: model.url,
                                                created: model.created)
-                self.presenter.receiveLocation(location)
+                self.presenter?.receiveLocation(location)
             case .failure(let error):
                 print("ERROR \(error.localizedDescription)")
             }

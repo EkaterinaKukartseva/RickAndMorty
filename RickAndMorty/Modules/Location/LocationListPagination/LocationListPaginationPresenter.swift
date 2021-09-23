@@ -35,26 +35,39 @@ final class LocationListPaginationPresenter: LocationListPaginationViewOutputPro
         self.view = view
     }
     
-    func showAllLocationList(by page: Int) {
-        interactor.provideAllLocationList(by: page)
+    func showLocationList(by page: Int) {
+        interactor.provideLocationList(by: page)
     }
     
-    func showLocationDetails(with url: String) {
-        router.openLocationDetails(with: url)
+    func openLocationDetailsModule(with url: String) {
+        router.openLocationDetailsModule(with: url)
     }
 }
 
 // MARK: - LocationListPaginationPresenter + LocationListPaginationInteractorOutputProtocol
 extension LocationListPaginationPresenter: LocationListPaginationInteractorOutputProtocol {
     
-    func receiveLocationList(_ list: InfoLocationModel) {
-        view?.setLocationList(.init(info: .init(count: list.info.count,
-                                                pages: list.info.pages,
-                                                next: list.info.next,
-                                                prev: list.info.prev),
-                                    results: list.results.map({ Location(id: $0.id,
-                                                                         name: $0.name,
-                                                                         dimension: $0.dimension,
-                                                                         url: $0.url) })))
+    func receiveLocationList(_ model: InfoLocationModel) {
+        view?.setLocationList(.init(model: model))
+    }
+}
+
+// MARK: - InfoLocation private
+private extension InfoLocation {
+    
+    init(model: InfoLocationModel) {
+        self.info = .init(info: model.info)
+        self.results = model.results.map { .init(model: $0) }
+    }
+}
+
+// MARK: - Location private
+private extension Location {
+    
+    init(model: LocationModel) {
+        self.id = model.id
+        self.url = model.url
+        self.name = model.name
+        self.dimension = model.dimension
     }
 }

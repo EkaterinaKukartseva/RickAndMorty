@@ -20,7 +20,7 @@ struct Character {
 // MARK: - CharacterListPresenter + CharacterListViewOutputProtocol
 class CharacterListPresenter: CharacterListViewOutputProtocol {
 
-    unowned let view: CharacterListViewInputProtocol
+    private let view: CharacterListViewInputProtocol?
     var interactor: CharacterListInteractorInputProtocol!
     var router: CharacterListRouterProtocol!
     
@@ -41,6 +41,6 @@ class CharacterListPresenter: CharacterListViewOutputProtocol {
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     
     func receiveCharacterList(_ list: [Character]) {
-        view.setCharacterList(list)
+        view?.setCharacterList(list)
     }
 }

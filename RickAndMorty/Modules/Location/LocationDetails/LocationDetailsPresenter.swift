@@ -22,7 +22,7 @@ struct LocationDetails {
 // MARK: -
 class LocationDetailsPresenter: LocationDetailsViewOutputProtocol {
 
-    unowned let view: LocationDetailsViewInputProtocol
+    private let view: LocationDetailsViewInputProtocol?
     var interactor: LocationDetailsInteractorInputProtocol!
     var router: LocationDetailsRouterProtocol!
     
@@ -32,11 +32,11 @@ class LocationDetailsPresenter: LocationDetailsViewOutputProtocol {
         self.view = view
     }
     
-    func didTabShowLocation(with url: String) {
+    func showLocation(with url: String) {
         interactor.provideLocation(with: url)
     }
     
-    func showCharacterList() {
+    func openCharacterListModule() {
         router.openCharacterList(with: location.characterUrls.compactMap {
             let id = $0.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
             return Int(id)
@@ -48,6 +48,6 @@ extension LocationDetailsPresenter: LocationDetailsInteractorOutputProtocol {
     
     func receiveLocation(_ location: LocationDetails) {
         self.location = location
-        view.setLocation(location)
+        view?.setLocation(location)
     }
 }

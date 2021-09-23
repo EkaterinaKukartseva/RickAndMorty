@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LocationCell: UITableViewCell {
+final class LocationCell: UITableViewCell {
     
     @IBOutlet var type: UILabel!
     @IBOutlet var name: UILabel!
@@ -18,12 +18,6 @@ class LocationCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }
-    
-    // delete
-    func configure(model: LocationModel) {
-        self.name.text = model.name
-        self.type.text = model.dimension
     }
     
     func configure(model: Location) {

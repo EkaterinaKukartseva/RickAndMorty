@@ -30,7 +30,7 @@ protocol CharacterDetailsViewOutputProtocol {
 // MARK: - CharacterDetailsViewController
 class CharacterDetailsViewController: UIViewController {
     
-    var presenter: CharacterDetailsViewOutputProtocol!
+    var presenter: CharacterDetailsViewOutputProtocol?
     private let assembly: CharacterDetailsAssemblyProtocol = CharacterDetailsAssembly()
     
     @IBOutlet var originView: UIView!
@@ -55,21 +55,21 @@ class CharacterDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        presenter.didTabShowCharacter(with: characterId)
+        presenter?.didTabShowCharacter(with: characterId)
     }
     
     // MARK: - IBAction
     
     @IBAction func originViewTap(_ sender: UITapGestureRecognizer) {
-        presenter.showOrigin()
+        presenter?.showOrigin()
     }
     
     @IBAction func locationViewTap(_ sender: UITapGestureRecognizer) {
-        presenter.showLocation()
+        presenter?.showLocation()
     }
     
     @IBAction func episodesViewTap(_ sender: UIButton) {
-        presenter.showEpisodeList()
+        presenter?.showEpisodeList()
     }
     // MARK: - Navigation
     

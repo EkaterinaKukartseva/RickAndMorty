@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="PtH-km-u3C">
-                                <rect key="frame" x="0.0" y="140" width="428" height="51"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="51"/>
                                 <color key="barTintColor" name="BackgroundColor"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <userDefinedRuntimeAttributes>
@@ -39,14 +39,14 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wzj-mD-U6T" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="191" width="428" height="1"/>
+                                <rect key="frame" x="0.0" y="95" width="428" height="1"/>
                                 <color key="backgroundColor" name="SeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="MIM-Et-Kk8"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ke3-WB-bMC" customClass="CustomSegmentedControl" customModule="RickAndMorty" customModuleProvider="target">
-                                <rect key="frame" x="16" y="200" width="396" height="32"/>
+                                <rect key="frame" x="16" y="104" width="396" height="32"/>
                                 <segments>
                                     <segment title="CHARACTERS"/>
                                     <segment title="LOCATIONS"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-tO-e0Z">
-                                <rect key="frame" x="0.0" y="241" width="428" height="651"/>
+                                <rect key="frame" x="0.0" y="145" width="428" height="747"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharactersCell" id="5b6-tj-7JZ" customClass="CharacterTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
@@ -152,6 +152,9 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth (C-137)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-oT-XO5">
                                                             <rect key="frame" x="14" y="43" width="372" height="13"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="13" id="V9J-1S-BZG"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="11"/>
                                                             <color key="textColor" name="PrimaryTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -366,27 +369,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1013.6" y="86.806596701649184"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XUj-d3-qRE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="VL6-rx-ThP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="lDF-fv-eTX">
-                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="tintColor" name="PrymaryTextColor"/>
-                        <color key="barTintColor" name="BackgroundColor"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vy7-hH-eIx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bDV-bF-JDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="242" y="88"/>
         </scene>
         <!--Rick and Morty-->
         <scene sceneID="fZx-as-6Sz">

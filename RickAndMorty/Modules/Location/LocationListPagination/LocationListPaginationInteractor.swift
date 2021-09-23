@@ -13,25 +13,29 @@ protocol LocationListPaginationInteractorInputProtocol: AnyObject {
 
     init(presenter: LocationListPaginationInteractorOutputProtocol)
     
-    func provideAllLocationList(by page: Int)
+    /// Получить список локаций по странице
+    /// - Parameter page: номер страницы
+    func provideLocationList(by page: Int)
 }
 
 // MARK: - LocationListPaginationInteractorOutputProtocol
 protocol LocationListPaginationInteractorOutputProtocol {
     
-    func receiveLocationList(_ list: InfoLocationModel)
+    /// Получить список локаций
+    /// - Parameter info: информация о странице со списком локаций
+    func receiveLocationList(_ info: InfoLocationModel)
 }
 
 // MARK: - LocationListPaginationInteractor
 final class LocationListPaginationInteractor: LocationListPaginationInteractorInputProtocol {
 
-    var presenter: LocationListPaginationInteractorOutputProtocol?
+    private let presenter: LocationListPaginationInteractorOutputProtocol?
 
     required init(presenter: LocationListPaginationInteractorOutputProtocol) {
         self.presenter = presenter
     }
     
-    func provideAllLocationList(by page: Int) {
+    func provideLocationList(by page: Int) {
         client.location().fetchLocations(byPageNumber: page) { result in
             switch result {
             case .success(let model):

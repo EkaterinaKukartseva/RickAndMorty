@@ -25,7 +25,7 @@ protocol EpisodeDetailsInteractorOutputProtocol {
 // MARK: - EpisodeDetailsInteractor
 final class EpisodeDetailsInteractor: EpisodeDetailsInteractorInputProtocol {
 
-    var presenter: EpisodeDetailsInteractorOutputProtocol?
+    private let presenter: EpisodeDetailsInteractorOutputProtocol?
 
     required init(presenter: EpisodeDetailsInteractorOutputProtocol) {
         self.presenter = presenter

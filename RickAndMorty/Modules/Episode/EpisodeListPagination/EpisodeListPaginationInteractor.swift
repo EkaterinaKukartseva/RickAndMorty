@@ -25,7 +25,7 @@ protocol EpisodeListPaginationInteractorOutputProtocol {
 // MARK: - EpisodeListPaginationInteractor
 final class EpisodeListPaginationInteractor: EpisodeListPaginationInteractorInputProtocol {
 
-    var presenter: EpisodeListPaginationInteractorOutputProtocol?
+    private let presenter: EpisodeListPaginationInteractorOutputProtocol?
 
     required init(presenter: EpisodeListPaginationInteractorOutputProtocol) {
         self.presenter = presenter

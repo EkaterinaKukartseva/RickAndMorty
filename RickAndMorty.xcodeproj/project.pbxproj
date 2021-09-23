@@ -21,6 +21,7 @@
 		00785B2726EAB07C00D6D66B /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00785B2626EAB07C00D6D66B /* EpisodeDetailsView.swift */; };
 		00B1A9BB26F3C95B00CF4568 /* EpisodeListPagination.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B1A9BA26F3C95B00CF4568 /* EpisodeListPagination.storyboard */; };
 		00B1A9BE26F3C99E00CF4568 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B1A9BD26F3C99E00CF4568 /* EpisodeCell.xib */; };
+		00B1A9C026F5101D00CF4568 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B1A9BF26F5101D00CF4568 /* UITableViewCell + Extension.swift */; };
 		00B8DAD226F298C800C9BFAC /* LocationListPagination.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B8DAD126F298C800C9BFAC /* LocationListPagination.storyboard */; };
 		00B8DADA26F3223100C9BFAC /* CharacterListPagination.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B8DAD926F3223100C9BFAC /* CharacterListPagination.storyboard */; };
 		00B8DADC26F3BEA300C9BFAC /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B8DADB26F3BEA300C9BFAC /* LoadingCell.xib */; };
@@ -128,6 +129,7 @@
 		0093A17625803FF000DAC1E6 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		00B1A9BA26F3C95B00CF4568 /* EpisodeListPagination.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EpisodeListPagination.storyboard; sourceTree = "<group>"; };
 		00B1A9BD26F3C99E00CF4568 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		00B1A9BF26F5101D00CF4568 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
 		00B8DAD126F298C800C9BFAC /* LocationListPagination.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationListPagination.storyboard; sourceTree = "<group>"; };
 		00B8DAD926F3223100C9BFAC /* CharacterListPagination.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharacterListPagination.storyboard; sourceTree = "<group>"; };
 		00B8DADB26F3BEA300C9BFAC /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
@@ -274,7 +276,6 @@
 			children = (
 				0053CD3A258811D700A598B7 /* Custom */,
 				00E41EB226DE09EB00205CC5 /* Modules */,
-				00FFCB5E258B7AF900D3BD64 /* Models */,
 				00DDEE872584451500802CE9 /* Extension */,
 				002336EC2582B33500D56B60 /* ViewControllers */,
 				005F3B7025BD7BD400A39CAD /* Views */,
@@ -367,8 +368,8 @@
 		00B8DAD626F31E7900C9BFAC /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				116BF19A8CC676797B2B10F9 /* LocationListPagination */,
 				00E41EB326DE0C9C00205CC5 /* LocationDetails */,
+				116BF19A8CC676797B2B10F9 /* LocationListPagination */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -404,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				00DDEE892584455800802CE9 /* UIView + Extension.swift */,
+				00B1A9BF26F5101D00CF4568 /* UITableViewCell + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -510,6 +512,7 @@
 		00FFCBB8258BFC0B00D3BD64 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				00FFCB5E258B7AF900D3BD64 /* Models */,
 				00FFCB5B258B77E500D3BD64 /* NetworkManager.swift */,
 				00E91407258F64AF00121605 /* CharacterService.swift */,
 				00E9140A258F653900121605 /* LocationService.swift */,
@@ -746,6 +749,7 @@
 				00FFCBA9258BF9B600D3BD64 /* CharacterListViewController.swift in Sources */,
 				00785B2726EAB07C00D6D66B /* EpisodeDetailsView.swift in Sources */,
 				00E41EB526DE0D9500205CC5 /* LocationDetailsPresenter.swift in Sources */,
+				00B1A9C026F5101D00CF4568 /* UITableViewCell + Extension.swift in Sources */,
 				00E3CDC526E9317000A41901 /* CharacterListPresenter.swift in Sources */,
 				00FFCBAA258BF9B600D3BD64 /* CharacterDetailsViewController.swift in Sources */,
 				00FFCBAB258BF9B600D3BD64 /* EpisodeListViewController.swift in Sources */,

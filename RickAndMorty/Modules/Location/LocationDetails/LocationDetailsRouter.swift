@@ -16,13 +16,13 @@ protocol LocationDetailsRouterProtocol {
 
 class LocationDetailsRouter: LocationDetailsRouterProtocol {
 
-    unowned let viewController: LocationDetailsViewController
+    private let viewController: LocationDetailsViewController?
     
     required init(viewController: LocationDetailsViewController) {
         self.viewController = viewController
     }
     
     func openCharacterList(with ids: [Int]) {
-        viewController.performSegue(withIdentifier: "showCharacterList", sender: ids)
+        viewController?.performSegue(withIdentifier: "showCharacterList", sender: ids)
     }
 }

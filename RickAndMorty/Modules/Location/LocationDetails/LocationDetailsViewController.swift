@@ -10,6 +10,8 @@ import UIKit
 // MARK: - LocationDetailsViewInputProtocol
 protocol LocationDetailsViewInputProtocol: AnyObject {
     
+    /// Получить информацию о локации
+    /// - Parameter location: локацию
     func setLocation(_ location: LocationDetails)
 }
 
@@ -18,17 +20,20 @@ protocol LocationDetailsViewOutputProtocol {
     
     init(view: LocationDetailsViewInputProtocol)
     
-    func didTabShowLocation(with url: String)
+    /// Отобразить информацию о локации
+    /// - Parameter url: url локации
+    func showLocation(with url: String)
     
-    func showCharacterList()
+    /// Открыть экран со списком участников
+    func openCharacterListModule()
 }
 
 // MARK: - LocationDetailsViewController
 class LocationDetailsViewController: UIViewController {
     
-    var presenter: LocationDetailsViewOutputProtocol!
+    var presenter: LocationDetailsViewOutputProtocol?
     private let assembly: LocationDetailsAssemblyProtocol = LocationDetailsAssembly()
-
+    
     var locationUrl: String!
     
     @IBOutlet var name: UILabel!
@@ -38,28 +43,19 @@ class LocationDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        presenter.didTabShowLocation(with: locationUrl)
+        presenter?.showLocation(with: locationUrl)
     }
     
     @IBAction func characterViewTap(_ sender: UIButton) {
-        presenter.showCharacterList()
+        presenter?.openCharacterListModule()
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? CharacterListViewController,
               let ids = sender as? [Int]
-              else { return }
+        else { return }
         destination.ids = ids
-//        guard let destination = segue.destination as? CharactersCollectionViewController else { return }
-        
-//        for residentUrl in location.residents {
-//            let residentID = residentUrl.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
-//            
-//            if let id = Int(residentID) {
-//                destination.ids.append(Int(id))
-//            }
-//        }
     }
 }
 

@@ -31,7 +31,7 @@ protocol EpisodeListInteractorOutputProtocol {
 // MARK: - EpisodeListInteractor
 final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
 
-    var presenter: EpisodeListInteractorOutputProtocol?
+    private let presenter: EpisodeListInteractorOutputProtocol?
 
     required init(presenter: EpisodeListInteractorOutputProtocol) {
         self.presenter = presenter

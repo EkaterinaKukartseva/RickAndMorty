@@ -25,7 +25,7 @@ protocol CharacterListPaginationInteractorOutputProtocol {
 // MARK: - CharacterListPaginationInteractor
 final class CharacterListPaginationInteractor: CharacterListPaginationInteractorInputProtocol {
 
-    var presenter: CharacterListPaginationInteractorOutputProtocol?
+    private let presenter: CharacterListPaginationInteractorOutputProtocol?
 
     required init(presenter: CharacterListPaginationInteractorOutputProtocol) {
         self.presenter = presenter
