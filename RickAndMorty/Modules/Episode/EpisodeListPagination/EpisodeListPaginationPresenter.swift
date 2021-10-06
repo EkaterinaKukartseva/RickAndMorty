@@ -22,12 +22,23 @@ final class EpisodeListPaginationPresenter: EpisodeListPaginationViewOutputProto
     var interactor: EpisodeListPaginationInteractorInputProtocol!
     var router: EpisodeListPaginationRouterProtocol!
     
+    private var currentPage = 1
+    private var info: Info!
+    private var isNextPageAvailable = true
+    
     required init(view: EpisodeListPaginationViewInputProtocol) {
         self.view = view
     }
     
-    func showEpisodeList(by page: Int) {
-        interactor.provideEpisodeList(by: page)
+    func showEpisodeList() {
+        interactor.provideEpisodeList(by: currentPage)
+    }
+    
+    func showEpisodeListNextPage() {
+        guard isNextPageAvailable else { return }
+        view?.setPageLoading(with: true)
+        currentPage += 1
+        interactor.provideEpisodeList(by: currentPage)
     }
     
     func showEpisodeDetails(with id: Int) {
@@ -39,23 +50,16 @@ final class EpisodeListPaginationPresenter: EpisodeListPaginationViewOutputProto
 extension EpisodeListPaginationPresenter: EpisodeListPaginationInteractorOutputProtocol {
     
     func receiveEpisodeList(_ model: InfoEpisodeModel) {
-        view?.setEpisodeList(.init(model: model))
-    }
-}
-
-// MARK: - InfoEpisode + init
-private extension InfoEpisode {
-    
-    init(model: InfoEpisodeModel) {
-        self.info = .init(info: model.info)
-        self.results = model.results.map({ .init(model: $0) })
+        self.info = Info(info: model.info)
+        isNextPageAvailable = info.next != nil
+        view?.setEpisodeList(model.results.map { .init($0) }, isNextPage: info.prev != nil)
     }
 }
 
 // MARK: - Episode + init
 private extension Episode {
     
-    init(model: EpisodeModel) {
+    init(_ model: EpisodeModel) {
         self.id = model.id
         self.name = model.name
         self.episode = model.episode

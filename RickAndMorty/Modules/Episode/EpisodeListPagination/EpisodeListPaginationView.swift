@@ -13,7 +13,11 @@ protocol EpisodeListPaginationViewInputProtocol: AnyObject {
     
     /// Получена информация о странице с сериями
     /// - Parameter info: информация о странице
-    func setEpisodeList(_ info: InfoEpisode)
+    func setEpisodeList(_ info: [Episode], isNextPage: Bool)
+    
+    /// Получена следующая страница
+    /// - Parameter state: true - есть следующая страница
+    func setPageLoading(with state: Bool)
 }
 
 // MARK: - EpisodeListPaginationViewOutputProtocol
@@ -21,9 +25,11 @@ protocol EpisodeListPaginationViewOutputProtocol {
     
     init(view: EpisodeListPaginationViewInputProtocol)
     
-    /// Показать список серий по страницам
-    /// - Parameter page: номер страницы
-    func showEpisodeList(by page: Int)
+    /// Показать список серий
+    func showEpisodeList()
+    
+    /// Показать список серий на следующей странице
+    func showEpisodeListNextPage()
     
     /// Показать детальную инфориацию о серии
     /// - Parameter id: id серии
@@ -38,17 +44,15 @@ final class EpisodeListPaginationViewController: UIViewController {
     var presenter: EpisodeListPaginationViewOutputProtocol?
     private let assembly: EpisodeListPaginationAssemblyProtocol = EpisodeListPaginationAssembly()
     
-    private var info: Info!
-    private var currentPageEpisode = 1
     private var episodes: [Episode] = []
+    private var isLoadingNextPage = false
 
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
-        tableView.register(UINib(nibName: "LoadingCell", bundle: .main), forCellReuseIdentifier: "LoadingCell")
-        tableView.register(UINib(nibName: "EpisodeCell", bundle: .main), forCellReuseIdentifier: "EpisodeCell")
-        presenter?.showEpisodeList(by: currentPageEpisode)
+        tableView.register(EpisodeCell.nib, forCellReuseIdentifier: EpisodeCell.identifier)
+        presenter?.showEpisodeList()
     }
     
     // MARK: - Navigation
@@ -69,12 +73,8 @@ extension EpisodeListPaginationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == episodes.count - 1 && currentPageEpisode <= info.pages {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
-            presenter?.showEpisodeList(by: currentPageEpisode)
-            return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as! EpisodeCell
+        checkLoadingNextPage(for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: EpisodeCell.identifier, for: indexPath) as! EpisodeCell
         let episode = episodes[indexPath.row]
         cell.configure(model: episode)
         return cell
@@ -93,10 +93,48 @@ extension EpisodeListPaginationViewController: UITableViewDelegate {
 // MARK: - EpisodeListPaginationViewController + EpisodeListPaginationViewInputProtocol
 extension EpisodeListPaginationViewController: EpisodeListPaginationViewInputProtocol {
     
-    func setEpisodeList(_ list: InfoEpisode) {
-        episodes.append(contentsOf: list.results)
-        info = list.info
-        currentPageEpisode += 1
+    func setEpisodeList(_ list: [Episode], isNextPage: Bool) {
+        isNextPage ? append(content: list) : set(content: list)
+    }
+    
+    func setPageLoading(with state: Bool) {
+        isLoadingNextPage = state
+        guard isLoadingNextPage else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.tableView.tableFooterView = UIView()
+            }
+            return
+        }
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: CGFloat(60))
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+    }
+}
+
+// MARK: - EpisodeListPaginationViewController + private
+private extension EpisodeListPaginationViewController {
+    
+    func set(content: [Episode]) {
+        self.episodes = content
         tableView.reloadData()
+    }
+    
+    func append(content: [Episode]) {
+        let oldCount = self.episodes.count
+        self.episodes.append(contentsOf: content)
+        let indexPaths = (oldCount..<self.episodes.count).map { IndexPath(row: $0, section: 0) }
+        setPageLoading(with: false)
+        UIView.performWithoutAnimation {
+            self.tableView.insertRows(at: indexPaths, with: .bottom)
+        }
+    }
+    
+    func checkLoadingNextPage(for indexPath: IndexPath) {
+        guard !isLoadingNextPage else { return }
+        if indexPath.row == (episodes.count - 2) {
+            presenter?.showEpisodeListNextPage()
+        }
     }
 }

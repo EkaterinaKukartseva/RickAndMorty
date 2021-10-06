@@ -30,7 +30,7 @@ extension Info {
         self.count = info.count
         self.pages = info.pages
         self.next = info.next
-        self.prev = info.next
+        self.prev = info.prev
     }
 }
 
