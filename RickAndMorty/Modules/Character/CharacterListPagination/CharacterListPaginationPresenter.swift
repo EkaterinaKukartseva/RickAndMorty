@@ -22,9 +22,6 @@ struct Info: Codable {
     let pages: Int
     let next: String?
     let prev: String?
-}
-
-extension Info {
     
     init(info: InfoModel) {
         self.count = info.count
@@ -41,12 +38,23 @@ final class CharacterListPaginationPresenter: CharacterListPaginationViewOutputP
     var interactor: CharacterListPaginationInteractorInputProtocol!
     var router: CharacterListPaginationRouterProtocol!
     
+    private var currentPage = 1
+    private var info: Info!
+    private var isNextPageAvailable = true
+    
     required init(view: CharacterListPaginationViewInputProtocol) {
         self.view = view
     }
     
-    func showAllCharacterList(by page: Int) {
-        interactor.provideCharacterList(by: page)
+    func showCharacterList() {
+        interactor.provideCharacterList(by: currentPage)
+    }
+    
+    func showEpisodeListNextPage() {
+        guard isNextPageAvailable else { return }
+        view?.setPageLoading(with: true)
+        currentPage += 1
+        interactor.provideCharacterList(by: currentPage)
     }
     
     func showCharacterDetails(with id: Int) {
@@ -57,24 +65,17 @@ final class CharacterListPaginationPresenter: CharacterListPaginationViewOutputP
 // MARK: - CharacterListPaginationPresenter + CharacterListPaginationInteractorOutputProtocol
 extension CharacterListPaginationPresenter: CharacterListPaginationInteractorOutputProtocol {
     
-    func receiveCharacterList(_ list: InfoCharacterModel) {
-        view?.setCharacterList(InfoCharacter(model: list))
-    }
-}
-
-// MARK: - InfoLocation private
-private extension InfoCharacter {
-    
-    init(model: InfoCharacterModel) {
-        self.info = .init(info: model.info)
-        self.results = model.results.map { .init(model: $0) }
+    func receiveCharacterList(_ model: InfoCharacterModel) {
+        self.info = Info(info: model.info)
+        isNextPageAvailable = info.next != nil
+        view?.setCharacterList(model.results.map { .init($0) }, isNextPage: info.prev != nil)
     }
 }
 
 // MARK: - Location private
 private extension Character {
     
-    init(model: CharacterModel) {
+    init(_ model: CharacterModel) {
         self.id = model.id
         self.name = model.name
         self.image = model.image

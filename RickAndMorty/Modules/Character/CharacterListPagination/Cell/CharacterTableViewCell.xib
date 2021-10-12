@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Medium.otf">
+            <string>SFProText-Medium</string>
+        </array>
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterTableViewCell" id="3k8-xI-ljo" customClass="CharacterTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="146"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3k8-xI-ljo" id="3lw-EG-Jr7">
+                <rect key="frame" x="0.0" y="0.0" width="428" height="146"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jR-jT-g2D">
+                        <rect key="frame" x="16" y="14" width="396" height="132"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RickAndMorty" translatesAutoresizingMaskIntoConstraints="NO" id="Hau-UC-g65" customClass="CharacterImageView" customModule="RickAndMorty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="GmW-p8-7wj"/>
+                                    <constraint firstAttribute="width" constant="132" id="hcc-zN-ctA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjuducator Rick" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-4f-xVi">
+                                <rect key="frame" x="142" y="5" width="244" height="21.5"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                                <color key="textColor" name="PrimaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Human" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8H-nT-BIe">
+                                <rect key="frame" x="189.5" y="30.5" width="54.5" height="16"/>
+                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
+                                <color key="textColor" name="PrimaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Dead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bu3-TH-p7u">
+                                <rect key="frame" x="142" y="30.5" width="42.5" height="16"/>
+                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
+                                <color key="textColor" name="PrimaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="CellColor"/>
+                        <constraints>
+                            <constraint firstItem="Hau-UC-g65" firstAttribute="leading" secondItem="2jR-jT-g2D" secondAttribute="leading" id="1qZ-Bb-msz"/>
+                            <constraint firstItem="Bu3-TH-p7u" firstAttribute="leading" secondItem="Hau-UC-g65" secondAttribute="trailing" constant="10" id="9F5-j9-ugz"/>
+                            <constraint firstItem="V8H-nT-BIe" firstAttribute="leading" secondItem="Bu3-TH-p7u" secondAttribute="trailing" constant="5" id="Ab5-PL-laU"/>
+                            <constraint firstItem="EL7-4f-xVi" firstAttribute="leading" secondItem="Hau-UC-g65" secondAttribute="trailing" constant="10" id="Ana-w6-Nrb"/>
+                            <constraint firstItem="EL7-4f-xVi" firstAttribute="top" secondItem="2jR-jT-g2D" secondAttribute="top" constant="5" id="H9n-iC-mRA"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V8H-nT-BIe" secondAttribute="trailing" constant="20" symbolic="YES" id="N2Q-Ap-rX0"/>
+                            <constraint firstItem="V8H-nT-BIe" firstAttribute="centerY" secondItem="Bu3-TH-p7u" secondAttribute="centerY" id="Tuu-38-nX8"/>
+                            <constraint firstAttribute="trailing" secondItem="EL7-4f-xVi" secondAttribute="trailing" constant="10" id="aXo-3B-9uO"/>
+                            <constraint firstItem="Bu3-TH-p7u" firstAttribute="top" secondItem="EL7-4f-xVi" secondAttribute="bottom" constant="4" id="e0x-mA-KOP"/>
+                            <constraint firstItem="Hau-UC-g65" firstAttribute="top" secondItem="2jR-jT-g2D" secondAttribute="top" id="mdF-r8-ycz"/>
+                            <constraint firstAttribute="bottom" secondItem="Hau-UC-g65" secondAttribute="bottom" id="thg-km-yMe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="2jR-jT-g2D" secondAttribute="trailing" constant="16" id="BGT-7i-n9l"/>
+                    <constraint firstItem="2jR-jT-g2D" firstAttribute="top" secondItem="3lw-EG-Jr7" secondAttribute="top" constant="14" id="WMd-WO-i9v"/>
+                    <constraint firstItem="2jR-jT-g2D" firstAttribute="leading" secondItem="3lw-EG-Jr7" secondAttribute="leading" constant="16" id="k67-qC-U6i"/>
+                    <constraint firstAttribute="bottom" secondItem="2jR-jT-g2D" secondAttribute="bottom" id="l4P-4w-icu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="BackgroundColor"/>
+            <connections>
+                <outlet property="characterImageView" destination="Hau-UC-g65" id="7lo-kM-QK7"/>
+                <outlet property="gender" destination="V8H-nT-BIe" id="Vk6-Vz-Jas"/>
+                <outlet property="name" destination="EL7-4f-xVi" id="iXd-a4-1Xb"/>
+                <outlet property="status" destination="Bu3-TH-p7u" id="IZ4-C6-DrB"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="135"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="RickAndMorty" width="300" height="300"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellColor">
+            <color red="1" green="1" blue="1" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

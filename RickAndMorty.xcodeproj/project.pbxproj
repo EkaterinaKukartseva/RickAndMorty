@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0045B8302716020E00873A9B /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0045B82F2716020E00873A9B /* CharacterTableViewCell.xib */; };
 		005F3B7225BD7C3000A39CAD /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F3B7125BD7C3000A39CAD /* CharacterImageView.swift */; };
 		005F3B7725BDA91200A39CAD /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F3B7625BDA91200A39CAD /* ImageService.swift */; };
 		0066819A25BDF1D30097FC2D /* CharacterScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053CD4D2588145900A598B7 /* CharacterScreen.storyboard */; };
@@ -112,6 +113,7 @@
 		003435932580227E009D5C75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		003435962580227E009D5C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		003435982580227E009D5C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0045B82F2716020E00873A9B /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		0053CD3D2588134100A598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RickAndMorty/Storyboards/Base.lproj/CharactersList.storyboard; sourceTree = "<group>"; };
 		0053CD412588138F00A598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RickAndMorty/Storyboards/Base.lproj/LocationScreen.storyboard; sourceTree = "<group>"; };
 		0053CD45258813EC00A598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RickAndMorty/Storyboards/Base.lproj/EpisodeScreen.storyboard; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				0093A17025803F7000DAC1E6 /* CharacterTableViewCell.swift */,
+				0045B82F2716020E00873A9B /* CharacterTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				00FFCB91258BF99E00D3BD64 /* Assets.xcassets in Resources */,
 				00FFCB92258BF99E00D3BD64 /* SF-Pro-Text-Medium.otf in Resources */,
 				00FFCB93258BF99E00D3BD64 /* SF-Pro-Text-Regular.otf in Resources */,
+				0045B8302716020E00873A9B /* CharacterTableViewCell.xib in Resources */,
 				00B8DADC26F3BEA300C9BFAC /* LoadingCell.xib in Resources */,
 				00FFCB94258BF99E00D3BD64 /* SF-Pro-Text-Semibold.otf in Resources */,
 				00B8DADE26F3BFA700C9BFAC /* LocationCell.xib in Resources */,

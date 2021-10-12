@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wKe-fy-xDb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wKe-fy-xDb">
     <device id="retina6_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,96 +62,24 @@
                                 <rect key="frame" x="0.0" y="145" width="428" height="747"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharactersCell" id="5b6-tj-7JZ" customClass="CharacterTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="146"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5b6-tj-7JZ" id="Tjg-2O-6Z9">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="146"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JU-Ue-Zh6">
-                                                    <rect key="frame" x="16" y="14" width="396" height="132"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RickAndMorty" translatesAutoresizingMaskIntoConstraints="NO" id="ECW-Xc-N6Z" customClass="CharacterImageView" customModule="RickAndMorty" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="132" id="9JG-0G-HRg"/>
-                                                                <constraint firstAttribute="width" constant="132" id="whc-fc-5Sj"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjuducator Rick" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUE-ri-WgD">
-                                                            <rect key="frame" x="142" y="5" width="244" height="21"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
-                                                            <color key="textColor" name="PrimaryTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Human" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUh-ko-O3S">
-                                                            <rect key="frame" x="186" y="30" width="50.666666666666657" height="16"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                                            <color key="textColor" name="PrimaryTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Dead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4E-Hi-Tvk">
-                                                            <rect key="frame" x="142" y="30" width="39" height="16"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                                            <color key="textColor" name="PrimaryTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" name="CellColor"/>
-                                                    <constraints>
-                                                        <constraint firstItem="iUE-ri-WgD" firstAttribute="top" secondItem="0JU-Ue-Zh6" secondAttribute="top" constant="5" id="0CK-Cp-bhH"/>
-                                                        <constraint firstItem="ECW-Xc-N6Z" firstAttribute="top" secondItem="0JU-Ue-Zh6" secondAttribute="top" id="2BZ-Qx-SoZ"/>
-                                                        <constraint firstItem="iUE-ri-WgD" firstAttribute="leading" secondItem="ECW-Xc-N6Z" secondAttribute="trailing" constant="10" id="6Dw-GQ-iDf"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ECW-Xc-N6Z" secondAttribute="bottom" id="GFf-pq-V66"/>
-                                                        <constraint firstItem="g4E-Hi-Tvk" firstAttribute="top" secondItem="iUE-ri-WgD" secondAttribute="bottom" constant="4" id="S1T-Fm-nxo"/>
-                                                        <constraint firstItem="ECW-Xc-N6Z" firstAttribute="leading" secondItem="0JU-Ue-Zh6" secondAttribute="leading" id="V1v-rk-sPp"/>
-                                                        <constraint firstItem="g4E-Hi-Tvk" firstAttribute="leading" secondItem="ECW-Xc-N6Z" secondAttribute="trailing" constant="10" id="WL4-Vv-KqE"/>
-                                                        <constraint firstItem="eUh-ko-O3S" firstAttribute="centerY" secondItem="g4E-Hi-Tvk" secondAttribute="centerY" id="Z74-79-9FQ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="iUE-ri-WgD" secondAttribute="trailing" constant="10" id="co6-Fd-73S"/>
-                                                        <constraint firstItem="eUh-ko-O3S" firstAttribute="leading" secondItem="g4E-Hi-Tvk" secondAttribute="trailing" constant="5" id="zVi-x6-jh7"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eUh-ko-O3S" secondAttribute="trailing" constant="20" symbolic="YES" id="zeD-bp-RzY"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="0JU-Ue-Zh6" secondAttribute="trailing" constant="16" id="3sT-Pe-KtW"/>
-                                                <constraint firstItem="0JU-Ue-Zh6" firstAttribute="top" secondItem="Tjg-2O-6Z9" secondAttribute="top" constant="14" id="9z9-9j-jSr"/>
-                                                <constraint firstItem="0JU-Ue-Zh6" firstAttribute="leading" secondItem="Tjg-2O-6Z9" secondAttribute="leading" constant="16" id="VRT-Ex-W5Y"/>
-                                                <constraint firstAttribute="bottom" secondItem="0JU-Ue-Zh6" secondAttribute="bottom" id="wgV-If-162"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="BackgroundColor"/>
-                                        <connections>
-                                            <outlet property="characterImageView" destination="ECW-Xc-N6Z" id="aPW-kG-xXz"/>
-                                            <outlet property="gender" destination="eUh-ko-O3S" id="ffu-Pb-vnF"/>
-                                            <outlet property="name" destination="iUE-ri-WgD" id="qHh-2o-qy5"/>
-                                            <outlet property="status" destination="g4E-Hi-Tvk" id="t8k-ny-1Rk"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationsCell" id="piw-km-kwT" customClass="LocationCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="170.33333396911621" width="428" height="76"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="76.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="piw-km-kwT" id="TJw-Ba-E3E">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="76.666664123535156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfI-0N-Z1a">
-                                                    <rect key="frame" x="16" y="10" width="396" height="66"/>
+                                                    <rect key="frame" x="16" y="10" width="396" height="66.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6a-fH-EMp">
-                                                            <rect key="frame" x="14" y="10" width="372" height="21"/>
+                                                            <rect key="frame" x="14" y="10.000000000000002" width="372" height="21.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                             <color key="textColor" name="SecondaryTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth (C-137)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-oT-XO5">
-                                                            <rect key="frame" x="14" y="43" width="372" height="13"/>
+                                                            <rect key="frame" x="14" y="43.666666666666664" width="372" height="13"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="13" id="V9J-1S-BZG"/>
                                                             </constraints>
@@ -200,7 +128,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodesCell" id="cZe-w0-PvL" customClass="EpisodeCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="246.33333396911621" width="428" height="76"/>
+                                        <rect key="frame" x="0.0" y="121.33333015441895" width="428" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cZe-w0-PvL" id="xXx-gd-IvU">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="76"/>
@@ -259,7 +187,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoDataCell" id="5pM-Z2-p8R">
-                                        <rect key="frame" x="0.0" y="322.33333396911621" width="428" height="51"/>
+                                        <rect key="frame" x="0.0" y="197.33333015441895" width="428" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5pM-Z2-p8R" id="TDq-KD-TqK">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="51"/>
@@ -305,7 +233,7 @@
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingCell" id="ddq-Ck-5sK">
-                                        <rect key="frame" x="0.0" y="373.33333396911621" width="428" height="51"/>
+                                        <rect key="frame" x="0.0" y="248.33333015441895" width="428" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ddq-Ck-5sK" id="9SU-Rp-Hlk">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="51"/>
@@ -442,7 +370,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RickAndMorty" width="300" height="300"/>
         <namedColor name="BackgroundColor">
             <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
