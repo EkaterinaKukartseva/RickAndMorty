@@ -31,12 +31,23 @@ final class LocationListPaginationPresenter: LocationListPaginationViewOutputPro
     var interactor: LocationListPaginationInteractorInputProtocol!
     var router: LocationListPaginationRouterProtocol!
     
+    private var currentPage = 1
+    private var info: Info!
+    private var isNextPageAvailable = true
+    
     required init(view: LocationListPaginationViewInputProtocol) {
         self.view = view
     }
     
-    func showLocationList(by page: Int) {
-        interactor.provideLocationList(by: page)
+    func showLocationList() {
+        interactor.provideLocationList(by: currentPage)
+    }
+    
+    func showLocationListNextPage() {
+        guard isNextPageAvailable else { return }
+        view?.setPageLoading(with: true)
+        currentPage += 1
+        interactor.provideLocationList(by: currentPage)
     }
     
     func openLocationDetails(with url: String) {
@@ -48,23 +59,16 @@ final class LocationListPaginationPresenter: LocationListPaginationViewOutputPro
 extension LocationListPaginationPresenter: LocationListPaginationInteractorOutputProtocol {
     
     func receiveLocationList(_ model: InfoLocationModel) {
-        view?.setLocationList(.init(model: model))
-    }
-}
-
-// MARK: - InfoLocation private
-private extension InfoLocation {
-    
-    init(model: InfoLocationModel) {
-        self.info = .init(info: model.info)
-        self.results = model.results.map { .init(model: $0) }
+        self.info = Info(info: model.info)
+        isNextPageAvailable = info.next != nil
+        view?.setLocationList(model.results.map { .init($0) }, isNextPage: info.prev != nil)
     }
 }
 
 // MARK: - Location private
 private extension Location {
     
-    init(model: LocationModel) {
+    init(_ model: LocationModel) {
         self.id = model.id
         self.url = model.url
         self.name = model.name

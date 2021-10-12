@@ -12,8 +12,10 @@ import UIKit
 protocol EpisodeListPaginationViewInputProtocol: AnyObject {
     
     /// Получена информация о странице с сериями
-    /// - Parameter info: информация о странице
-    func setEpisodeList(_ info: [Episode], isNextPage: Bool)
+    /// - Parameters:
+    ///   - list: список серий
+    ///   - isNextPage: true - есть следующая страница
+    func setEpisodeList(_ list: [Episode], isNextPage: Bool)
     
     /// Получена следующая страница
     /// - Parameter state: true - есть следующая страница
@@ -31,7 +33,7 @@ protocol EpisodeListPaginationViewOutputProtocol {
     /// Показать список серий на следующей странице
     func showEpisodeListNextPage()
     
-    /// Показать детальную инфориацию о серии
+    /// Показать детальную информацию о серии
     /// - Parameter id: id серии
     func showEpisodeDetails(with id: Int)
 }
