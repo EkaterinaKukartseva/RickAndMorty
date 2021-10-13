@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SF-Pro-Text-Medium.otf">
-            <string>SFProText-Medium</string>
-        </array>
-        <array key="SF-Pro-Text-Regular.otf">
-            <string>SFProText-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Character List Pagination View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -29,110 +21,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cNr-6d-8Nu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterTableViewCell" id="er7-vx-aQW" customClass="CharacterTableViewCell" customModule="RickAndMorty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="146.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="er7-vx-aQW" id="lFc-7c-9bC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="146.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oOY-wQ-JCj">
-                                                    <rect key="frame" x="16" y="14" width="382" height="132.5"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RickAndMorty" translatesAutoresizingMaskIntoConstraints="NO" id="WVr-AF-lQl" customClass="CharacterImageView" customModule="RickAndMorty" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="132" height="132.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="132" id="0ad-7m-S6s"/>
-                                                                <constraint firstAttribute="width" constant="132" id="K0k-3a-2sF"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjuducator Rick" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIW-Dj-C3X">
-                                                            <rect key="frame" x="142" y="5" width="230" height="21.5"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
-                                                            <color key="textColor" name="PrimaryTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Human" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4z-Cx-Kyb">
-                                                            <rect key="frame" x="189.5" y="30.5" width="54.5" height="16"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                                            <color key="textColor" name="PrimaryTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Dead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-tk-wcD">
-                                                            <rect key="frame" x="142" y="30.5" width="42.5" height="16"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                                            <color key="textColor" name="PrimaryTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" name="CellColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="OIW-Dj-C3X" secondAttribute="trailing" constant="10" id="61g-wu-4ev"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D4z-Cx-Kyb" secondAttribute="trailing" constant="20" symbolic="YES" id="6bR-zA-fSR"/>
-                                                        <constraint firstItem="WVr-AF-lQl" firstAttribute="leading" secondItem="oOY-wQ-JCj" secondAttribute="leading" id="7yv-ER-K7H"/>
-                                                        <constraint firstItem="D4z-Cx-Kyb" firstAttribute="centerY" secondItem="Knp-tk-wcD" secondAttribute="centerY" id="BJp-Lt-Dhb"/>
-                                                        <constraint firstItem="WVr-AF-lQl" firstAttribute="top" secondItem="oOY-wQ-JCj" secondAttribute="top" id="GqN-ug-a73"/>
-                                                        <constraint firstAttribute="bottom" secondItem="WVr-AF-lQl" secondAttribute="bottom" id="OLC-xg-sjU"/>
-                                                        <constraint firstItem="D4z-Cx-Kyb" firstAttribute="leading" secondItem="Knp-tk-wcD" secondAttribute="trailing" constant="5" id="VEo-0f-jrw"/>
-                                                        <constraint firstItem="Knp-tk-wcD" firstAttribute="top" secondItem="OIW-Dj-C3X" secondAttribute="bottom" constant="4" id="bIm-OP-YLs"/>
-                                                        <constraint firstItem="Knp-tk-wcD" firstAttribute="leading" secondItem="WVr-AF-lQl" secondAttribute="trailing" constant="10" id="cHG-pa-xO7"/>
-                                                        <constraint firstItem="OIW-Dj-C3X" firstAttribute="top" secondItem="oOY-wQ-JCj" secondAttribute="top" constant="5" id="ix3-LW-4Qu"/>
-                                                        <constraint firstItem="OIW-Dj-C3X" firstAttribute="leading" secondItem="WVr-AF-lQl" secondAttribute="trailing" constant="10" id="jlF-Ts-OQ4"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="oOY-wQ-JCj" firstAttribute="leading" secondItem="lFc-7c-9bC" secondAttribute="leading" constant="16" id="73c-tf-JeY"/>
-                                                <constraint firstAttribute="bottom" secondItem="oOY-wQ-JCj" secondAttribute="bottom" id="Yfc-gJ-wr1"/>
-                                                <constraint firstItem="oOY-wQ-JCj" firstAttribute="top" secondItem="lFc-7c-9bC" secondAttribute="top" constant="14" id="gyE-Rx-Yg0"/>
-                                                <constraint firstAttribute="trailing" secondItem="oOY-wQ-JCj" secondAttribute="trailing" constant="16" id="q30-sy-buB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="BackgroundColor"/>
-                                        <connections>
-                                            <outlet property="characterImageView" destination="WVr-AF-lQl" id="Nnp-Vv-ZFm"/>
-                                            <outlet property="gender" destination="D4z-Cx-Kyb" id="DZc-n5-7HZ"/>
-                                            <outlet property="name" destination="OIW-Dj-C3X" id="H8U-W9-aaW"/>
-                                            <outlet property="status" destination="Knp-tk-wcD" id="LNK-4N-hpG"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingCell" id="0eZ-fz-tmW">
-                                        <rect key="frame" x="0.0" y="171" width="414" height="51.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0eZ-fz-tmW" id="uao-d7-FeW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdP-iA-Mlc">
-                                                    <rect key="frame" x="16" y="10" width="382" height="41.5"/>
-                                                    <subviews>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1ni-76-hJL">
-                                                            <rect key="frame" x="181" y="11" width="20" height="20"/>
-                                                        </activityIndicatorView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="1ni-76-hJL" firstAttribute="centerX" secondItem="NdP-iA-Mlc" secondAttribute="centerX" id="0ZP-wb-Kxa"/>
-                                                        <constraint firstItem="1ni-76-hJL" firstAttribute="centerY" secondItem="NdP-iA-Mlc" secondAttribute="centerY" id="AD0-yf-JS5"/>
-                                                        <constraint firstAttribute="height" constant="41" id="OKD-dQ-sEg"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="NdP-iA-Mlc" secondAttribute="trailing" constant="16" id="McU-El-mwR"/>
-                                                <constraint firstAttribute="bottom" secondItem="NdP-iA-Mlc" secondAttribute="bottom" id="UgO-Zp-gqO"/>
-                                                <constraint firstItem="NdP-iA-Mlc" firstAttribute="top" secondItem="uao-d7-FeW" secondAttribute="top" constant="10" id="e4A-TK-YcI"/>
-                                                <constraint firstItem="NdP-iA-Mlc" firstAttribute="leading" secondItem="uao-d7-FeW" secondAttribute="leading" constant="16" id="hyL-cX-fdE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="BackgroundColor"/>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="tE0-PL-gpm"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="8UW-eG-Ovd"/>
@@ -169,15 +57,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RickAndMorty" width="300" height="300"/>
         <namedColor name="BackgroundColor">
             <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="CellColor">
-            <color red="1" green="1" blue="1" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PrimaryTextColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
