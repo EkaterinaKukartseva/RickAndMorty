@@ -1,0 +1,7 @@
+sources:
+  - RickAndMorty
+  - RickAndMortyTests
+templates:
+  - "Templates/Sourcery/AutoMockable.stencil"
+output:
+  "RickAndMortyTests/Mock/Generated/AutoMockable.generated.swift"
