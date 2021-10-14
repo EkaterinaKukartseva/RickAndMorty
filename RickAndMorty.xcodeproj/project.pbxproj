@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0045B8302716020E00873A9B /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0045B82F2716020E00873A9B /* CharacterTableViewCell.xib */; };
+		0045B83227174FC200873A9B /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0045B83127174FC200873A9B /* Color.xcassets */; };
 		005F3B7225BD7C3000A39CAD /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F3B7125BD7C3000A39CAD /* CharacterImageView.swift */; };
 		005F3B7725BDA91200A39CAD /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F3B7625BDA91200A39CAD /* ImageService.swift */; };
 		0066819A25BDF1D30097FC2D /* CharacterScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053CD4D2588145900A598B7 /* CharacterScreen.storyboard */; };
@@ -43,7 +44,7 @@
 		00E91408258F64AF00121605 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E91407258F64AF00121605 /* CharacterService.swift */; };
 		00E9140B258F653900121605 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E9140A258F653900121605 /* LocationService.swift */; };
 		00E9140E258F655300121605 /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E9140D258F655300121605 /* EpisodeService.swift */; };
-		00FFCB91258BF99E00D3BD64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003435932580227E009D5C75 /* Assets.xcassets */; };
+		00FFCB91258BF99E00D3BD64 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003435932580227E009D5C75 /* Image.xcassets */; };
 		00FFCB92258BF99E00D3BD64 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DDEE552583F52A00802CE9 /* SF-Pro-Text-Medium.otf */; };
 		00FFCB93258BF99E00D3BD64 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DDEE542583F52A00802CE9 /* SF-Pro-Text-Regular.otf */; };
 		00FFCB94258BF99E00D3BD64 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DDEE562583F52A00802CE9 /* SF-Pro-Text-Semibold.otf */; };
@@ -108,10 +109,11 @@
 		0034358A2580227B009D5C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0034358C2580227B009D5C75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		003435912580227B009D5C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		003435932580227E009D5C75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		003435932580227E009D5C75 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		003435962580227E009D5C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		003435982580227E009D5C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0045B82F2716020E00873A9B /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
+		0045B83127174FC200873A9B /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		0053CD3D2588134100A598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RickAndMorty/Storyboards/Base.lproj/CharactersList.storyboard; sourceTree = "<group>"; };
 		0053CD412588138F00A598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RickAndMorty/Storyboards/Base.lproj/LocationScreen.storyboard; sourceTree = "<group>"; };
 		0053CD45258813EC00A598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RickAndMorty/Storyboards/Base.lproj/EpisodeScreen.storyboard; sourceTree = "<group>"; };
@@ -311,7 +313,8 @@
 		0093A1652580363600DAC1E6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				003435932580227E009D5C75 /* Assets.xcassets */,
+				003435932580227E009D5C75 /* Image.xcassets */,
+				0045B83127174FC200873A9B /* Color.xcassets */,
 				00DDEE532583F52A00802CE9 /* Fonts */,
 			);
 			path = Resources;
@@ -676,7 +679,7 @@
 				0066819D25BDF1D30097FC2D /* LocationScreen.storyboard in Resources */,
 				00B1A9BE26F3C99E00CF4568 /* EpisodeCell.xib in Resources */,
 				0066819E25BDF1D30097FC2D /* CharactersList.storyboard in Resources */,
-				00FFCB91258BF99E00D3BD64 /* Assets.xcassets in Resources */,
+				00FFCB91258BF99E00D3BD64 /* Image.xcassets in Resources */,
 				00FFCB92258BF99E00D3BD64 /* SF-Pro-Text-Medium.otf in Resources */,
 				00FFCB93258BF99E00D3BD64 /* SF-Pro-Text-Regular.otf in Resources */,
 				0045B8302716020E00873A9B /* CharacterTableViewCell.xib in Resources */,
@@ -686,6 +689,7 @@
 				00FFCB95258BF99E00D3BD64 /* SF-Pro-Text-Bold.otf in Resources */,
 				00FFCB9B258BF99E00D3BD64 /* Main.storyboard in Resources */,
 				00B8DAD226F298C800C9BFAC /* LocationListPagination.storyboard in Resources */,
+				0045B83227174FC200873A9B /* Color.xcassets in Resources */,
 				00B8DADA26F3223100C9BFAC /* CharacterListPagination.storyboard in Resources */,
 				00FFCB9C258BF99E00D3BD64 /* LaunchScreen.storyboard in Resources */,
 			);

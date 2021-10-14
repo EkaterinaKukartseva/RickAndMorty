@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +37,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S01E06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7g-17-udd">
-                                            <rect key="frame" x="31" y="52.5" width="66.5" height="23"/>
+                                            <rect key="frame" x="27.5" y="52.5" width="73.5" height="23"/>
                                             <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="19"/>
                                             <color key="textColor" name="PrimaryTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -73,9 +73,10 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="0LM-Lf-pfT">
-                        <barButtonItem key="rightBarButtonItem" title="Home" image="Home" id="vvl-kb-S05">
+                        <barButtonItem key="rightBarButtonItem" image="house.fill" catalog="system" id="vvl-kb-S05">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="goHome:" destination="Qby-6z-aHA" id="nCv-4A-SZg"/>
+                                <action selector="didTapHome:" destination="Qby-6z-aHA" id="FC5-Tv-Moo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -99,7 +100,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Home" width="29" height="29"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <namedColor name="BackgroundColor">
             <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

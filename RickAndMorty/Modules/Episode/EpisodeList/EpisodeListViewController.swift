@@ -56,7 +56,7 @@ final class EpisodeListViewController: UICollectionViewController {
         }
     }
     
-    @IBAction func goHome(_ sender: Any) {
+    @IBAction func didTapHome(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     

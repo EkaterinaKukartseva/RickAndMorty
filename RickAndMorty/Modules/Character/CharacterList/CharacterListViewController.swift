@@ -49,7 +49,7 @@ class CharacterListViewController: UICollectionViewController {
         presenter?.showCharacterList(with: ids)
     }
     
-    @IBAction func goHomeAction(_ sender: Any) {
+    @IBAction func didTapHome(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lZM-VM-QQB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lZM-VM-QQB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -85,9 +85,10 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="9yI-Hf-f3Q">
-                        <barButtonItem key="rightBarButtonItem" title="Home" image="Home" id="aMA-xW-UVQ">
+                        <barButtonItem key="rightBarButtonItem" image="house.fill" catalog="system" id="aMA-xW-UVQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="goHomeAction:" destination="lZM-VM-QQB" id="fHu-Oh-eUn"/>
+                                <action selector="didTapHome:" destination="lZM-VM-QQB" id="9NQ-bM-pi4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -109,8 +110,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Home" width="29" height="29"/>
         <image name="RickAndMorty" width="300" height="300"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <namedColor name="BackgroundColor">
             <color red="0.125" green="0.13699999451637268" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
