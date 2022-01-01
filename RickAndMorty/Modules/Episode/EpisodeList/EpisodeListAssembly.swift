@@ -20,7 +20,8 @@ class EpisodeListAssembly: EpisodeListAssemblyProtocol {
     
     func configure(with viewController: EpisodeListViewController) {
         let presenter = EpisodeListPresenter(view: viewController)
-        let interactor = EpisodeListInteractor(presenter: presenter)
+        let interactor = EpisodeListInteractor(presenter: presenter,
+                                               episodeService: EpisodeService())
         let router = EpisodeListRouter(viewController: viewController)
         viewController.presenter = presenter
         presenter.interactor = interactor

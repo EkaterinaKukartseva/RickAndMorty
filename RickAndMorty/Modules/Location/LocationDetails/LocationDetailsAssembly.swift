@@ -19,7 +19,8 @@ class LocationDetailsAssembly: LocationDetailsAssemblyProtocol {
     
     func configure(with viewController: LocationDetailsViewController) {
         let presenter = LocationDetailsPresenter(view: viewController)
-        let interactor = LocationDetailsInteractor(presenter: presenter)
+        let interactor = LocationDetailsInteractor(presenter: presenter,
+                                                   locationService: LocationService())
         let router = LocationDetailsRouter(viewController: viewController)
         viewController.presenter = presenter
         presenter.interactor = interactor

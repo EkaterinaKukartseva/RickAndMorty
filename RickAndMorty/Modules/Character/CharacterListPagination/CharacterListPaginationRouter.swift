@@ -11,6 +11,9 @@ import Foundation
 // MARK: - CharacterListPaginationRouterProtocol
 protocol CharacterListPaginationRouterProtocol {
     
+    /// Инициализация роутера модуля `CharacterListPagination`
+    /// - Parameters:
+    ///   - viewController: `CharacterListPaginationViewController`
     init(viewController: CharacterListPaginationViewController)
     
     /// Открыть экран с детальной информацией о персонаже

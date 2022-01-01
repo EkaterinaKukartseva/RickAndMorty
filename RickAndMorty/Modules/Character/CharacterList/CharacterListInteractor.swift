@@ -10,7 +10,11 @@ import Foundation
 // MARK: - CharacterListInteractorInputProtocol
 protocol CharacterListInteractorInputProtocol {
     
-    init(presenter: CharacterListInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `CharacterList`
+    /// - Parameters:
+    ///   - presenter: `CharacterListPresenter`
+    ///   - characterService: `CharacterService`
+    init(presenter: CharacterListInteractorOutputProtocol, characterService: CharacterService)
     
     /// Получить список персонажей
     /// - Parameter ids: ids персонажей
@@ -29,13 +33,15 @@ protocol CharacterListInteractorOutputProtocol: AnyObject {
 class CharacterListInteractor: CharacterListInteractorInputProtocol {
     
     private let presenter: CharacterListInteractorOutputProtocol?
+    private let characterService: CharacterService
     
-    required init(presenter: CharacterListInteractorOutputProtocol) {
+    required init(presenter: CharacterListInteractorOutputProtocol, characterService: CharacterService) {
         self.presenter = presenter
+        self.characterService = characterService
     }
     
     func provideCharacterList(with ids: [Int]) {
-        client.character().fetchCharacters(byID: ids) { result in
+        characterService.fetchCharacters(by: ids) { result in
             switch result {
             case .success(let model):
                 self.presenter?.receiveCharacterList(model)
@@ -46,7 +52,7 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
     }
     
     func provideAllCharacterList() {
-        client.character().fetchAllCharacters { result in
+        characterService.fetchCharacters { result in
             switch result {
             case .success(let model):
                 self.presenter?.receiveCharacterList(model.results)

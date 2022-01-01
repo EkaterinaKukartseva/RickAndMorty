@@ -11,7 +11,11 @@ import Foundation
 // MARK: - LocationListPaginationInteractorInputProtocol
 protocol LocationListPaginationInteractorInputProtocol: AnyObject {
 
-    init(presenter: LocationListPaginationInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `LocationListPagination`
+    /// - Parameters:
+    ///   - presenter: `LocationListPaginationPresenter`
+    ///   - characterService: `LocationService`
+    init(presenter: LocationListPaginationInteractorOutputProtocol, locationService: LocationService)
     
     /// Получить список локаций по странице
     /// - Parameter page: номер страницы
@@ -30,13 +34,15 @@ protocol LocationListPaginationInteractorOutputProtocol {
 final class LocationListPaginationInteractor: LocationListPaginationInteractorInputProtocol {
 
     private let presenter: LocationListPaginationInteractorOutputProtocol?
+    private let locationService: LocationService
 
-    required init(presenter: LocationListPaginationInteractorOutputProtocol) {
+    required init(presenter: LocationListPaginationInteractorOutputProtocol, locationService: LocationService) {
         self.presenter = presenter
+        self.locationService = locationService
     }
     
     func provideLocationList(by page: Int) {
-        client.location().fetchLocations(byPageNumber: page) { result in
+        locationService.fetchLocations(by: page) { result in
             switch result {
             case .success(let model):
                 self.presenter?.receiveLocationList(model)

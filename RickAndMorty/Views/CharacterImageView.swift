@@ -22,7 +22,7 @@ class CharacterImageView: UIImageView {
         }
         
         // Загрузка изображения из сети
-        client.image().fetchImage(byURL: url) { (result) in
+        ImageService().fetchImage(byURL: url) { (result) in
             switch result {
             case .success((let data, let response)):
                 DispatchQueue.main.async {

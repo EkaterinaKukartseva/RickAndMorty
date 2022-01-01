@@ -20,7 +20,8 @@ class LocationListPaginationAssembly: LocationListPaginationAssemblyProtocol {
     
     func configure(with viewController: LocationListPaginationViewController) {
         let presenter = LocationListPaginationPresenter(view: viewController)
-        let interactor = LocationListPaginationInteractor(presenter: presenter)
+        let interactor = LocationListPaginationInteractor(presenter: presenter,
+                                                          locationService: LocationService())
         let router = LocationListPaginationRouter(viewController: viewController)
         viewController.presenter = presenter
         presenter.interactor = interactor

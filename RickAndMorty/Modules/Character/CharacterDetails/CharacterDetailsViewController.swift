@@ -18,6 +18,9 @@ protocol CharacterDetailsViewInputProtocol: AnyObject {
 // MARK: - CharacterDetailsViewOutputProtocol
 protocol CharacterDetailsViewOutputProtocol {
     
+    /// Инициализация презентера  модуля `CharacterDetails`
+    /// - Parameters:
+    ///   - view: `CharacterDetailsView`
     init(view: CharacterDetailsViewInputProtocol)
     
     ///  Показать информацию об персонаже

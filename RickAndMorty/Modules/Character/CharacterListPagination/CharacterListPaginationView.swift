@@ -23,6 +23,9 @@ protocol CharacterListPaginationViewInputProtocol: AnyObject {
 // MARK: - CharacterListPaginationViewOutputProtocol
 protocol CharacterListPaginationViewOutputProtocol {
     
+    /// Инициализация презентера  модуля `CharacterListPagination`
+    /// - Parameters:
+    ///   - view: `CharacterListPaginationView`
     init(view: CharacterListPaginationViewInputProtocol)
     
     /// Показать список персонажей
@@ -52,6 +55,8 @@ final class CharacterListPaginationViewController: UIViewController {
         super.viewDidLoad()
         assembly.configure(with: self)
         tableView.register(CharacterTableViewCell.nib, forCellReuseIdentifier: CharacterTableViewCell.identifier)
+        tableView.rowHeight =  UITableView .automaticDimension
+        tableView.estimatedRowHeight =  200
         presenter?.showCharacterList()
     }
     

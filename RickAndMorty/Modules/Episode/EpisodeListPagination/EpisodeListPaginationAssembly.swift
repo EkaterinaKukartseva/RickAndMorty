@@ -20,7 +20,8 @@ class EpisodeListPaginationAssembly: EpisodeListPaginationAssemblyProtocol {
     
     func configure(with viewController: EpisodeListPaginationViewController) {
         let presenter = EpisodeListPaginationPresenter(view: viewController)
-        let interactor = EpisodeListPaginationInteractor(presenter: presenter)
+        let interactor = EpisodeListPaginationInteractor(presenter: presenter,
+                                                         episodeService: EpisodeService())
         let router = EpisodeListPaginationRouter(viewController: viewController)
         viewController.presenter = presenter
         presenter.interactor = interactor

@@ -18,6 +18,9 @@ protocol CharacterListViewInputProtocol: AnyObject {
 // MARK: - CharacterListViewOutputProtocol
 protocol CharacterListViewOutputProtocol {
     
+    /// Инициализация презентера  модуля `CharacterList`
+    /// - Parameters:
+    ///   - view: `CharacterListView`
     init(view: CharacterListViewInputProtocol)
     
     /// Показать список персонажей

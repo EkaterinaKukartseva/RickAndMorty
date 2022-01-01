@@ -11,7 +11,11 @@ import Foundation
 // MARK: - EpisodeDetailsInteractorInputProtocol
 protocol EpisodeDetailsInteractorInputProtocol: AnyObject {
 
-    init(presenter: EpisodeDetailsInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `EpisodeDetails`
+    /// - Parameters:
+    ///   - presenter: `EpisodeDetailsPresenter`
+    ///   - characterService: `EpisodeService`
+    init(presenter: EpisodeDetailsInteractorOutputProtocol, episodeService: EpisodeService)
     
     /// Получить информацию о серии
     /// - Parameter id: id серии
@@ -30,13 +34,15 @@ protocol EpisodeDetailsInteractorOutputProtocol {
 final class EpisodeDetailsInteractor: EpisodeDetailsInteractorInputProtocol {
 
     private let presenter: EpisodeDetailsInteractorOutputProtocol?
+    private let episodeService: EpisodeService
 
-    required init(presenter: EpisodeDetailsInteractorOutputProtocol) {
+    required init(presenter: EpisodeDetailsInteractorOutputProtocol, episodeService: EpisodeService) {
         self.presenter = presenter
+        self.episodeService = episodeService
     }
     
     func provideEpisode(with id: Int) {
-        client.episode().fetchEpisode(byID: id) { (result) in
+        episodeService.fetchEpisode(by: id) { (result) in
             switch result {
             case .success(let model):
                 self.presenter?.receiveEpisode(model)

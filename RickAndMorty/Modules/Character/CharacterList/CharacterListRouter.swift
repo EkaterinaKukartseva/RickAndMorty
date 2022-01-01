@@ -10,6 +10,9 @@ import Foundation
 // MARK: - CharacterListRouterProtocol
 protocol CharacterListRouterProtocol {
     
+    /// Инициализация роутера модуля `CharacterList`
+    /// - Parameters:
+    ///   - viewController: `CharacterListViewController`
     init(viewController: CharacterListViewController)
     
     /// Открыть экран с детальной информацией о персонаже

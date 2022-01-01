@@ -9,6 +9,9 @@ import Foundation
 
 protocol CharacterDetailsRouterProtocol {
     
+    /// Инициализация роутера модуля `CharacterDetails`
+    /// - Parameters:
+    ///   - viewController: `CharacterDetailsViewController`
     init(viewController: CharacterDetailsViewController)
     
     /// Открыть экран со списком серий

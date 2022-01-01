@@ -11,7 +11,11 @@ import Foundation
 // MARK: - CharacterListPaginationInteractorInputProtocol
 protocol CharacterListPaginationInteractorInputProtocol: AnyObject {
 
-    init(presenter: CharacterListPaginationInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `CharacterList`
+    /// - Parameters:
+    ///   - presenter: `CharacterListPaginationPresenter`
+    ///   - characterService: `CharacterService`
+    init(presenter: CharacterListPaginationInteractorOutputProtocol, characterService: CharacterService)
     
     /// Получить список персонажей по страницам
     /// - Parameter page: номер страницы
@@ -30,13 +34,15 @@ protocol CharacterListPaginationInteractorOutputProtocol {
 final class CharacterListPaginationInteractor: CharacterListPaginationInteractorInputProtocol {
 
     private let presenter: CharacterListPaginationInteractorOutputProtocol?
+    private let characterService: CharacterService
 
-    required init(presenter: CharacterListPaginationInteractorOutputProtocol) {
+    required init(presenter: CharacterListPaginationInteractorOutputProtocol, characterService: CharacterService) {
         self.presenter = presenter
+        self.characterService = characterService
     }
     
     func provideCharacterList(by page: Int) {
-        client.character().fetchCharacters(byPageNumber: page) { result in
+        characterService.fetchCharacters(by: page) { result in
             switch result {
             case .success(let model):
                 self.presenter?.receiveCharacterList(model)

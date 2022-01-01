@@ -11,7 +11,11 @@ import Foundation
 // MARK: - EpisodeListPaginationInteractorInputProtocol
 protocol EpisodeListPaginationInteractorInputProtocol: AnyObject {
 
-    init(presenter: EpisodeListPaginationInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `EpisodeListPagination`
+    /// - Parameters:
+    ///   - presenter: `EpisodeListPaginationPresenter`
+    ///   - characterService: `EpisodeService`
+    init(presenter: EpisodeListPaginationInteractorOutputProtocol, episodeService: EpisodeService)
     
     /// Получить список серий по страницам
     /// - Parameter page: номер страницы
@@ -30,13 +34,15 @@ protocol EpisodeListPaginationInteractorOutputProtocol {
 final class EpisodeListPaginationInteractor: EpisodeListPaginationInteractorInputProtocol {
 
     private let presenter: EpisodeListPaginationInteractorOutputProtocol?
+    private let episodeService: EpisodeService
 
-    required init(presenter: EpisodeListPaginationInteractorOutputProtocol) {
+    required init(presenter: EpisodeListPaginationInteractorOutputProtocol, episodeService: EpisodeService) {
         self.presenter = presenter
+        self.episodeService = episodeService
     }
     
     func provideEpisodeList(by page: Int) {
-        client.episode().fetchEpisodes(byPageNumber: page) { result in
+        episodeService.fetchEpisodes(by: page) { result in
             switch result {
             case .success(let model):
                 self.presenter?.receiveEpisodeList(model)

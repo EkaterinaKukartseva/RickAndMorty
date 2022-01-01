@@ -10,7 +10,11 @@ import Foundation
 // MARK: - LocationDetailsInteractorInputProtocol
 protocol LocationDetailsInteractorInputProtocol {
     
-    init(presenter: LocationDetailsInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `LocationDetails`
+    /// - Parameters:
+    ///   - presenter: `LocationDetailsPresenter`
+    ///   - characterService: `LocationService`
+    init(presenter: LocationDetailsInteractorOutputProtocol, locationService: LocationService)
     
     /// Получить информацию о локации
     /// - Parameter url: url локации
@@ -25,17 +29,19 @@ protocol LocationDetailsInteractorOutputProtocol: AnyObject {
     func receiveLocation(_ location: LocationModel)
 }
 
-// MARK: -
+// MARK: - LocationDetailsInteractor
 class LocationDetailsInteractor: LocationDetailsInteractorInputProtocol {
     
     private let presenter: LocationDetailsInteractorOutputProtocol?
+    private let locationService: LocationService
     
-    required init(presenter: LocationDetailsInteractorOutputProtocol) {
+    required init(presenter: LocationDetailsInteractorOutputProtocol, locationService: LocationService) {
         self.presenter = presenter
+        self.locationService = locationService
     }
     
     func provideLocation(with url: String) {
-        client.location().fetchLocation(byURL: url) { [unowned self] (result) in
+        locationService.fetchLocation(by: url) { [unowned self] (result) in
             switch result {
             case .success(let model):
                 self.presenter?.receiveLocation(model)

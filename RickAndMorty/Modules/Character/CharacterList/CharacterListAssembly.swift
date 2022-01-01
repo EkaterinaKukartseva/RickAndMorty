@@ -19,7 +19,8 @@ class CharacterListAssembly: CharacterListAssemblyProtocol {
     
     func configure(with viewController: CharacterListViewController) {
         let presenter = CharacterListPresenter(view: viewController)
-        let interactor = CharacterListInteractor(presenter: presenter)
+        let interactor = CharacterListInteractor(presenter: presenter,
+                                                 characterService: CharacterService())
         let router = CharacterListRouter(viewController: viewController)
         viewController.presenter = presenter
         presenter.interactor = interactor

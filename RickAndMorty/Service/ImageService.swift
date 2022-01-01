@@ -6,21 +6,15 @@
 //
 
 import Foundation
+import Alamofire
 
 struct ImageService {
-    
-    public init(client: Client) {
-        self.client = client
-    }
-    
-    let networkManager: NetworkManager = NetworkManager()
-    let client: Client
-    
+
     func fetchImage(byURL url: String, completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) {
-        networkManager.performRequestForImage(withURLString: url) { result in
-            switch result {
-            case .success((let data, let response)):
-                completion(.success((data, response)))
+        AF.download(url).validate().responseData { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success((data, response.response!)))
             case .failure(let error):
                 completion(.failure(error))
             }

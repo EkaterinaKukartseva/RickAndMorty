@@ -19,7 +19,8 @@ class CharacterDetailsAssembly: CharacterDetailsAssemblyProtocol {
     
     func configure(with viewController: CharacterDetailsViewController) {
         let presenter = CharacterDetailsPresenter(view: viewController)
-        let interactor = CharacterDetailsInteractor(presenter: presenter)
+        let interactor = CharacterDetailsInteractor(presenter: presenter,
+                                                    characterService: CharacterService())
         let router = CharacterDetailsRouter(viewController: viewController)
         viewController.presenter = presenter
         presenter.interactor = interactor

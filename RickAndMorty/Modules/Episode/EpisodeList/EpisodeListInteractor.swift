@@ -11,7 +11,11 @@ import Foundation
 // MARK: - EpisodeListInteractorInputProtocol
 protocol EpisodeListInteractorInputProtocol: AnyObject {
 
-    init(presenter: EpisodeListInteractorOutputProtocol)
+    /// Инициализация интерактора модуля `EpisodeList`
+    /// - Parameters:
+    ///   - presenter: `EpisodeListPresenter`
+    ///   - characterService: `EpisodeService`
+    init(presenter: EpisodeListInteractorOutputProtocol, episodeService: EpisodeService)
     
     /// Получить информацию о серии
     /// - Parameter ids: ids серий
@@ -38,13 +42,15 @@ protocol EpisodeListInteractorOutputProtocol {
 final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
 
     private let presenter: EpisodeListInteractorOutputProtocol?
+    private let episodeService: EpisodeService
 
-    required init(presenter: EpisodeListInteractorOutputProtocol) {
+    required init(presenter: EpisodeListInteractorOutputProtocol, episodeService: EpisodeService) {
         self.presenter = presenter
+        self.episodeService = episodeService
     }
     
     func provideEpisodeList(with ids: [Int]) {
-        client.episode().fetchEpisodes(byID: ids) { (result) in
+        episodeService.fetchEpisodes(by: ids) { (result) in
             switch result {
             case .success(let list):
                 self.presenter?.receiveEpisodeList(list)
@@ -55,7 +61,7 @@ final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
     }
     
     func provideEpisodeList(with id: Int) {
-        client.episode().fetchEpisode(byID: id) { (result) in
+        episodeService.fetchEpisode(by: id) { (result) in
             switch result {
             case .success(let episode):
                 self.presenter?.receiveEpisodeList(episode)
