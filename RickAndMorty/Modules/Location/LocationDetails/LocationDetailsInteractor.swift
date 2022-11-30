@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - LocationDetailsInteractorInputProtocol
 protocol LocationDetailsInteractorInputProtocol {
@@ -33,7 +34,8 @@ protocol LocationDetailsInteractorOutputProtocol: AnyObject {
 class LocationDetailsInteractor: LocationDetailsInteractorInputProtocol {
     
     private let presenter: LocationDetailsInteractorOutputProtocol?
-    private let locationService: LocationService
+    private let locationService: LocationServiceProtocol
+    private var subscription: AnyCancellable?
     
     required init(presenter: LocationDetailsInteractorOutputProtocol, locationService: LocationService) {
         self.presenter = presenter
@@ -41,13 +43,12 @@ class LocationDetailsInteractor: LocationDetailsInteractorInputProtocol {
     }
     
     func provideLocation(with url: String) {
-        locationService.fetchLocation(by: url) { [unowned self] (result) in
-            switch result {
-            case .success(let model):
+        subscription = locationService.fetchLocation(by: url)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveLocation(model)
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

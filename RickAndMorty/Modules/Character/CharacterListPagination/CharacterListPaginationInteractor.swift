@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - CharacterListPaginationInteractorInputProtocol
 protocol CharacterListPaginationInteractorInputProtocol: AnyObject {
@@ -34,7 +35,8 @@ protocol CharacterListPaginationInteractorOutputProtocol {
 final class CharacterListPaginationInteractor: CharacterListPaginationInteractorInputProtocol {
 
     private let presenter: CharacterListPaginationInteractorOutputProtocol?
-    private let characterService: CharacterService
+    private let characterService: CharacterServiceProtocol
+    private var subscription: AnyCancellable?
 
     required init(presenter: CharacterListPaginationInteractorOutputProtocol, characterService: CharacterService) {
         self.presenter = presenter
@@ -42,13 +44,12 @@ final class CharacterListPaginationInteractor: CharacterListPaginationInteractor
     }
     
     func provideCharacterList(by page: Int) {
-        characterService.fetchCharacters(by: page) { result in
-            switch result {
-            case .success(let model):
+        subscription = characterService.fetchCharacters(by: page)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveCharacterList(model)
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

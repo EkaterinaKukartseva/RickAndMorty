@@ -24,7 +24,13 @@ struct EpisodeModel: Codable {
     let created: String
 
     enum CodingKeys: String, CodingKey {
-        case id, name, episode, characters, url, created
+        
+        case id
+        case name
+        case episode
+        case characters
+        case url
+        case created
         case airDate = "air_date"
     }
 }

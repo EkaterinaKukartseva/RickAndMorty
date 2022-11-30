@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - CharacterDetailsInteractorInputProtocol
 protocol CharacterDetailsInteractorInputProtocol {
@@ -33,7 +34,8 @@ protocol CharacterDetailsInteractorOutputProtocol: AnyObject {
 class CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
     
     private let presenter: CharacterDetailsInteractorOutputProtocol?
-    private let characterService: CharacterService
+    private let characterService: CharacterServiceProtocol
+    private var subscription: AnyCancellable?
     
     required init(presenter: CharacterDetailsInteractorOutputProtocol, characterService: CharacterService) {
         self.presenter = presenter
@@ -41,13 +43,12 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
     }
     
     func provideCharacter(with id: Int) {
-        characterService.fetchCharacter(by: id) { (result) in
-            switch result {
-            case .success(let model):
+        subscription = characterService.fetchCharacter(by: id)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveCharacter(model)
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

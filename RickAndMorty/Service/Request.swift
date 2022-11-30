@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import OSLog
 
 enum Request {
     
@@ -41,8 +42,9 @@ enum Request {
 // MARK: - URLRequestConvertible
 extension Request: URLRequestConvertible {
     
-  func asURLRequest() throws -> URLRequest {
-    let url = try (Request.baseURLString + path).asURL()
-    return URLRequest(url: url)
-  }
+    func asURLRequest() throws -> URLRequest {
+        let url = try (Request.baseURLString + path).asURL()
+        os_log(.info, "\(url.absoluteString)")
+        return URLRequest(url: url)
+    }
 }

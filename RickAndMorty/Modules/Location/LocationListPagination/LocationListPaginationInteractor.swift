@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - LocationListPaginationInteractorInputProtocol
 protocol LocationListPaginationInteractorInputProtocol: AnyObject {
@@ -34,7 +35,8 @@ protocol LocationListPaginationInteractorOutputProtocol {
 final class LocationListPaginationInteractor: LocationListPaginationInteractorInputProtocol {
 
     private let presenter: LocationListPaginationInteractorOutputProtocol?
-    private let locationService: LocationService
+    private let locationService: LocationServiceProtocol
+    private var subscription: AnyCancellable?
 
     required init(presenter: LocationListPaginationInteractorOutputProtocol, locationService: LocationService) {
         self.presenter = presenter
@@ -42,13 +44,12 @@ final class LocationListPaginationInteractor: LocationListPaginationInteractorIn
     }
     
     func provideLocationList(by page: Int) {
-        locationService.fetchLocations(by: page) { result in
-            switch result {
-            case .success(let model):
+        subscription = locationService.fetchLocations(by: page)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveLocationList(model)
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

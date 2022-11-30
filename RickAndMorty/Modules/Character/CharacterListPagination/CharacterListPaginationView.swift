@@ -41,22 +41,28 @@ protocol CharacterListPaginationViewOutputProtocol {
 
 // MARK: - CharacterListPaginationViewController
 final class CharacterListPaginationViewController: UIViewController {
+    
+    private struct Constants {
+        
+        let cellHeight: CGFloat = 146
+        let spinnerHeight: CGFloat = 60
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: CharacterListPaginationViewOutputProtocol?
-    private let assembly: CharacterListPaginationAssemblyProtocol = CharacterListPaginationAssembly()
     
+    private let assembly: CharacterListPaginationAssemblyProtocol = CharacterListPaginationAssembly()
     private var characters: [Character] = []
     private var isLoadingNextPage = false
+    private let constants = Constants()
 
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         assembly.configure(with: self)
         tableView.register(CharacterTableViewCell.nib, forCellReuseIdentifier: CharacterTableViewCell.identifier)
-        tableView.rowHeight =  UITableView .automaticDimension
-        tableView.estimatedRowHeight =  200
+        tableView.rowHeight = constants.cellHeight
         presenter?.showCharacterList()
     }
     
@@ -111,7 +117,10 @@ extension CharacterListPaginationViewController: CharacterListPaginationViewInpu
         }
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.startAnimating()
-        spinner.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: CGFloat(60))
+        spinner.frame = CGRect(x: .zero,
+                               y: .zero,
+                               width: tableView.bounds.width,
+                               height: CGFloat(constants.spinnerHeight))
         tableView.tableFooterView = spinner
         tableView.tableFooterView?.isHidden = false
     }
@@ -128,7 +137,7 @@ private extension CharacterListPaginationViewController {
     func append(content: [Character]) {
         let oldCount = self.characters.count
         self.characters.append(contentsOf: content)
-        let indexPaths = (oldCount..<self.characters.count).map { IndexPath(row: $0, section: 0) }
+        let indexPaths = (oldCount..<self.characters.count).map { IndexPath(row: $0, section: .zero) }
         setPageLoading(with: false)
         UIView.performWithoutAnimation {
             self.tableView.insertRows(at: indexPaths, with: .bottom)

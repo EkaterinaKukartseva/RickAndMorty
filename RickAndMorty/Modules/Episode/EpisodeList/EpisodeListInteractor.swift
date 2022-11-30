@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - EpisodeListInteractorInputProtocol
 protocol EpisodeListInteractorInputProtocol: AnyObject {
@@ -42,7 +43,8 @@ protocol EpisodeListInteractorOutputProtocol {
 final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
 
     private let presenter: EpisodeListInteractorOutputProtocol?
-    private let episodeService: EpisodeService
+    private let episodeService: EpisodeServiceProtocol
+    private var subscription: AnyCancellable?
 
     required init(presenter: EpisodeListInteractorOutputProtocol, episodeService: EpisodeService) {
         self.presenter = presenter
@@ -50,24 +52,22 @@ final class EpisodeListInteractor: EpisodeListInteractorInputProtocol {
     }
     
     func provideEpisodeList(with ids: [Int]) {
-        episodeService.fetchEpisodes(by: ids) { (result) in
-            switch result {
-            case .success(let list):
-                self.presenter?.receiveEpisodeList(list)
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+        subscription = episodeService.fetchEpisodes(by: ids)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
+                self.presenter?.receiveEpisodeList(model)
+            })
     }
     
     func provideEpisodeList(with id: Int) {
-        episodeService.fetchEpisode(by: id) { (result) in
-            switch result {
-            case .success(let episode):
-                self.presenter?.receiveEpisodeList(episode)
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+        subscription = episodeService.fetchEpisode(by: id)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
+                self.presenter?.receiveEpisodeList(model)
+            })
     }
 }

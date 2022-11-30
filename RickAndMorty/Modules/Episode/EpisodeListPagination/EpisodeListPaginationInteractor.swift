@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - EpisodeListPaginationInteractorInputProtocol
 protocol EpisodeListPaginationInteractorInputProtocol: AnyObject {
@@ -34,7 +35,8 @@ protocol EpisodeListPaginationInteractorOutputProtocol {
 final class EpisodeListPaginationInteractor: EpisodeListPaginationInteractorInputProtocol {
 
     private let presenter: EpisodeListPaginationInteractorOutputProtocol?
-    private let episodeService: EpisodeService
+    private let episodeService: EpisodeServiceProtocol
+    private var subscription: AnyCancellable?
 
     required init(presenter: EpisodeListPaginationInteractorOutputProtocol, episodeService: EpisodeService) {
         self.presenter = presenter
@@ -42,13 +44,12 @@ final class EpisodeListPaginationInteractor: EpisodeListPaginationInteractorInpu
     }
     
     func provideEpisodeList(by page: Int) {
-        episodeService.fetchEpisodes(by: page) { result in
-            switch result {
-            case .success(let model):
+        subscription = episodeService.fetchEpisodes(by: page)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveEpisodeList(model)
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

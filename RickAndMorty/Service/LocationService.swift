@@ -7,99 +7,33 @@
 
 import Alamofire
 import Foundation
+import Combine
 
-struct LocationService {
+protocol LocationServiceProtocol {
     
-    /// Получение локации по ID
-    func fetchLocation(by id: Int, completion: @escaping (Result<LocationModel, Error>) -> Void) {
-        print("fetchLocation(by id")
-        AF.request(Request.location("\(id)"))
-            .responseDecodable(of: LocationModel.self) { response in
-                switch response.result {
-                case .success(let locationModel):
-                    completion(.success(locationModel))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-    }
+    /// Получить локацию
+    /// - Parameter url: url локации
+    /// - Returns: Локация
+    func fetchLocation(by url: String) -> AnyPublisher<LocationModel, AFError>
     
-    /// Получение локации по URL
-    func fetchLocation(by url: String, completion: @escaping (Result<LocationModel, Error>) -> Void) {
+    /// Получить список локаций
+    /// - Parameter page: Номер страницы
+    /// - Returns: Список локаций
+    func fetchLocations(by page: Int) -> AnyPublisher<InfoLocationModel, AFError>
+}
+
+/// Сервис локаций
+struct LocationService: LocationServiceProtocol {
+    
+    func fetchLocation(by url: String) -> AnyPublisher<LocationModel, AFError> {
         AF.request(url)
-            .responseDecodable(of: LocationModel.self) { response in
-                switch response.result {
-                case .success(let locationModel):
-                    completion(.success(locationModel))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            .publishDecodable(type: LocationModel.self)
+            .value()
     }
     
-    /// Получение нескольких локаций по ID
-    func fetchLocations(by ids: [Int], completion: @escaping (Result<[LocationModel], Error>) -> Void) {
-        print("fetchLocation(by ids")
-        AF.request(Request.location(ids.map({"\($0)"}).joined(separator: ",")))
-            .responseDecodable(of: [LocationModel].self) { response in
-                switch response.result {
-                case .success(let locationModels):
-                    completion(.success(locationModels))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-    }
-    
-    /// Получение локации по номеру страницы
-    func fetchLocations(by page: Int, completion: @escaping (Result<InfoLocationModel, Error>) -> Void) {
-        print("fetchLocation(by page")
-        print("\(Request.locationPage("\(page)"))")
+    func fetchLocations(by page: Int) -> AnyPublisher<InfoLocationModel, AFError> {
         AF.request(Request.locationPage("\(page)"))
-            .responseDecodable(of: InfoLocationModel.self) { response in
-                switch response.result {
-                case .success(let locationModel):
-                    completion(.success(locationModel))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            .publishDecodable(type: InfoLocationModel.self)
+            .value()
     }
-    
-    /// Получение всех локаций
-//    func fetchLocations(completion: @escaping (Result<InfoLocationModel, Error>) -> Void) {
-//        let path = Method.location.rawValue
-//        let urlString = networkManager.url(path: path)
-//        
-//        networkManager.performRequest(withURLString: urlString) { result in
-//            switch result {
-//            case .success(let data):
-//                DispatchQueue.main.async {
-//                    if let model: InfoLocationModel = self.networkManager.decodeJSONData(data: data) {
-//                        completion(.success(model))
-//                    }
-//                }
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
-//    
-//    func fetchLocations(byName name: String, completion: @escaping (Result<InfoLocationModel, Error>) -> Void) {
-//        let path = Method.location.rawValue + "?name=" + "\(name)"
-//        let urlString = networkManager.url(path: path)
-//        
-//        networkManager.performRequest(withURLString: urlString) { (result) in
-//            switch result {
-//            case .success(let data):
-//                DispatchQueue.main.async {
-//                    if let model: InfoLocationModel = self.networkManager.decodeJSONData(data: data) {
-//                        completion(.success(model))
-//                    }
-//                }
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
 }

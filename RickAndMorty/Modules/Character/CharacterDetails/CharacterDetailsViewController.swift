@@ -52,7 +52,7 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet var gender: UILabel!
     @IBOutlet var origin: UILabel!
     @IBOutlet var location: UILabel!
-    @IBOutlet var imageView: CharacterImageView! {
+    @IBOutlet var imageView: UIImageView! {
         didSet {
             imageView.layer.cornerRadius = imageView.bounds.size.width / 2
             imageView.layer.borderWidth = 4

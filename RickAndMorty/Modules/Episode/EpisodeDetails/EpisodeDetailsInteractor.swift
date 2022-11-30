@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - EpisodeDetailsInteractorInputProtocol
 protocol EpisodeDetailsInteractorInputProtocol: AnyObject {
@@ -34,7 +35,8 @@ protocol EpisodeDetailsInteractorOutputProtocol {
 final class EpisodeDetailsInteractor: EpisodeDetailsInteractorInputProtocol {
 
     private let presenter: EpisodeDetailsInteractorOutputProtocol?
-    private let episodeService: EpisodeService
+    private let episodeService: EpisodeServiceProtocol
+    private var subscription: AnyCancellable?
 
     required init(presenter: EpisodeDetailsInteractorOutputProtocol, episodeService: EpisodeService) {
         self.presenter = presenter
@@ -42,13 +44,12 @@ final class EpisodeDetailsInteractor: EpisodeDetailsInteractorInputProtocol {
     }
     
     func provideEpisode(with id: Int) {
-        episodeService.fetchEpisode(by: id) { (result) in
-            switch result {
-            case .success(let model):
+        subscription = episodeService.fetchEpisode(by: id)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveEpisode(model)
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,10 +28,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jR-jT-g2D">
                         <rect key="frame" x="16" y="14" width="396" height="132"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RickAndMorty" translatesAutoresizingMaskIntoConstraints="NO" id="Hau-UC-g65" customClass="CharacterImageView" customModule="RickAndMorty" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RickAndMorty" translatesAutoresizingMaskIntoConstraints="NO" id="Hau-UC-g65">
                                 <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="132" id="GmW-p8-7wj"/>
+                                    <constraint firstAttribute="width" secondItem="Hau-UC-g65" secondAttribute="height" multiplier="1:1" id="h1B-i0-5hB"/>
                                     <constraint firstAttribute="width" constant="132" id="hcc-zN-ctA"/>
                                 </constraints>
                             </imageView>
@@ -84,10 +84,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" name="BackgroundColor"/>
             <connections>
-                <outlet property="characterImageView" destination="Hau-UC-g65" id="7lo-kM-QK7"/>
-                <outlet property="gender" destination="V8H-nT-BIe" id="Vk6-Vz-Jas"/>
-                <outlet property="name" destination="EL7-4f-xVi" id="iXd-a4-1Xb"/>
-                <outlet property="status" destination="Bu3-TH-p7u" id="IZ4-C6-DrB"/>
+                <outlet property="characterImageView" destination="Hau-UC-g65" id="DLt-im-MmL"/>
+                <outlet property="gender" destination="V8H-nT-BIe" id="nCE-SO-eGY"/>
+                <outlet property="name" destination="EL7-4f-xVi" id="BrU-nh-3ru"/>
+                <outlet property="status" destination="Bu3-TH-p7u" id="FFJ-ea-TpW"/>
             </connections>
             <point key="canvasLocation" x="139" y="135"/>
         </tableViewCell>

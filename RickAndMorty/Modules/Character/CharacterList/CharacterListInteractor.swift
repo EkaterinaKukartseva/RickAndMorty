@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - CharacterListInteractorInputProtocol
 protocol CharacterListInteractorInputProtocol {
@@ -33,7 +34,8 @@ protocol CharacterListInteractorOutputProtocol: AnyObject {
 class CharacterListInteractor: CharacterListInteractorInputProtocol {
     
     private let presenter: CharacterListInteractorOutputProtocol?
-    private let characterService: CharacterService
+    private let characterService: CharacterServiceProtocol
+    private var subscriptions: AnyCancellable?
     
     required init(presenter: CharacterListInteractorOutputProtocol, characterService: CharacterService) {
         self.presenter = presenter
@@ -41,24 +43,22 @@ class CharacterListInteractor: CharacterListInteractorInputProtocol {
     }
     
     func provideCharacterList(with ids: [Int]) {
-        characterService.fetchCharacters(by: ids) { result in
-            switch result {
-            case .success(let model):
+        subscriptions = characterService.fetchCharacters(by: ids)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveCharacterList(model)
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
     
     func provideAllCharacterList() {
-        characterService.fetchCharacters { result in
-            switch result {
-            case .success(let model):
+        subscriptions = characterService.fetchCharacters()
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] model in
+                guard let self = self else { return }
                 self.presenter?.receiveCharacterList(model.results)
-            case.failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
-        }
+            })
     }
 }

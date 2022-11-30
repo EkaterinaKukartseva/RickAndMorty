@@ -7,59 +7,55 @@
 
 import Foundation
 import Alamofire
+import Combine
+import OSLog
 
 protocol CharacterServiceProtocol {
     
-    func fetchCharacter(by id: Int, completion: @escaping (Result<CharacterModel, Error>) -> Void)
-    func fetchCharacters(by ids: [Int], completion: @escaping (Result<[CharacterModel], Error>) -> Void)
-    func fetchCharacters(by page: Int, completion: @escaping (Result<InfoCharacterModel, Error>) -> Void)
-    func fetchCharacters(completion: @escaping (Result<InfoCharacterModel, Error>) -> Void)
+    /// Получить персонажа
+    /// - Parameter id: id персонажа
+    /// - Returns: Персонаж
+    func fetchCharacter(by id: Int) -> AnyPublisher<CharacterModel, AFError>
+    
+    /// Получить список персонажей
+    /// - Parameter ids: ids персонажей
+    /// - Returns: Список персонажей
+    func fetchCharacters(by ids: [Int]) -> AnyPublisher<[CharacterModel], AFError>
+    
+    /// Получить персонажа
+    /// - Parameter page: Номер страницы
+    /// - Returns: Список персонажей
+    func fetchCharacters(by page: Int) -> AnyPublisher<InfoCharacterModel, AFError>
+    
+    /// Получить всех персонажей
+    /// - Returns: Список персонажей
+    func fetchCharacters() -> AnyPublisher<InfoCharacterModel, AFError>
 }
 
+/// Сервис персонажей
 struct CharacterService: CharacterServiceProtocol {
     
-    /// Получение персонажей по ID
-    func fetchCharacter(by id: Int, completion: @escaping (Result<CharacterModel, Error>) -> Void) {
-        print("fetchCharacter(by id")
-        AF.request("https://rickandmortyapi.com/api/character/\(id)")
-            .responseDecodable(of: CharacterModel.self) { response in
-                switch response.result {
-                case .success(let characters):
-                    completion(.success(characters))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-        }
+    func fetchCharacter(by id: Int) -> AnyPublisher<CharacterModel, AFError> {
+        return AF.request(Request.character("\(id)"))
+            .publishDecodable(type: CharacterModel.self)
+            .value()
     }
     
-    /// Получение нескольких персонажей по ID
-    func fetchCharacters(by ids: [Int], completion: @escaping (Result<[CharacterModel], Error>) -> Void) {
-        print("fetchCharacter(by ids")
-        AF.request("https://rickandmortyapi.com/api/character/[\(ids.map({"\($0)"}).joined(separator: ","))]").responseDecodable(of: [CharacterModel].self) { response in
-            switch response.result {
-            case .success(let characters):
-                completion(.success(characters))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func fetchCharacters(by ids: [Int]) -> AnyPublisher<[CharacterModel], AFError> {
+        AF.request(Request.character(ids.map({"\($0)"}).joined(separator: ",")))
+            .publishDecodable(type: [CharacterModel].self)
+            .value()
     }
     
-    /// Получение персонажей по номеру страницы
-    func fetchCharacters(by page: Int, completion: @escaping (Result<InfoCharacterModel, Error>) -> Void) {
-        print("fetchCharacter(by page")
-        AF.request("https://rickandmortyapi.com/api/character/?page=\(page)").responseDecodable(of: InfoCharacterModel.self) { response in
-            guard let infoCharacter = response.value else { fatalError() }
-            completion(.success(infoCharacter))
-        }
+    func fetchCharacters(by page: Int) -> AnyPublisher<InfoCharacterModel, AFError> {
+        AF.request(Request.characterPage("\(page)"))
+            .publishDecodable(type: InfoCharacterModel.self)
+            .value()
     }
     
-    /// Получение всех персонажей 
-    func fetchCharacters(completion: @escaping (Result<InfoCharacterModel, Error>) -> Void) {
-        print("fetchCharacter")
-        AF.request("https://rickandmortyapi.com/api/character/").responseDecodable(of: InfoCharacterModel.self) { response in
-            guard let infoCharacter = response.value else { fatalError() }
-            completion(.success(infoCharacter))
-        }
+    func fetchCharacters() -> AnyPublisher<InfoCharacterModel, AFError> {
+        AF.request(Request.locationPage(""))
+            .publishDecodable(type: InfoCharacterModel.self)
+            .value()
     }
 }

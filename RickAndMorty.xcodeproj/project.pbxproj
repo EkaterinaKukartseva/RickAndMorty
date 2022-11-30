@@ -20,6 +20,7 @@
 		0066819D25BDF1D30097FC2D /* LocationScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053CD402588138F00A598B7 /* LocationScreen.storyboard */; };
 		0066819E25BDF1D30097FC2D /* CharactersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053CD3C2588134100A598B7 /* CharactersList.storyboard */; };
 		006681AC25BDF2560097FC2D /* EpisodesList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006681AA25BDF2560097FC2D /* EpisodesList.storyboard */; };
+		007309AC2937EEAA005E6DE6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 007309AB2937EEAA005E6DE6 /* AlamofireImage */; };
 		00785B2226EA942900D6D66B /* EpisodeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00785B1D26EA942900D6D66B /* EpisodeListPresenter.swift */; };
 		00785B2326EA942900D6D66B /* EpisodeListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00785B1E26EA942900D6D66B /* EpisodeListRouter.swift */; };
 		00785B2426EA942900D6D66B /* EpisodeListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00785B1F26EA942900D6D66B /* EpisodeListAssembly.swift */; };
@@ -232,6 +233,7 @@
 			files = (
 				FB8CE7CBD7464D76DCFFB42B /* Pods_RickAndMorty.framework in Frameworks */,
 				002997C4274434BA00830EFA /* Alamofire in Frameworks */,
+				007309AC2937EEAA005E6DE6 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +677,7 @@
 			name = RickAndMorty;
 			packageProductDependencies = (
 				002997C3274434BA00830EFA /* Alamofire */,
+				007309AB2937EEAA005E6DE6 /* AlamofireImage */,
 			);
 			productName = RickAndMorty;
 			productReference = 00FFCB7B258BF73B00D3BD64 /* RickAndMorty.app */;
@@ -710,6 +713,7 @@
 			mainGroup = 0034357E2580227B009D5C75;
 			packageReferences = (
 				002997C2274434BA00830EFA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				007309AA2937EEAA005E6DE6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 003435882580227B009D5C75 /* Products */;
 			projectDirPath = "";
@@ -1027,7 +1031,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1082,7 +1086,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1148,7 +1152,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88KRW3HF29;
 				INFOPLIST_FILE = "RickAndMorty/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1169,7 +1173,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88KRW3HF29;
 				INFOPLIST_FILE = "RickAndMorty/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1222,6 +1226,14 @@
 				minimumVersion = 5.4.4;
 			};
 		};
+		007309AA2937EEAA005E6DE6 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1229,6 +1241,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 002997C2274434BA00830EFA /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		007309AB2937EEAA005E6DE6 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 007309AA2937EEAA005E6DE6 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

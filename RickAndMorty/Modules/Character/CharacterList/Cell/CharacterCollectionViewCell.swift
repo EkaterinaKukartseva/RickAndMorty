@@ -10,7 +10,7 @@ import UIKit
 class CharacterCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var name: UILabel!
-    @IBOutlet var imageView: CharacterImageView! {
+    @IBOutlet var imageView: UIImageView! {
         didSet {
             imageView.layer.cornerRadius = 10
             imageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]

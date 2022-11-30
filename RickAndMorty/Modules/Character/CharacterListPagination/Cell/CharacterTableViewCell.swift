@@ -10,7 +10,7 @@ import UIKit
 // MARK: - CharacterTableViewCell
 class CharacterTableViewCell: UITableViewCell {
     
-    @IBOutlet var characterImageView: CharacterImageView! {
+    @IBOutlet var characterImageView: UIImageView! {
         didSet {
             characterImageView.contentMode = .scaleAspectFit
             characterImageView.clipsToBounds = true
